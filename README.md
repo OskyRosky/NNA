@@ -624,4 +624,29 @@ Main subtypes to cover:
 
 ## Summary of NNA family
 
-# VII
+# VII. Applications of Artificial Neural Networks
+
+Bridges theory with practice.
+Here we show real-world implementations — notebooks or code examples — illustrating how different architectures solve specific problems.
+
+Subsections (examples):
+
+1.	Image Classification and Object Detection
+2.	Natural Language Processing and Sentiment Analysis
+3.	Time Series Forecasting
+4.	Anomaly Detection and Predictive Maintenance
+5.	Generative Art, Image-to-Image Translation, and Text Generation
+
+This section would directly connect to your practical folders (04_Aplicaciones and 03_Implementaciones).
+
+# VIII. Annex and References
+
+Final documentation section — complementary materials and supporting references.
+
+Subsections (examples):
+
+1.	Formulas in LaTeX — all mathematical expressions organized for quick reference.
+2.	Glossary of Terms — clear definitions of technical terminology.
+3.	Personal Notes — reflections, insights, or observations about learning and experimentation.
+4.	Reference Materials — key textbooks, scientific papers, and reliable web sources.
+5.	License and Academic Purpose — short statement about the open and educational intent of the repository.
