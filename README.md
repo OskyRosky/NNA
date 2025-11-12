@@ -346,8 +346,7 @@ This structural diversity defines the main branches of the ANN taxonomy.
 
 1. Feedforward Networks
 
-Feedforward Networks, also known as Multilayer Perceptrons (MLPs), are the earliest and simplest form of ANN.
-Information flows in a single direction — from input to output — with no feedback loops or temporal dependencies.
+Feedforward Networks, also known as Multilayer Perceptrons (MLPs), are the earliest and simplest form of ANN. Information flows in a single direction — from input to output — with no feedback loops or temporal dependencies.
 
 Their general operation can be represented as:
 
@@ -602,20 +601,27 @@ and the Radial Basis Function Network (RBFN), which redefined the notion of simi
 Main subtypes to cover:
 
 1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
+
 2.	Multilayer Perceptron (MLP) – the standard deep feedforward network.
+
 3.	Radial Basis Function Network (RBFN) – uses radial activation functions for localized responses.
+
 4.	Extreme Learning Machine (ELM) – a fast random-weight feedforward alternative.
+
 5.	Functional Link Neural Network (FLNN) – expands input space with nonlinear transformations.
 
 In the following subsections, we will explore the three most representative models of this family:
 
 - Single-Layer Perceptron (SLP), which formalized the concept of a neuron.
+
 - Multilayer Perceptron (MLP), which introduced depth and backpropagation.
+
 - Radial Basis Function Network (RBFN), which redefined the notion of similarity in continuous spaces.
 
 1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
 
 What is it?
+
 The Single-Layer Perceptron (SLP) is the earliest and simplest form of an Artificial Neural Network.
 It consists of a single computational unit — or neuron — that takes multiple inputs, applies a set of learnable weights, adds a bias, and passes the result through an activation function to produce an output.
 
@@ -634,6 +640,7 @@ It marked the first successful attempt to build a machine that could generalize 
 ⸻
 
 Why use it?
+
 The SLP is a conceptual and educational cornerstone in machine learning.
 Although too simple for modern applications, it remains essential for understanding how neural systems process and transform information.
 
@@ -644,6 +651,7 @@ Because of its simplicity, it serves as a pedagogical model for explaining weigh
 ⸻
 
 Intuition
+
 At its core, the perceptron is a linear separator.
 It projects data points into a space where a hyperplane — defined by its weights — splits one class from another.
 Each weight w_i can be thought of as the importance assigned to feature x_i, while the bias b shifts the decision boundary.
@@ -654,6 +662,7 @@ The activation function acts as a binary switch: if the weighted sum exceeds a t
 ⸻
 
 Mathematical Foundation
+
 The perceptron learning algorithm aims to find a set of weights w_i that correctly classifies all training samples when the data are linearly separable.
 The training proceeds iteratively, updating weights whenever a misclassification occurs.
 
@@ -669,18 +678,26 @@ This rule moves the decision boundary closer to misclassified examples, graduall
 ⸻
 
 Training Logic
+
 Training the perceptron involves the following conceptual loop:
-	1.	Initialize all weights and bias (often to small random values).
-	2.	For each training example, compute the predicted output.
-	3.	If the prediction is correct, do nothing.
-	4.	If incorrect, adjust the weights using the update rule above.
-	5.	Repeat until all examples are correctly classified or a maximum number of iterations is reached.
+
+1.	Initialize all weights and bias (often to small random values).
+
+2.	For each training example, compute the predicted output.
+
+3.	If the prediction is correct, do nothing.
+
+4.	If incorrect, adjust the weights using the update rule above.
+
+5.	Repeat until all examples are correctly classified or a maximum number of iterations is reached.
+
 
 Because the perceptron only succeeds when the data are linearly separable, convergence is guaranteed in that case — as proven by Rosenblatt in 1962.
 
 ⸻
 
 Assumptions and Limitations
+
 The primary assumption of the perceptron is linear separability — that there exists a hyperplane dividing the data perfectly.
 If this condition is not met (as in the XOR problem), the perceptron will fail to converge.
 
@@ -690,43 +707,57 @@ Furthermore, it outputs only binary decisions, making it unsuitable for multi-cl
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Learning rate (η): Controls the magnitude of weight updates; too high leads to instability, too low slows convergence.
-	•	Number of iterations: Defines how many times the dataset is processed.
-	•	Activation function: Typically a binary step, though sigmoid or tanh can be used in variants.
+
+•	Learning rate (η): Controls the magnitude of weight updates; too high leads to instability, too low slows convergence.
+•	Number of iterations: Defines how many times the dataset is processed.
+•	Activation function: Typically a binary step, though sigmoid or tanh can be used in variants.
 
 The simplicity of these hyperparameters makes the SLP an ideal teaching tool for understanding optimization dynamics.
 
 ⸻
 
 Evaluation Focus
-The SLP is typically evaluated on its classification accuracy or convergence rate.
-Given its deterministic behavior, performance is often analyzed geometrically — by visualizing the resulting decision boundary.
+
+The SLP is typically evaluated on its classification accuracy or convergence rate. Given its deterministic behavior, performance is often analyzed geometrically — by visualizing the resulting decision boundary.
 For linearly separable data, accuracy should reach 100%. For non-separable data, metrics such as the number of misclassifications per epoch or the margin size provide insight.
 
 ⸻
 
 When to Use / When Not to Use
+
 Use it when:
-	•	The data are linearly separable or nearly so.
-	•	The goal is to study or demonstrate the mechanics of learning and decision boundaries.
-	•	Interpretability and simplicity are priorities.
+
+•	The data are linearly separable or nearly so.
+
+•	The goal is to study or demonstrate the mechanics of learning and decision boundaries.
+
+•	Interpretability and simplicity are priorities.
 
 Do not use it when:
-	•	Relationships between features are nonlinear.
-	•	The problem involves multiple classes, complex boundaries, or sequential dependencies.
-	•	You require probabilistic outputs or deeper feature representations.
+
+•	Relationships between features are nonlinear.
+
+•	The problem involves multiple classes, complex boundaries, or sequential dependencies.
+
+•	You require probabilistic outputs or deeper feature representations.
 
 ⸻
 
 References
+
 Canonical Papers
-	1.	McCulloch, W. S., & Pitts, W. (1943). A Logical Calculus of the Ideas Immanent in Nervous Activity. Bulletin of Mathematical Biophysics.
-	2.	Rosenblatt, F. (1958). The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain. Psychological Review.
-	3.	Minsky, M., & Papert, S. (1969). Perceptrons. MIT Press.
+
+1.	McCulloch, W. S., & Pitts, W. (1943). A Logical Calculus of the Ideas Immanent in Nervous Activity. Bulletin of Mathematical Biophysics.
+
+2.	Rosenblatt, F. (1958). The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain. Psychological Review.
+
+3.	Minsky, M., & Papert, S. (1969). Perceptrons. MIT Press.
 
 Web Resources
-	1.	StatQuest – The Perceptron Clearly Explained: https://statquest.org/video/the-perceptron/￼
-	2.	Scikit-learn Guide – Perceptron Model Overview: https://scikit-learn.org/stable/modules/linear_model.html#perceptron￼
+
+1.	StatQuest – The Perceptron Clearly Explained: https://statquest.org/video/the-perceptron/￼
+
+2.	Scikit-learn Guide – Perceptron Model Overview: https://scikit-learn.org/stable/modules/linear_model.html#perceptron￼
 
 ----------
 
@@ -741,6 +772,7 @@ This evolution gave birth to the Multilayer Perceptron (MLP), the first true dee
 2.	Multilayer Perceptron (MLP) – the standard deep feedforward network.
 
 What is it?
+
 The Multilayer Perceptron (MLP) extends the perceptron’s original idea by introducing one or more hidden layers between the input and output.
 Each hidden layer consists of neurons that apply nonlinear transformations, enabling the network to model complex, curved relationships that a single-layer perceptron cannot capture.
 
@@ -759,16 +791,16 @@ This marked the beginning of modern connectionism, restoring neural networks to 
 ⸻
 
 Why use it?
-The MLP is the first universal function approximator.
-It can represent any continuous mapping between inputs and outputs, given enough hidden units and proper training.
-This flexibility makes it suitable for both regression and classification tasks across domains such as finance, medicine, natural language processing, and image analysis.
+
+The MLP is the first universal function approximator. It can represent any continuous mapping between inputs and outputs, given enough hidden units and proper training. This flexibility makes it suitable for both regression and classification tasks across domains such as finance, medicine, natural language processing, and image analysis.
 
 Its layered structure allows the model to automatically learn hierarchical representations — from raw features to abstract concepts — without the need for manual feature engineering.
 This capacity for abstraction defines the very essence of deep learning.
 
 ⸻
 
-Intuition
+**Intuition**
+
 Each neuron in an MLP can be viewed as a filter that detects certain patterns in the input space.
 The first layers capture simple structures, such as edges or directions, while deeper layers combine them into more complex representations.
 The process resembles how the human brain builds understanding from low-level sensory input to high-level perception.
@@ -779,6 +811,7 @@ The deeper the network, the more flexible the transformation.
 ⸻
 
 Mathematical Foundation
+
 The MLP relies on compositional function approximation:
 
 $$
@@ -795,10 +828,14 @@ Training Logic
 The learning process in an MLP is governed by backpropagation, an algorithm that computes the gradient of the loss function with respect to each weight by applying the chain rule of calculus backward through the network.
 
 The typical steps are:
-	1.	Forward pass: compute predictions from the current weights.
-	2.	Loss calculation: measure the difference between predictions and true values.
-	3.	Backward pass: propagate errors backward, layer by layer, computing gradients.
-	4.	Weight update: adjust weights using an optimization rule such as Stochastic Gradient Descent (SGD).
+
+1.	Forward pass: compute predictions from the current weights.
+
+2.	Loss calculation: measure the difference between predictions and true values.
+
+3.	Backward pass: propagate errors backward, layer by layer, computing gradients.
+
+4.	Weight update: adjust weights using an optimization rule such as Stochastic Gradient Descent (SGD).
 
 The backpropagation equation for a weight w_{ij} connecting neuron i to j is:
 
@@ -812,26 +849,38 @@ where \eta is the learning rate and \mathcal{L} is the loss function.
 
 Assumptions and Limitations
 The MLP assumes that:
-	•	The input data are independent and identically distributed (i.i.d.).
-	•	The mapping between input and output is stationary (does not change over time).
-	•	There is enough training data to learn stable weights.
+
+•	The input data are independent and identically distributed (i.i.d.).
+
+•	The mapping between input and output is stationary (does not change over time).
+
+•	There is enough training data to learn stable weights.
 
 However, MLPs face limitations:
-	•	They are fully connected, which means every neuron in one layer connects to every neuron in the next. This makes them computationally heavy and prone to overfitting.
-	•	They struggle with spatial or temporal dependencies because they ignore locality and sequence order.
-	•	Their training can be slow and unstable without proper initialization or normalization.
+
+•	They are fully connected, which means every neuron in one layer connects to every neuron in the next. This makes them computationally heavy and prone to overfitting.
+
+•	They struggle with spatial or temporal dependencies because they ignore locality and sequence order.
+
+•	Their training can be slow and unstable without proper initialization or normalization.
 
 These weaknesses eventually led to specialized architectures like CNNs and RNNs, which add inductive biases for structure and time.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Number of hidden layers: Determines the network’s depth and representational capacity.
-	•	Number of neurons per layer: Controls model complexity.
-	•	Activation function: Common choices include ReLU, tanh, or sigmoid.
-	•	Learning rate (η): Governs how quickly the model updates its weights.
-	•	Batch size: Affects the stability and noise level of gradient estimates.
-	•	Regularization terms: L1, L2, or dropout to prevent overfitting.
+
+•	Number of hidden layers: Determines the network’s depth and representational capacity.
+
+•	Number of neurons per layer: Controls model complexity.
+
+•	Activation function: Common choices include ReLU, tanh, or sigmoid.
+
+•	Learning rate (η): Governs how quickly the model updates its weights.
+
+•	Batch size: Affects the stability and noise level of gradient estimates.
+
+•	Regularization terms: L1, L2, or dropout to prevent overfitting.
 
 Each hyperparameter shapes the trade-off between underfitting, overfitting, and computational cost.
 
@@ -839,9 +888,12 @@ Each hyperparameter shapes the trade-off between underfitting, overfitting, and 
 
 Evaluation Focus
 Evaluation typically involves:
-	•	Training and validation loss curves to assess convergence and overfitting.
-	•	Accuracy, precision, recall, or F1-score for classification tasks.
-	•	Mean squared error (MSE) or R² for regression problems.
+
+•	Training and validation loss curves to assess convergence and overfitting.
+
+•	Accuracy, precision, recall, or F1-score for classification tasks.
+
+•	Mean squared error (MSE) or R² for regression problems.
 
 Visualization of hidden-layer activations can also provide insight into how the model learns intermediate features.
 
@@ -849,14 +901,20 @@ Visualization of hidden-layer activations can also provide insight into how the 
 
 When to Use / When Not to Use
 Use it when:
-	•	The relationship between input and output is nonlinear but lacks strong spatial or sequential structure.
-	•	You need a flexible model for tabular or structured data.
-	•	Interpretability can be secondary to predictive power.
+
+•	The relationship between input and output is nonlinear but lacks strong spatial or sequential structure.
+
+•	You need a flexible model for tabular or structured data.
+
+•	Interpretability can be secondary to predictive power.
 
 Do not use it when:
-	•	The dataset exhibits strong spatial correlation (images) or temporal order (sequences).
-	•	Computational resources are limited, as fully connected networks scale poorly.
-	•	The dataset is too small, leading to overfitting.
+
+•	The dataset exhibits strong spatial correlation (images) or temporal order (sequences).
+
+•	Computational resources are limited, as fully connected networks scale poorly.
+
+•	The dataset is too small, leading to overfitting.
 
 ⸻
 
@@ -890,13 +948,15 @@ This idea gave rise to the Radial Basis Function Network (RBFN) — a model that
 3.	Radial Basis Function Network (RBFN) – uses radial activation functions for localized responses.
 
 What is it?
+
 The Radial Basis Function Network (RBFN) is a feedforward neural model that introduces a new way of interpreting learning: rather than adjusting weights globally across all inputs, it focuses on local similarity.
 An RBF network measures how close each input is to a set of internal “prototype” points, using those distances to form the output.
 
 Formally, an RBFN consists of three layers:
-	1.	Input layer: receives the feature vector \mathbf{x}.
-	2.	Hidden layer: applies a radial basis function to compute the similarity between \mathbf{x} and each prototype center \mathbf{c}_j.
-	3.	Output layer: combines these activations linearly to produce the final prediction.
+
+1.	Input layer: receives the feature vector \mathbf{x}.
+2.	Hidden layer: applies a radial basis function to compute the similarity between \mathbf{x} and each prototype center \mathbf{c}_j.
+3.	Output layer: combines these activations linearly to produce the final prediction.
 
 Mathematically:
 
@@ -918,19 +978,22 @@ The architecture was first introduced by Broomhead and Lowe (1988) and Moody and
 ⸻
 
 Why use it?
+
 The RBFN excels in problems where the relationship between inputs and outputs is smooth, continuous, and locally structured.
 Unlike the MLP, which modifies the entire decision surface whenever weights are updated, an RBFN adjusts only in regions near the relevant prototypes — making learning more interpretable and often more stable.
 
 This local property makes RBFNs effective in:
-	•	Function approximation with continuous targets.
-	•	Time series prediction and control systems where local behavior matters.
-	•	Pattern recognition tasks that rely on similarity or clustering intuition.
+
+•	Function approximation with continuous targets.
+•	Time series prediction and control systems where local behavior matters.
+•	Pattern recognition tasks that rely on similarity or clustering intuition.
 
 Because of their foundation on Gaussian functions, RBFNs naturally handle nonlinearity without requiring deep architectures.
 
 ⸻
 
 Intuition
+
 Intuitively, the RBFN transforms the input space into a landscape of localized responses.
 Each hidden neuron activates when the input is close to its center, creating a “bubble” of influence in the feature space.
 The network’s output is a smooth interpolation of these bubbles — the closer an input is to a prototype, the stronger its contribution.
@@ -941,6 +1004,7 @@ If MLPs bend the feature space globally, RBFNs tile it locally with overlapping 
 ⸻
 
 Mathematical Foundation
+
 RBFNs approximate a target function f(\mathbf{x}) as a linear combination of radial basis functions centered at points \mathbf{c}_j:
 
 $$
@@ -955,10 +1019,15 @@ Training involves finding the optimal centers, spreads, and output weights that 
 ⸻
 
 Training Logic
+
 RBFNs are trained in two conceptual stages:
-	1.	Center selection:
+
+1.	Center selection:
+
 The centers \mathbf{c}_j can be determined by unsupervised methods like k-means clustering, random sampling, or gradient-based optimization.
-	2.	Weight estimation:
+	
+2.	Weight estimation:
+
 Once the centers and spreads are fixed, the output weights w_j are obtained via linear regression:
 $$
 \mathbf{w} = (\Phi^T \Phi)^{-1} \Phi^T \mathbf{y}
@@ -970,56 +1039,69 @@ This separation of nonlinear transformation (hidden layer) and linear fitting (o
 
 Assumptions and Limitations
 RBFNs assume that:
-	•	The target function is locally smooth and can be modeled by overlapping radial functions.
-	•	The number and placement of centers adequately cover the input space.
+
+•	The target function is locally smooth and can be modeled by overlapping radial functions.
+•	The number and placement of centers adequately cover the input space.
 
 Their main limitations include:
-	•	Scalability: performance degrades with high-dimensional data or many centers, since each adds computational cost.
-	•	Choice of parameters: selecting centers, spreads (\sigma), and number of units requires careful tuning.
-	•	Global generalization: unlike MLPs, RBFNs may fail to extrapolate beyond the regions covered by their centers.
+
+•	Scalability: performance degrades with high-dimensional data or many centers, since each adds computational cost.
+•	Choice of parameters: selecting centers, spreads (\sigma), and number of units requires careful tuning.
+•	Global generalization: unlike MLPs, RBFNs may fail to extrapolate beyond the regions covered by their centers.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Number of centers (M): defines model capacity; more centers increase expressiveness but risk overfitting.
-	•	Kernel type: Gaussian, multiquadric, or thin-plate spline; controls smoothness.
-	•	Spread (σ): determines locality — small σ means narrow influence, large σ means overlapping responses.
-	•	Regularization term: adds numerical stability when solving for output weights.
+
+•	Number of centers (M): defines model capacity; more centers increase expressiveness but risk overfitting.
+•	Kernel type: Gaussian, multiquadric, or thin-plate spline; controls smoothness.
+•	Spread (σ): determines locality — small σ means narrow influence, large σ means overlapping responses.
+•	Regularization term: adds numerical stability when solving for output weights.
 
 Balancing the number of centers and the spread width is crucial for effective learning.
 
 ⸻
 
 Evaluation Focus
+
 RBFNs are typically evaluated using regression-oriented metrics such as:
-	•	Mean Squared Error (MSE) or Root Mean Squared Error (RMSE) for continuous outputs.
-	•	Accuracy or AUC when used for classification tasks after thresholding outputs.
+
+•	Mean Squared Error (MSE) or Root Mean Squared Error (RMSE) for continuous outputs.
+
+•	Accuracy or AUC when used for classification tasks after thresholding outputs.
+
 Visualization of the learned centers and their spread can also provide interpretability — showing how the model partitions the input space.
 
 ⸻
 
 When to Use / When Not to Use
+
 Use it when:
-	•	You need smooth interpolation or local function approximation.
-	•	Data exhibit clear clusters or regions of influence.
-	•	Interpretability of local behavior is important.
+
+•	You need smooth interpolation or local function approximation.
+•	Data exhibit clear clusters or regions of influence.
+•	Interpretability of local behavior is important.
 
 Do not use it when:
-	•	Data are high-dimensional and not clusterable.
-	•	The problem demands hierarchical feature abstraction.
-	•	Training speed or memory efficiency is critical.
+
+•	Data are high-dimensional and not clusterable.
+•	The problem demands hierarchical feature abstraction.
+•	Training speed or memory efficiency is critical.
 
 ⸻
 
 References
+
 Canonical Papers
-	1.	Broomhead, D. S., & Lowe, D. (1988). Multivariable Functional Interpolation and Adaptive Networks. Complex Systems.
-	2.	Moody, J., & Darken, C. (1989). Fast Learning in Networks of Locally-Tuned Processing Units. Neural Computation.
-	3.	Poggio, T., & Girosi, F. (1990). Networks for Approximation and Learning. Proceedings of the IEEE.
+
+1.	Broomhead, D. S., & Lowe, D. (1988). Multivariable Functional Interpolation and Adaptive Networks. Complex Systems.
+2.	Moody, J., & Darken, C. (1989). Fast Learning in Networks of Locally-Tuned Processing Units. Neural Computation.
+3.	Poggio, T., & Girosi, F. (1990). Networks for Approximation and Learning. Proceedings of the IEEE.
 
 Web Resources
-	1.	Towards Data Science – Understanding Radial Basis Function Networks: https://towardsdatascience.com/radial-basis-function-networks-explained￼
-	2.	StatQuest – RBF Networks Clearly Explained: https://statquest.org/video/rbf-networks-explained/￼
+
+1.	Towards Data Science – Understanding Radial Basis Function Networks: https://towardsdatascience.com/radial-basis-function-networks-explained￼
+2.	StatQuest – RBF Networks Clearly Explained: https://statquest.org/video/rbf-networks-explained/￼
 
 
 
@@ -1037,9 +1119,27 @@ This gave rise to Convolutional Neural Networks (CNNs), which introduced the con
 
 B. Convolutional Neural Networks (CNNs) introduced spatial awareness
 
-CNNs are designed for spatial data — mainly images, videos, or structured grids — and evolved through increasingly deep and efficient architectures.
+Convolutional Neural Networks (CNNs) represent the next major evolutionary leap in artificial intelligence — the moment when neural computation learned to see. Unlike the fully connected structures of feedforward networks, CNNs introduced the concept of spatial locality, allowing machines to detect patterns that occur near each other in space, such as edges, textures, or shapes.
 
-Main subtypes to cover:
+The origins of CNNs trace back to the 1980s and early 1990s, building on neuroscientific studies of the visual cortex. In 1962, Hubel and Wiesel published groundbreaking research showing that certain neurons in the cat’s brain respond selectively to local visual stimuli — lines, orientations, and movements. This biological insight inspired computational models that could replicate the same principle: a neuron should not process the entire image, but only a small receptive field.
+
+The first working system to embody this idea was Fukushima’s Neocognitron (1980), a hierarchical, self-organizing model capable of recognizing handwritten digits. Although primitive by modern standards, it introduced the essential mechanisms of local connections and weight sharing. A few years later, Yann LeCun and colleagues translated these concepts into a trainable architecture — the Convolutional Neural Network — and used backpropagation to optimize it. Their 1989 paper “Backpropagation Applied to Handwritten Zip Code Recognition” presented LeNet-5, the first practical CNN, which achieved remarkable accuracy on digit classification.
+
+CNNs addressed one of the key deficiencies of feedforward networks: their inability to exploit spatial structure. In an image, neighboring pixels are not independent — they form coherent patterns. Traditional MLPs ignored this by treating each pixel as a separate feature, leading to inefficiency and loss of context. By contrast, CNNs apply convolutional filters that slide across the image, detecting shared features across different locations. This makes them far more efficient and invariant to translation and distortion.
+
+At their core, CNNs are built around three key ideas:
+
+1.	Local receptive fields – neurons connect only to a small region of the input.
+
+2.	Weight sharing – the same filter is applied across different spatial positions, detecting the same pattern anywhere.
+
+3.	Pooling – nearby activations are aggregated to reduce dimensionality and increase robustness.
+
+These principles enable CNNs to progressively construct a hierarchy of features: from simple edges to complex objects, from local contrast to global shape. The architecture thus parallels human visual perception — starting with raw stimuli and abstracting up to semantic understanding.
+
+The purpose of the CNN family is to teach machines to recognize and reason about spatial hierarchies in data. While their first triumph was in computer vision, CNNs have since expanded far beyond images — powering applications in speech recognition, medical diagnostics, video processing, and even natural language modeling before the advent of transformers.
+
+Main subtypes CNNs:
 
 1.	LeNet-5 – the first successful CNN for handwritten digit recognition.
 2.	AlexNet – introduced deep CNNs with ReLU activations and GPUs.
@@ -1050,6 +1150,535 @@ Main subtypes to cover:
 7.	MobileNet – lightweight CNN optimized for mobile devices.
 8.	EfficientNet – compound scaling of depth, width, and resolution.
 9.	Vision Transformers (ViT) – transformer-based vision model that bridges CNN and attention paradigms (transitional model).
+
+In the following subsections, we will explore three architectures that shaped the evolution of convolutional networks and defined the deep learning era:
+
+•	LeNet-5 (1998): the foundational model that proved convolution could generalize beyond handcrafted features.
+
+•	AlexNet (2012): the network that reignited global interest in deep learning with its ImageNet breakthrough.
+
+•	ResNet (2015): the architecture that solved the problem of vanishing gradients, enabling extremely deep models through residual connections.
+
+Each of these models represents a milestone — a new chapter in the story of how computers learned to perceive the world.
+
+1.	LeNet-5 – the first Convolutional Neural Network (CNN)
+
+LeNet-5 is the first fully realized Convolutional Neural Network (CNN) and the foundational model of modern computer vision.
+Developed by Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner in 1998, it was designed to recognize handwritten digits from the MNIST dataset — a task that had long challenged traditional machine-learning algorithms.
+
+LeNet-5 introduced the complete CNN pipeline: convolutional layers for feature extraction, pooling layers for dimensionality reduction, and fully connected layers for classification.
+It proved that neural networks could learn hierarchical visual features directly from raw pixels, removing the need for handcrafted feature engineering.
+
+⸻
+
+Why use it?
+
+LeNet-5 demonstrated that structure could replace scale — that efficient architectural design could outperform large numbers of parameters.
+It was built to solve a practical problem: reading bank checks automatically.
+The network learned to recognize digits regardless of small shifts, distortions, or variations in handwriting.
+
+Today, LeNet-5 serves as a pedagogical and experimental baseline.
+Its simplicity makes it ideal for teaching the principles of convolution, weight sharing, and hierarchical representation while remaining small enough to train on a CPU.
+
+⸻
+
+Intuition
+
+The intuition behind LeNet-5 lies in local perception.
+A neuron should not see the entire image at once — only a small patch.
+By connecting to local receptive fields and applying the same filter across the image, the model captures spatially coherent patterns such as edges or corners.
+
+Pooling layers then summarize nearby activations, introducing translation invariance:
+a pattern recognized in one region will still be detected elsewhere.
+In this way, LeNet-5 progressively builds an understanding of shapes and digits from the bottom up — much like neurons in the human visual cortex.
+
+⸻
+
+Mathematical Foundation
+
+A convolutional layer computes feature maps by sliding a learnable kernel K across the input image X:
+
+$$
+S_{i,j} = (X * K){i,j} = \sum{m=1}^{M} \sum_{n=1}^{N} X_{i+m, j+n} K_{m,n}
+$$
+
+Each kernel detects a specific pattern.
+The output is passed through a nonlinear activation f, often a sigmoid or tanh in LeNet’s original form:
+
+$$
+A_{i,j} = f(S_{i,j} + b)
+$$
+
+Pooling layers then reduce the spatial size:
+
+$$
+P_{i,j} = \max_{(m,n)\in R_{i,j}} A_{m,n}
+$$
+
+Finally, fully connected layers combine high-level features to produce a classification score, typically followed by a softmax function.
+
+⸻
+
+Training Logic
+
+Training follows the standard backpropagation algorithm with gradient descent.
+Weights of convolutional kernels and fully connected layers are updated based on the error signal propagated backward through the network.
+
+Typical steps:
+
+1.	Forward pass: compute activations through convolution, pooling, and dense layers.
+2.	Compute loss (e.g., cross-entropy).
+3.	Backward pass: compute gradients for all parameters.
+4.	Update weights using Stochastic Gradient Descent (SGD).
+
+Despite its small size (≈ 60,000 parameters), LeNet-5 achieved state-of-the-art accuracy on digit recognition at the time.
+
+⸻
+
+Assumptions and Limitations
+
+LeNet-5 assumes that local image statistics are meaningful — that nearby pixels are correlated and contain reusable patterns.
+However, it was designed for low-resolution grayscale images (32×32 pixels), making it less effective for complex, high-resolution tasks.
+
+Its architecture relies on sigmoid/tanh activations and average pooling, both of which limited gradient flow and performance in deeper networks.
+These weaknesses, along with the computational constraints of the 1990s, kept CNNs from scaling widely until GPUs became common.
+
+⸻
+
+Key Hyperparameters (Conceptual View)
+
+•	Kernel size: typically 5×5 filters in early layers.
+•	Stride: controls how the filter moves across the image (commonly 1).
+•	Pooling size: often 2×2 with average pooling.
+•	Number of feature maps: determines how many distinct patterns are learned (e.g., 6, 16, 120 in LeNet-5).
+•	Learning rate (η): governs convergence speed.
+•	Batch size and epochs: affect stability and training duration.
+
+These hyperparameters define the model’s ability to capture patterns at different spatial scales.
+
+⸻
+
+Evaluation Focus
+
+Performance is measured primarily through classification accuracy and cross-entropy loss.
+Because LeNet-5 operates on images, visualization of feature maps provides valuable qualitative insight into what the network learns — showing how early filters detect edges while deeper layers respond to digit shapes.
+Training and validation curves remain central for diagnosing convergence.
+
+⸻
+
+When to Use / When Not to Use
+Use it when:
+
+•	Teaching or prototyping CNNs on small image datasets.
+
+•	You need an interpretable, lightweight convolutional model.
+
+•	Hardware resources are limited.
+
+Do not use it when:
+
+•	Working with large-scale or color images.
+
+•	Deep feature hierarchies or complex objects must be recognized.
+
+•	Modern activation or normalization techniques (ReLU, BatchNorm) are required.
+
+⸻
+
+**References**
+
+Canonical Papers
+
+1.	Fukushima, K. (1980). Neocognitron: A Self-Organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position. Biological Cybernetics.
+
+2.	LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-Based Learning Applied to Document Recognition. Proceedings of the IEEE.
+
+3.	Hubel, D. H., & Wiesel, T. N. (1962). Receptive Fields, Binocular Interaction, and Functional Architecture in the Cat’s Visual Cortex. Journal of Physiology.
+
+Web Resources
+
+1.	LeCun’s Original LeNet Page – http://yann.lecun.com/exdb/lenet/￼
+
+2.	TensorFlow Tutorial – Implementing LeNet for MNIST: https://www.tensorflow.org/tutorials￼
+
+-------------
+
+LeNet-5 proved that neural networks could learn directly from pixels and recognize visual patterns — but its architecture remained shallow and limited by hardware.
+As datasets grew larger and images richer in texture and color, the early CNNs struggled to scale.
+
+A new generation of researchers reimagined these ideas for the modern era, leveraging GPUs, deeper stacks, and rectified activations.
+In 2012, a model named AlexNet shattered all previous benchmarks, reigniting global interest in deep learning and establishing CNNs as the cornerstone of computer vision.
+
+The next section explores how AlexNet transformed LeNet’s elegant simplicity into a powerful, high-capacity architecture capable of understanding the complexity of real-world imagery.
+
+-------------
+
+2.	AlexNet – introduced deep CNNs with ReLU activations and GPUs.
+
+**What is it?**
+
+AlexNet is the convolutional network that ignited the modern deep learning revolution.
+Developed by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, and presented at the 2012 ImageNet Large Scale Visual Recognition Challenge (ILSVRC), it achieved a stunning top-5 error rate of 15.3%, far outperforming the runner-up at 26%.
+
+While conceptually a descendant of LeNet-5, AlexNet introduced the scale, depth, and computational innovations necessary to handle large, complex, color images.
+It consisted of eight layers — five convolutional and three fully connected — trained on over 1.2 million images from 1,000 classes.
+For the first time, a neural network demonstrated superhuman performance in large-scale visual recognition.
+
+⸻
+
+**Why use it?**
+
+AlexNet became the proof of concept that deep learning works in practice.
+It bridged decades of theoretical progress with the computational power of GPUs, showing that when networks are scaled and regularized properly, they can outperform all traditional machine learning approaches.
+
+It introduced key design principles that remain standard today:
+
+•	Use of the ReLU activation function, which accelerates training and prevents vanishing gradients.
+
+•	Dropout regularization to reduce overfitting in dense layers.
+
+•	Data augmentation to improve generalization by synthetically expanding the dataset.
+
+•	GPU parallelism, enabling feasible training times for deep networks.
+
+AlexNet redefined computer vision and established deep convolutional networks as the dominant paradigm in AI research and industry.
+
+⸻
+
+**Intuition**
+
+AlexNet builds upon the intuition of LeNet but extends it to the real visual world — where images contain complex textures, lighting variations, and multiple objects.
+Its early layers detect edges and colors, mid-level layers capture textures and shapes, and the deeper layers combine these into object-level abstractions.
+
+The use of Rectified Linear Units (ReLU) allows gradients to flow even for large activations, letting deeper networks learn effectively.
+Meanwhile, dropout acts like an ensemble of subnetworks — training the model to rely on distributed patterns rather than memorizing specific features.
+Together, these innovations create a network that “sees” robustly, much like a biological visual system.
+
+⸻
+
+**Mathematical Foundation**
+
+Each convolutional layer performs the operation:
+
+$$
+A_{i,j,k} = f\left(\sum_{c} (X_c * K_{c,k})_{i,j} + b_k\right)
+$$
+
+where X_c is the input channel c (e.g., RGB), K_{c,k} is the k^{th} kernel, and f is the activation function, typically ReLU:
+
+$$
+f(x) = \max(0, x)
+$$
+
+Pooling layers reduce spatial size via max-pooling:
+
+$$
+P_{i,j} = \max_{(m,n)\in R_{i,j}} A_{m,n}
+$$
+
+and the final layers use softmax to compute class probabilities:
+
+$$
+p(y = k \mid \mathbf{x}) = \frac{e^{z_k}}{\sum_{j} e^{z_j}}
+$$
+
+The combination of these equations defines a deep hierarchical transformation from pixels to probabilities.
+
+⸻
+
+Training Logic
+
+AlexNet was trained using Stochastic Gradient Descent (SGD) with momentum and weight decay, across two GPUs in parallel — a landmark engineering achievement in 2012.
+
+Training steps:
+
+1.	Forward propagation: pass images through the convolutional layers.
+2.	Loss computation: use cross-entropy between predicted and true labels.
+3.	Backpropagation: compute gradients for all layers using GPU acceleration.
+4.	Weight update: apply momentum and learning rate schedule.
+
+Key innovations included:
+
+•	Data augmentation (random crops, flips, and color shifts) to combat overfitting.
+
+•	Dropout (p = 0.5) in fully connected layers to prevent co-adaptation.
+
+•	Local Response Normalization (LRN) to encourage diversity among feature maps.
+
+⸻
+
+Assumptions and Limitations
+AlexNet assumes access to:
+
+•	A large labeled dataset (like ImageNet).
+
+•	GPU hardware to enable feasible training.
+
+•	Images with spatially coherent patterns.
+
+However, its design shows several limitations by modern standards:
+
+•	Lack of batch normalization, which later improved stability.
+
+•	Heavy reliance on manual hyperparameter tuning.
+
+•	Redundant parameters in fully connected layers (over 60 million in total).
+
+Despite these, its impact remains foundational — a bridge between classic CNNs and today’s massive architectures.
+
+⸻
+
+Key Hyperparameters (Conceptual View)
+
+•	Number of filters per layer: (96, 256, 384, 384, 256).
+
+•	Kernel size: 11×11 (first layer), 5×5, 3×3 (subsequent layers).
+
+•	Stride and padding: control spatial resolution.
+
+•	Activation: ReLU.
+
+•	Regularization: dropout (p = 0.5) and L2 weight decay.
+
+•	Optimizer: SGD with momentum (μ = 0.9).
+
+•	Learning rate: typically 0.01, decayed over epochs.
+
+•	Batch size: 128.
+
+These hyperparameters defined the standard blueprint for CNN training that persists today.
+
+⸻
+
+**Evaluation Focus**
+
+AlexNet was evaluated using Top-1 and Top-5 accuracy, now standard metrics in large-scale classification.
+It achieved a Top-5 accuracy of 84.7%, setting a historic precedent.
+Visualization of intermediate activations revealed that early layers learned Gabor-like filters — strong evidence that neural networks can autonomously learn visual primitives.
+
+Its success was not just quantitative but paradigmatic: it shifted how the entire research community viewed feature learning.
+
+⸻
+
+**When to Use / When Not to Use**
+
+Use it when:
+
+•	Teaching or benchmarking CNNs on large-scale datasets.
+•	Demonstrating the principles of deep learning history.
+•	Exploring ReLU, dropout, and GPU acceleration in practice.
+
+Do not use it when:
+
+•	Working with resource-constrained systems (too large).
+•	Training stability and normalization are critical.
+•	Applications demand interpretability over raw accuracy.
+
+⸻
+
+**References**
+
+Canonical Papers
+
+1.	Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). ImageNet Classification with Deep Convolutional Neural Networks. NIPS.
+2.	LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998). Gradient-Based Learning Applied to Document Recognition. Proceedings of the IEEE.
+3.	Jarrett, K., Kavukcuoglu, K., Ranzato, M., & LeCun, Y. (2009). What is the Best Multi-Stage Architecture for Object Recognition? ICCV.
+
+**Web Resources**
+
+1.	Stanford CS231n – Case Study: AlexNet: https://cs231n.github.io/convolutional-networks/#case￼
+
+3.	DeepLearning.AI – The Story of AlexNet: https://www.deeplearning.ai/the-batch/the-story-of-alexnet/￼
+
+----------
+
+AlexNet marked the rebirth of neural networks — proving that depth and data could scale intelligence. Yet, as architectures grew deeper, a new obstacle emerged: vanishing gradients. Beyond a certain number of layers, networks stopped improving or even degraded in accuracy, unable to propagate meaningful error signals backward.
+
+The next breakthrough came in 2015, when Kaiming He and colleagues introduced Residual Networks (ResNets). By reformulating depth as a series of “shortcut” identity mappings, they allowed information to flow freely across hundreds of layers — unlocking unprecedented scale and performance.
+
+The next section examines ResNet, the architecture that taught networks how to go deeper without forgetting.
+
+----------
+
+
+
+3.	ResNet – residual connections to enable very deep networks.
+
+What is it?
+
+The Residual Network (ResNet), introduced by Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun in 2015, redefined how deep learning architectures are built and trained.
+Presented in the paper “Deep Residual Learning for Image Recognition”, ResNet won the ILSVRC 2015 competition with a Top-5 accuracy of 96.4%, surpassing all previous models by a wide margin.
+
+Its innovation was simple yet revolutionary: the introduction of residual connections, also called skip connections, that allow gradients to flow directly through the network — making it possible to train models hundreds, even thousands, of layers deep.
+
+ResNet didn’t just perform better; it solved one of the fundamental optimization problems in deep learning.
+
+⸻
+
+Why use it?
+
+Before ResNet, increasing depth often led to degradation — deeper networks performed worse, not better.
+This was not due to overfitting, but to optimization difficulties: as layers increased, gradients vanished or exploded, preventing effective learning.
+
+ResNet’s skip connections addressed this by reformulating the learning task.
+Instead of forcing each layer to learn a full mapping H(x), the network learns a residual function F(x) = H(x) - x.
+In other words, layers learn how to refine the input, not to recreate it from scratch.
+
+This small change enabled:
+
+•	Stable gradient propagation in extremely deep architectures.
+
+•	Faster convergence.
+
+•	Better generalization with fewer parameters.
+
+ResNet became the foundation for almost every subsequent CNN — from EfficientNet to Vision Transformers.
+
+⸻
+
+Intuition
+
+At its core, ResNet treats learning as incremental improvement rather than total reconstruction.
+Each residual block passes its input forward unaltered while adding a small corrective adjustment — like whispering “just a little better” at every layer.
+
+The skip connection acts as a highway for information flow, allowing the model to retain previous representations while learning refinements.
+This structure resembles human reasoning: we rarely rebuild ideas from zero — we adjust what we already know.
+
+Conceptually, residual learning transforms the network into an ensemble of shallower paths.
+Even if some layers perform poorly, information can bypass them, ensuring stability and robustness.
+
+⸻
+
+Mathematical Foundation
+A standard residual block can be expressed as:
+
+$$
+\mathbf{y} = \mathcal{F}(\mathbf{x}, {W_i}) + \mathbf{x}
+$$
+
+where:
+
+•	\mathbf{x} is the block’s input,
+•	\mathcal{F}(\mathbf{x}, \{W_i\}) represents the residual mapping (two or more convolutional layers), and
+•	\mathbf{y} is the output that combines the transformed and identity pathways.
+
+During training, the gradient with respect to the input \mathbf{x} becomes:
+
+$$
+\frac{\partial \mathcal{L}}{\partial \mathbf{x}} = \frac{\partial \mathcal{L}}{\partial \mathbf{y}} \left(1 + \frac{\partial \mathcal{F}}{\partial \mathbf{x}}\right)
+$$
+
+This identity term (1 + …) ensures that gradients never vanish entirely, allowing optimization to remain stable even in very deep networks.
+
+The most common variant, ResNet-50, stacks 50 layers using bottleneck residual blocks — each with a 1×1, 3×3, and 1×1 convolution.
+
+⸻
+
+Training Logic
+Training ResNet follows the standard CNN pipeline, but its structure allows for deeper architectures without modification to optimization algorithms.
+
+Steps:
+
+1.	Forward pass with residual connections.
+
+2.	Compute the loss (e.g., cross-entropy).
+
+3.	Backward propagation of gradients through both the residual and identity paths.
+
+4.	Parameter update using SGD with momentum or Adam.
+
+Techniques such as Batch Normalization and ReLU activation are used extensively to stabilize learning.
+Residual blocks act as modular units, making the architecture highly scalable and easy to adapt for different depths (ResNet-18, ResNet-34, ResNet-50, ResNet-101, ResNet-152).
+
+⸻
+
+Assumptions and Limitations
+ResNet assumes that the optimal function can be expressed as a small perturbation (residual) of the identity mapping — an assumption that holds remarkably well for visual data.
+
+However, despite its efficiency, ResNet has limitations:
+
+•	Its depth comes with high computational cost.
+
+•	Skip connections can introduce redundancy and parameter overhead.
+
+•	Very deep variants (>1000 layers) require careful initialization and normalization.
+
+•	It remains data-hungry and less interpretable than shallower models.
+
+Nevertheless, its conceptual simplicity and empirical power made it the default template for all deep architectures to come.
+
+⸻
+
+Key Hyperparameters (Conceptual View)
+
+•	Depth (number of layers): e.g., 18, 34, 50, 101, 152.
+
+•	Block type: Basic (2 convolutions) or Bottleneck (3 convolutions).
+
+•	Filter size: typically 3×3 kernels.
+
+•	Stride: determines downsampling rate between stages.
+
+•	Batch Normalization: applied after each convolution.
+
+•	Learning rate and scheduler: critical for stable convergence.
+
+•	Optimizer: SGD with momentum or Adam.
+
+Depth, stride, and block configuration define both computational cost and representational capacity.
+
+⸻
+
+Evaluation Focus
+ResNet is typically evaluated using Top-1 and Top-5 accuracy on datasets such as ImageNet, CIFAR-10, or COCO.
+Its performance metrics go beyond accuracy — researchers often inspect gradient flow, training stability, and parameter efficiency.
+
+Visualization of learned features shows that early layers resemble those of AlexNet, but deeper layers capture more abstract and global patterns — highlighting the power of residual composition.
+
+⸻
+
+When to Use / When Not to Use
+
+Use it when:
+
+•	Training deep architectures where vanishing gradients are a risk.
+	
+•	Working with large-scale image datasets.
+	
+•	Seeking a strong baseline for transfer learning or feature extraction.
+
+Do not use it when:
+
+•	Computational resources are limited.
+
+•	The dataset is too small to justify extreme depth.
+
+•	Model interpretability or simplicity is the priority.
+
+⸻
+
+References
+
+Canonical Papers
+
+1.	He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. CVPR.
+2.	Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. ICML.
+3.	Srivastava, R. K., Greff, K., & Schmidhuber, J. (2015). Highway Networks. arXiv:1505.00387.
+
+Web Resources
+
+1.	Stanford CS231n – ResNet Explained: https://cs231n.github.io/convolutional-networks/#resnets￼
+2.	Papers with Code – ResNet Benchmarks: https://paperswithcode.com/method/resnet￼
+
+---------------------
+
+With ResNet, convolutional networks reached extraordinary depth and accuracy, mastering the spatial domain of visual data. But one limitation remained: time. CNNs excel at recognizing patterns that exist in space, yet they fail to remember or reason about sequences: where past information shapes future predictions.
+
+The next family of networks introduced temporal memory, allowing models to capture dependencies over time. From speech and handwriting recognition to time series and language modeling, this innovation became the foundation of sequence learning.
+
+We now turn to Recurrent Neural Networks (RNNs): architectures designed to think in time, not just in space.
+
+---------------------
 
 C. Recurrent Neural Networks (RNNs) introduced temporal memory
 
