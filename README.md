@@ -1,7 +1,7 @@
 
 # Everything about NNA.
 
- ![class](/ima/ima1.png)
+ ![class](/ima/ima1.webp)
 
 ---------------------------------------------
 
