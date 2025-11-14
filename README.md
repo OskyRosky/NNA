@@ -4538,19 +4538,30 @@ CNNs excel at capturing spatial locality and translation invariance. Transformer
 Why use it?
 
 These hybrids are ideal when:
-	•	tasks require both fine-grained local structure and global reasoning,
-	•	the dataset is large enough to benefit from Transformer capacity,
-	•	pure CNNs struggle with long-range dependencies,
-	•	pure Transformers lack inductive biases and overfit on limited data,
-	•	efficiency and scalability are crucial (vision models with billions of parameters).
+
+•	tasks require both fine-grained local structure and global reasoning,
+
+•	the dataset is large enough to benefit from Transformer capacity,
+
+•	pure CNNs struggle with long-range dependencies,
+
+•	pure Transformers lack inductive biases and overfit on limited data,
+
+•	efficiency and scalability are crucial (vision models with billions of parameters).
 
 They are widely used in:
-	•	image classification,
-	•	object detection and segmentation,
-	•	multimodal architectures (vision + language),
-	•	medical imaging,
-	•	remote sensing,
-	•	large-scale visual pretraining.
+
+•	image classification,
+
+•	object detection and segmentation,
+
+•	multimodal architectures (vision + language),
+
+•	medical imaging,
+
+•	remote sensing,
+
+•	large-scale visual pretraining.
 
 CoAtNet in particular has shown strong performance in ImageNet, surpassing many pure Vision Transformer (ViT) models while using fewer parameters.
 
@@ -4559,16 +4570,23 @@ CoAtNet in particular has shown strong performance in ImageNet, surpassing many 
 Intuition
 
 The intuition is grounded in the notion that vision requires both local and global processing.
-	•	Convolution layers capture locality, texture, edges, orientation, and small patterns.
-	•	Self-attention layers capture global spatial relationships, object-level interactions, and contextual coherence.
+
+•	Convolution layers capture locality, texture, edges, orientation, and small patterns.
+
+•	Self-attention layers capture global spatial relationships, object-level interactions, and contextual coherence.
 
 Hybrid models interleave these mechanisms in a hierarchical structure:
-	1.	Early layers use depthwise convolutions to build robust local features.
-	2.	Mid to late layers apply self-attention to understand long-range dependencies.
-	3.	The architecture becomes both data-efficient and context-aware.
+
+1.	Early layers use depthwise convolutions to build robust local features.
+
+2.	Mid to late layers apply self-attention to understand long-range dependencies.
+
+3.	The architecture becomes both data-efficient and context-aware.
 
 In CoAtNet, the progression is strictly defined:
+
 Conv → Conv → Attention → Attention,
+
 mirroring the growing receptive field as depth increases.
 
 ⸻
@@ -4605,12 +4623,18 @@ with downsampling stages to build hierarchical feature maps.
 Training Logic
 
 Training follows the same pipeline as other deep vision models:
-	1.	Large-scale pretraining on massive datasets (e.g., ImageNet-21k, JFT-3B).
-	2.	Mixed convolution + attention layers optimized end-to-end.
-	3.	AdamW or Adafactor optimizers.
-	4.	Learning rate warmup + cosine decay.
-	5.	Strong augmentations: RandAugment, MixUp, CutMix.
-	6.	Regularization via dropout and stochastic depth.
+
+1.	Large-scale pretraining on massive datasets (e.g., ImageNet-21k, JFT-3B).
+
+2.	Mixed convolution + attention layers optimized end-to-end.
+
+3.	AdamW or Adafactor optimizers.
+
+4.	Learning rate warmup + cosine decay.
+
+5.	Strong augmentations: RandAugment, MixUp, CutMix.
+
+6.	Regularization via dropout and stochastic depth.
 
 The hybrid architecture tends to train more stably than pure ViTs, especially on mid-sized datasets.
 
@@ -4619,27 +4643,40 @@ The hybrid architecture tends to train more stably than pure ViTs, especially on
 Assumptions and Limitations
 
 Assumptions
-	•	Local structure exists in the data and must be captured early.
-	•	Global relationships matter in deeper layers.
-	•	The data distribution benefits from hierarchical abstraction.
+
+•	Local structure exists in the data and must be captured early.
+
+•	Global relationships matter in deeper layers.
+
+•	The data distribution benefits from hierarchical abstraction.
 
 Limitations
-	•	Hybrids can be more complex to design and tune.
-	•	They require substantial compute for large-scale training.
-	•	Not as parameter-efficient as lightweight CNNs or tiny ViTs.
-	•	Attention layers still scale quadratically with image size.
+
+•	Hybrids can be more complex to design and tune.
+
+•	They require substantial compute for large-scale training.
+
+•	Not as parameter-efficient as lightweight CNNs or tiny ViTs.
+
+•	Attention layers still scale quadratically with image size.
 
 Despite these challenges, hybrids often provide the best balance between CNNs and Transformers.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Number of convolution vs. attention stages.
-	•	Kernel size and depth in Conv stages.
-	•	Number of attention heads.
-	•	Hidden dimension expansion ratio in MBConv blocks.
-	•	Patch size / downsampling ratios.
-	•	Dropout and stochastic depth rates.
+
+•	Number of convolution vs. attention stages.
+
+•	Kernel size and depth in Conv stages.
+
+•	Number of attention heads.
+
+•	Hidden dimension expansion ratio in MBConv blocks.
+
+•	Patch size / downsampling ratios.
+
+•	Dropout and stochastic depth rates.
 
 The balance between convolution and attention is the defining hyperparameter of hybrid models.
 
@@ -4648,12 +4685,18 @@ The balance between convolution and attention is the defining hyperparameter of 
 Evaluation Focus
 
 Hybrid architectures are evaluated with:
-	•	Top-1 / Top-5 accuracy (ImageNet and variants),
-	•	Transfer learning performance on new datasets,
-	•	Object detection mAP,
-	•	Semantic segmentation IoU,
-	•	Efficiency metrics (FLOPs, inference latency),
-	•	Scaling behavior when size increases.
+
+•	Top-1 / Top-5 accuracy (ImageNet and variants),
+
+•	Transfer learning performance on new datasets,
+
+•	Object detection mAP,
+
+•	Semantic segmentation IoU,
+
+•	Efficiency metrics (FLOPs, inference latency),
+
+•	Scaling behavior when size increases.
 
 They tend to outperform pure CNNs and match or exceed ViTs in many settings.
 
@@ -4662,12 +4705,17 @@ They tend to outperform pure CNNs and match or exceed ViTs in many settings.
 When to Use / When Not to Use
 
 Use hybrid models when:
-	•	the task requires both local and global spatial reasoning,
-	•	you want the robustness of CNNs with the flexibility of attention,
-	•	you train on large-scale datasets where global context is crucial,
-	•	efficiency matters and pure ViTs overfit or require more compute.
+
+•	the task requires both local and global spatial reasoning,
+
+•	you want the robustness of CNNs with the flexibility of attention,
+
+•	you train on large-scale datasets where global context is crucial,
+
+•	efficiency matters and pure ViTs overfit or require more compute.
 
 Avoid hybrids when:
+
 	•	the dataset is very small (simpler architectures may suffice),
 	•	real-time inference is required on edge devices,
 	•	you need ultra-lightweight deployment (MobileNet may be better),
@@ -4680,15 +4728,16 @@ Hybrids are ideal for high-performance vision tasks in both research and product
 References
 
 Canonical Papers
-	1.	Dai, Z. et al. (2021). CoAtNet: Marrying Convolution and Attention for All Data Sizes.
-	2.	Tan, M. et al. (2019). EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.
-	3.	Dosovitskiy, A. et al. (2020). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT).
+
+1.	Dai, Z. et al. (2021). CoAtNet: Marrying Convolution and Attention for All Data Sizes.
+2.	Tan, M. et al. (2019). EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.
+3.	Dosovitskiy, A. et al. (2020). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT).
 
 Web Resources
-	1.	CoAtNet Explained – Papers With Code
-https://paperswithcode.com/method/coatnet
-	2.	Vision Transformers Overview – Google Research
-https://ai.googleblog.com/2020/12/transformers-in-vision.html
+
+1.	CoAtNet Explained – Papers With Code https://paperswithcode.com/method/coatnet
+
+2.	Vision Transformers Overview – Google Research https://ai.googleblog.com/2020/12/transformers-in-vision.html
 
 
 -------------------------
@@ -4725,19 +4774,30 @@ Neural ODEs bridge the gap between differential equations and deep representatio
 Why use it?
 
 Neural ODEs excel in scenarios where:
-	•	the data naturally follows continuous-time dynamics,
-	•	sampling is irregular (e.g., medical time series, sensor data),
-	•	memory efficiency is essential (ODE solvers enable reversible computation),
-	•	the model should adapt its depth dynamically for each input,
-	•	physical interpretability and stability are important.
+
+•	the data naturally follows continuous-time dynamics,
+
+•	sampling is irregular (e.g., medical time series, sensor data),
+
+•	memory efficiency is essential (ODE solvers enable reversible computation),
+
+•	the model should adapt its depth dynamically for each input,
+
+•	physical interpretability and stability are important.
 
 They are widely used for:
-	•	time series forecasting,
-	•	physics-informed machine learning,
-	•	generative modeling (e.g., Continuous Normalizing Flows),
-	•	latent trajectory modeling,
-	•	neural control systems,
-	•	scientific ML and computational physics.
+
+•	time series forecasting,
+
+•	physics-informed machine learning,
+
+•	generative modeling (e.g., Continuous Normalizing Flows),
+
+•	latent trajectory modeling,
+
+•	neural control systems,
+
+•	scientific ML and computational physics.
 
 Neural ODEs shine where standard architectures struggle with irregularity, non-uniform temporal spacing, or continuous processes.
 
@@ -4754,10 +4814,11 @@ Neural ODEs imagine: State evolves continuously from t₀ to t₁, guided by f(h
 
 
 This conceptual shift offers several benefits:
-	•	depth becomes adaptive rather than fixed,
-	•	gradients flow through time using the adjoint method,
-	•	the model aligns naturally with physical processes,
-	•	computation scales with problem complexity, not architecture design.
+
+•	depth becomes adaptive rather than fixed,
+•	gradients flow through time using the adjoint method,
+•	the model aligns naturally with physical processes,
+•	computation scales with problem complexity, not architecture design.
 
 It is deep learning through the lens of continuous mathematics.
 
@@ -4806,18 +4867,23 @@ This connects density modeling to the geometry of differential equations.
 Training Logic
 
 Training proceeds as follows:
-	1.	Initialize the hidden state h(t_0).
-	2.	Integrate the ODE forward using a numerical solver (e.g., Runge–Kutta).
-	3.	Compute the output at t_1.
-	4.	Compute the loss.
-	5.	Integrate backward using the adjoint method to compute gradients.
-	6.	Update parameters via Adam or another optimizer.
+
+1.	Initialize the hidden state h(t_0).
+2.	Integrate the ODE forward using a numerical solver (e.g., Runge–Kutta).
+3.	Compute the output at t_1.
+4.	Compute the loss.
+5.	Integrate backward using the adjoint method to compute gradients.
+6.	Update parameters via Adam or another optimizer.
 
 Common enhancements include:
-	•	adaptive solvers,
-	•	regularization via controlling step size,
-	•	stability constraints in f_\theta,
-	•	physics-informed priors.
+
+•	adaptive solvers,
+
+•	regularization via controlling step size,
+
+•	stability constraints in f_\theta,
+
+•	physics-informed priors.
 
 Training can be slower due to ODE solver overhead, but memory usage is significantly lower.
 
@@ -4826,28 +4892,42 @@ Training can be slower due to ODE solver overhead, but memory usage is significa
 Assumptions and Limitations
 
 Assumptions
-	•	The underlying process can be modeled continuously.
-	•	ODE solvers can approximate system dynamics accurately.
-	•	Gradients remain stable across integration steps.
+
+•	The underlying process can be modeled continuously.
+
+•	ODE solvers can approximate system dynamics accurately.
+
+•	Gradients remain stable across integration steps.
 
 Limitations
-	•	Training can be slow due to repeated numerical integration.
-	•	ODE solvers may introduce numerical instability for stiff systems.
-	•	Hard to parallelize across layers compared to standard deep networks.
-	•	Hyperparameter tuning is solver-dependent and more complex.
-	•	Not ideal for discrete or symbolic data.
+
+•	Training can be slow due to repeated numerical integration.
+
+•	ODE solvers may introduce numerical instability for stiff systems.
+
+•	Hard to parallelize across layers compared to standard deep networks.
+
+•	Hyperparameter tuning is solver-dependent and more complex.
+
+•	Not ideal for discrete or symbolic data.
 
 Despite these hurdles, Neural ODEs offer unmatched flexibility for irregular temporal and continuous processes.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Choice of ODE solver (Euler, RK4, Dormand–Prince).
-	•	Tolerances and step-size controls.
-	•	Dimensionality of hidden state.
-	•	Architecture of f_\theta.
-	•	Integration time span.
-	•	Stability regularizers.
+
+•	Choice of ODE solver (Euler, RK4, Dormand–Prince).
+
+•	Tolerances and step-size controls.
+
+•	Dimensionality of hidden state.
+
+•	Architecture of f_\theta.
+
+•	Integration time span.
+
+•	Stability regularizers.
 
 The solver tolerances often dominate performance, balancing accuracy and computational cost.
 
@@ -4856,11 +4936,16 @@ The solver tolerances often dominate performance, balancing accuracy and computa
 Evaluation Focus
 
 Evaluation depends on the task:
-	•	Time series: RMSE, MAE, likelihood.
-	•	Generative modeling: log-likelihood, sample quality.
-	•	Trajectory prediction: divergence from ground truth.
-	•	Physics tasks: energy conservation, stability metrics.
-	•	Graph and control systems: rollout accuracy.
+
+•	Time series: RMSE, MAE, likelihood.
+
+•	Generative modeling: log-likelihood, sample quality.
+
+•	Trajectory prediction: divergence from ground truth.
+
+•	Physics tasks: energy conservation, stability metrics.
+
+•	Graph and control systems: rollout accuracy.
 
 Qualitative assessment of trajectories is often just as important as quantitative scores.
 
@@ -4869,17 +4954,26 @@ Qualitative assessment of trajectories is often just as important as quantitativ
 When to Use / When Not to Use
 
 Use Neural ODEs when:
-	•	data is irregularly sampled in time,
-	•	continuous-time interpretation is meaningful,
-	•	the problem relates to physics, biology, or dynamical systems,
-	•	memory efficiency is important,
-	•	latent trajectory modeling is needed.
+
+•	data is irregularly sampled in time,
+
+•	continuous-time interpretation is meaningful,
+	
+•	the problem relates to physics, biology, or dynamical systems,
+	
+•	memory efficiency is important,
+	
+•	latent trajectory modeling is needed.
 
 Avoid them when:
-	•	training speed is critical,
-	•	the data is intrinsically discrete,
-	•	extremely long sequences require fast inference,
-	•	solver instability becomes a bottleneck.
+
+•	training speed is critical
+
+•	the data is intrinsically discrete,
+
+•	extremely long sequences require fast inference,
+
+•	solver instability becomes a bottleneck.
 
 Neural ODEs are ideal for scientific and temporal domains where continuity is intrinsic.
 
@@ -4888,28 +4982,35 @@ Neural ODEs are ideal for scientific and temporal domains where continuity is in
 References
 
 Canonical Papers
-	1.	Chen, R. T. Q. et al. (2018). Neural Ordinary Differential Equations.
-	2.	Grathwohl, W. et al. (2019). FFJORD: Free-Form Continuous Dynamics for Scalable Reversible Generative Models.
-	3.	Rubanova, Y., Chen, R. T. Q., & Duvenaud, D. (2019). Latent ODEs for Irregularly-Sampled Time Series.
+
+1.	Chen, R. T. Q. et al. (2018). Neural Ordinary Differential Equations.
+2.	Grathwohl, W. et al. (2019). FFJORD: Free-Form Continuous Dynamics for Scalable Reversible Generative Models.
+3.	Rubanova, Y., Chen, R. T. Q., & Duvenaud, D. (2019). Latent ODEs for Irregularly-Sampled Time Series.
 
 Web Resources
-	1.	Neural ODE Tutorial – Distill
-https://distill.pub/2018/ode/
-	2.	PyTorch Neural ODE Implementation (Torchdyn)
-https://github.com/DiffEqML/torchdyn
+
+1.	Neural ODE Tutorial – Distill https://distill.pub/2018/ode/
+2.	PyTorch Neural ODE Implementation (Torchdyn) https://github.com/DiffEqML/torchdyn
 
 
 -------------------------
 
-Hybrid and advanced architectures reflect the growing maturity of deep learning. GNNs taught networks to reason over relationships. Convolution–Attention hybrids unified local perception with global contextual awareness.
-Neural ODEs extended neural computation into continuous time. Together, these models demonstrate the field’s trajectory beyond rigid architectural families and toward flexible, adaptive, and multimodal systems.
+Hybrid and advanced architectures reflect the growing maturity of deep learning. GNNs taught networks to reason over relationships. Convolution–Attention hybrids unified local perception with global contextual awareness. Neural ODEs extended neural computation into continuous time. Together, these models demonstrate the field’s trajectory beyond rigid architectural families and toward flexible, adaptive, and multimodal systems.
+
+-------------------------
+
+## Summary of NNA family
+
+-------------------------
 
 This brings us to the end of Section VI – The Types of Artificial Neural Networks. The next chapter in the repository will shift from architecture exploration to applications, where we see how these ideas manifest in practical tasks across vision, language, time series, and structured data.
 
 -------------------------
 
 
-## Summary of NNA family
+
+
+
 
 # VII. Applications of Artificial Neural Networks
 
