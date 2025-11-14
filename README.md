@@ -22,7 +22,7 @@
 
 7.  **Running the Project** ⚙️
 
-8 .  **More** 🙌🏽
+8 . **More** 🙌🏽
 
 
 
