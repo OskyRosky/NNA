@@ -4017,11 +4017,12 @@ Despite these difficulties, GANs remain one of the most important milestones in 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Latent dimension size.
-	•	Generator/discriminator depth and capacity.
-	•	Learning rates (often different for G and D).
-	•	Batch size.
-	•	Gradient penalties, normalization schemes, and loss variants.
+
+•	Latent dimension size.
+•	Generator/discriminator depth and capacity.
+•	Learning rates (often different for G and D).
+•	Batch size.
+•	Gradient penalties, normalization schemes, and loss variants.
 
 Small changes in these parameters can drastically alter training dynamics.
 
@@ -5198,12 +5199,66 @@ This cycle — concept, code, application — is at the heart of the learning ex
 
 # VIII. Annex and References
 
-Final documentation section — complementary materials and supporting references.
+The annex serves as the final reference layer of the repository. While earlier sections focused on theory, architectures, and applications, this closing chapter gathers the supporting materials that sustain long-term learning. It is designed as a compact archive of formulas, definitions, notes, and authoritative sources—resources that readers can return to whenever they need conceptual clarity or mathematical precision. The goal is to create a space where technical rigor and personal reflection coexist, reinforcing the educational purpose of the project.
 
-Subsections (examples):
+This section also emphasizes the academic orientation of the repository. Neural networks evolve rapidly, but the foundations—the mathematics, the terminology, and the canonical literature—provide the stable ground needed to navigate new developments. The annex preserves these foundations and connects them with curated references that support deeper study.
 
-1.	Formulas in LaTeX — all mathematical expressions organized for quick reference.
-2.	Glossary of Terms — clear definitions of technical terminology.
-3.	Personal Notes — reflections, insights, or observations about learning and experimentation.
-4.	Reference Materials — key textbooks, scientific papers, and reliable web sources.
-5.	License and Academic Purpose — short statement about the open and educational intent of the repository.
+⸻
+
+1. Formulas in LaTeX
+
+This subsection collects all key mathematical expressions presented throughout the repository, rewritten in clean LaTeX for quick access. Examples include the perceptron rule, activation functions, cross-entropy loss, backpropagation gradients, convolutional operations, recurrent update equations, attention mechanisms, variational objectives, and diffusion formulations.
+
+By organizing these formulas into a single place, readers can revise the mathematical backbone of neural networks without navigating multiple sections. This reference is especially useful for learners building intuition or writing academic material based on these architectures.
+
+⸻
+
+2. Glossary of Terms
+
+Deep learning involves a specialized vocabulary that can become overwhelming without a structured guide. This glossary provides concise definitions of essential concepts such as activation function, latent space, gradient descent, self-attention, residual connection, encoder–decoder, diffusion process, and many more.
+
+Each definition is written in plain language and linked conceptually to the broader context of the repository, helping readers form a strong and coherent conceptual map of the field.
+
+⸻
+
+3. Personal Notes
+
+Scientific understanding grows not only from formal material but also from personal reflection. This subsection preserves observations, insights, and comments that emerge while studying, coding, or experimenting with neural networks. It is intentionally flexible: the space can capture clarifications, pitfalls discovered during implementation, conceptual reminders, alternative interpretations, or ideas for future work.
+
+Over time, these notes form an intellectual diary—a living record of the learning journey that complements the formal structures of the previous sections.
+
+⸻
+
+4. Reference Materials
+
+This subsection compiles the foundational works, textbooks, and reliable online resources that support the entire repository. It includes:
+
+Canonical books and textbooks
+Works such as Deep Learning by Goodfellow, Bengio, and Courville; Pattern Recognition and Machine Learning by Bishop; Neural Networks and Learning Machines by Haykin; and Hands-On Machine Learning by Géron.
+
+Scientific papers
+Seminal articles like LeCun’s work on CNNs, Hochreiter and Schmidhuber’s LSTM paper, Vaswani et al.’s Attention Is All You Need, Kingma & Welling’s VAE paper, and Goodfellow’s introduction of GANs.
+
+Web resources
+Official documentation for PyTorch and TensorFlow, high-quality educational sites, academic lecture notes, and trustworthy blogs or tutorials.
+
+Each source has been selected for clarity, depth, and reliability, ensuring that readers can extend their learning with confidence.
+
+⸻
+
+5. License and Academic Purpose
+
+This final subsection states the intentions of the repository. The material is offered for academic, educational, and personal research purposes. The content may draw from canonical knowledge in the field, but the explanations, structure, and implementations have been tailored to create a cohesive learning environment.
+
+A short license declaration clarifies usage rights, and an academic purpose statement reinforces that the repository aims to support responsible, transparent, and well-grounded study of artificial neural networks.
+
+⸻
+
+**Closing Reflection**
+
+The annex concludes the repository by reinforcing the idea that deep learning is an evolving discipline rooted in a blend of mathematics, intuition, research, and experimentation. By unifying formulas, terminology, personal insights, and authoritative references, this section helps the reader consolidate knowledge and prepares them for independent exploration.
+
+With this final chapter, the repository closes its conceptual arc: from biological inspiration, to mathematical foundations, to architectural diversity, to practical implementations, and finally to a curated set of tools that support continuous learning.
+
+⸻
+
