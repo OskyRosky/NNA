@@ -5101,29 +5101,100 @@ Neural networks are powerful, but they are not infallible. They generalize only 
 
 Now that we have explored the major families of neural architectures — their logic, their strengths, and their limitations — the next step is understanding how they operate in real problems. The following section will move from structure to function, from theory to practice, and from architectural detail to purpose. We will examine how these networks shape modern AI applications across vision, natural language, speech, time series, reinforcement learning, generative modeling, and multimodal systems.
 
-Section VII places the architectures into context, showing where each family shines and how the choice of model aligns with the demands of a task.
+Section VII. places the architectures into context, showing where each family shines and how the choice of model aligns with the demands of a task.
 
 -------------------------
 
 
-
-
-
-
 # VII. Applications of Artificial Neural Networks
 
-Bridges theory with practice.
-Here we show real-world implementations — notebooks or code examples — illustrating how different architectures solve specific problems.
+Artificial Neural Networks are not only mathematical structures; they are tools designed to solve concrete problems. After exploring their foundations and architectures, this section illustrates how neural networks operate in real scenarios, connecting theory with implementation and implementation with impact. The purpose here is to provide a practical bridge between the conceptual material developed in the earlier sections and the hands-on examples available in the repository.
 
-Subsections (examples):
+The repository contains two complementary folders that support this goal:
 
-1.	Image Classification and Object Detection
-2.	Natural Language Processing and Sentiment Analysis
-3.	Time Series Forecasting
-4.	Anomaly Detection and Predictive Maintenance
-5.	Generative Art, Image-to-Image Translation, and Text Generation
+**03_Implementaciones**
+This folder provides the full programming implementations for a wide range of neural architectures. The examples are written in PyTorch and TensorFlow, allowing readers to see how each model is constructed from scratch, how layers are defined, how loss functions are selected, and how training loops are executed. The implementations follow a clean, didactic style, mirroring the structure presented in Section VI. Readers who wish to learn by coding — or to modify and extend the models — will find this folder to be a central resource.
 
-This section would directly connect to your practical folders (04_Aplicaciones and 03_Implementaciones).
+**04_Aplicaciones**
+This folder contains practical notebooks that demonstrate how neural networks behave in real tasks. Each notebook focuses on a specific application area and shows how the architecture is selected, how the data is prepared, how the training routine is executed, and how the results are interpreted. These examples are designed to show the full workflow: from problem formulation, to model choice, to evaluation and visualization.
+
+Taken together, these two folders provide the full ecosystem needed to move from theory to hands-on practice. A reader can study the conceptual logic in the earlier sections, see the corresponding code in 03_Implementaciones, and then explore a real use case in 04_Aplicaciones. This structure encourages an iterative cycle of understanding: read, code, test, and reflect.
+
+⸻
+
+**Main Domains of Application**
+
+Neural networks appear in nearly every domain of modern AI. This section highlights several areas where the architectures discussed in Section VI demonstrate their strengths.
+
+1. Image Classification and Object Detection
+
+Convolutional Neural Networks (CNNs) dominate visual tasks because they capture spatial hierarchies and local patterns.
+In the application notebooks, readers will find examples of:
+	•	classifying images into categories using CNNs and transfer learning,
+	•	detecting objects or segmenting regions of interest,
+	•	comparing architectures such as LeNet, ResNet, and EfficientNet in practical settings.
+
+These examples demonstrate how convolutional layers extract meaningful structure from pixels and how deeper networks progressively refine representation.
+
+2. Natural Language Processing and Sentiment Analysis
+
+Recurrent networks and Transformers are central to modern NLP.
+
+Here we explore:
+
+•	Sentiment classification using RNNs or LSTMs,
+•	Text understanding and contextual embeddings using BERT,
+•	Text generation using autoregressive models such as GPT.
+
+The notebooks show how tokenization, embeddings, and attention mechanisms convert raw text into patterns the model can learn.
+
+3. Time Series Forecasting
+
+RNNs, GRUs, LSTMs, and more recently Transformers specialized for sequences, excel in forecasting tasks.
+Applications include:
+
+•	Predicting energy consumption,
+•	Modeling financial time series,
+•	Forecasting demand or anomaly scores.
+
+The examples highlight the importance of temporal dependencies and demonstrate how models incorporate trends, seasonality, and long-range structure.
+
+4. Anomaly Detection and Predictive Maintenance
+
+Autoencoders and variational models are well suited for detecting irregularities in complex systems.
+The applications showcase:
+
+•	Using autoencoders to detect unusual patterns in sensor data,
+•	Employing reconstruction error as an indicator of failure or drift,
+•	Identifying outliers in industrial or environmental datasets.
+
+These notebooks show how compressed representations capture the normal behavior of a system and flag deviations.
+
+5. Generative Art, Image Translation, and Text Generation
+
+Generative models create new content, revealing the creative side of neural computation.
+Readers will find examples of:
+
+•	Generating images using GANs,
+•	Performing image-to-image translation (e.g., Day→Night, Sketch→Photo),
+•	Generating coherent text using Transformer-based language models,
+•	Experimenting with diffusion models for high-fidelity synthesis.
+
+These practical pieces show how networks learn distributions and how creative outputs emerge from statistical structure.
+
+⸻
+
+A Practical Path Through the Repository
+
+Readers who want to explore applications can follow a simple, recommended progression:
+
+1.	Study the conceptual material in Sections II–VI to build a strong understanding of each model family.
+2.	Explore the raw implementations in 03_Implementaciones to see how the architectures are built and trained programmatically.
+3.	Open the applied notebooks in 04_Aplicaciones to observe how those architectures behave on real datasets and real tasks.
+4.	Modify or extend the examples to deepen understanding or test new ideas.
+
+This cycle — concept, code, application — is at the heart of the learning experience proposed by this repository.
+
 
 # VIII. Annex and References
 
