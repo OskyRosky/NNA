@@ -9,35 +9,46 @@
 
 1.  **Intro** 🧳
 
-
+This repository is a comprehensive and structured exploration of Artificial Neural Networks (ANNs). It brings together theory, mathematics, architecture design, programming implementations, and real-world applications into a unified learning space. The goal is to build a resource that is academically rigorous, practically useful, and easy to revisit when studying or developing neural models. It serves as both a conceptual guide and a working library, where readers can understand how ANNs emerged, how they operate, and how they are applied in modern machine learning systems.
 
 2.  **Tech Stack** 🤖
 
-
+The repository uses a stable, modern ecosystem for deep learning research and experimentation. PyTorch and TensorFlow form the core of the implementation layer, providing full flexibility for constructing models from scratch. Jupyter notebooks support experimentation and visualization, while Markdown files document the theory and principles behind each architecture. Python 3.12 ensures consistency across the environment, and the repository structure encourages modular exploration of code and concepts.
 
 3.  **Features** 🤳🏽
 
-
+The repository is organized to mirror the way neural networks are understood and built in practice. It includes clear theoretical explanations, LaTeX mathematical formulations, architecture-specific breakdowns, and code examples for each model family. Applications demonstrate how these techniques behave on real tasks such as image classification, NLP processing, time series forecasting, anomaly detection, and generative modeling. Readers can move seamlessly between theory and implementation, building intuition layer by layer.
 
 4.  **Process** 👣
 
+The repository follows a coherent learning path that mirrors the evolution of neural networks:
 
+1.	Foundations — what ANNs are and how they emerged.
+2.	Mathematical structure — how neurons, layers, activations, and gradients work.
+3.	Taxonomy — how architectures differ and why families exist.
+4.	Model types — a deep dive into each architecture with a consistent analytical framework.
+5.	Implementations — step-by-step code for each model.
+6.	Applications — practical use cases that demonstrate the models in action.
+7.	Annex — supporting formulas, terminology, notes, and references.
+
+This process creates a continuous flow from conceptual understanding to practical execution.
 
 5.  **Learning** 💡
 
-
+The repository is designed as a long-term learning companion. Readers can study theory with mathematical clarity, test ideas through code, and refine understanding through practical examples.
+Each section builds upon the previous one, enabling a smooth transition from foundational topics (such as perceptrons and activation functions) to advanced architectures (such as Transformers, GNNs, and hybrid models). The structure encourages curiosity, experimentation, and iterative learning — the same cycle used in research and applied deep learning.
 
 6.  **Improvement** 🔩
 
-
+The repository is built to evolve. New architectures, updated implementations, additional applications, and extended notes can be added over time. Deep learning progresses quickly, and this project is intended to grow alongside new discoveries and technologies. Readers are encouraged to revisit sections, update code, refine explanations, and expand the Annex with new insights and references. The repository is a living document — not a static textbook.
 
 7.  **Running the Project** ⚙️
 
-
+To run the examples and implementations, users simply clone the repository and install the necessary dependencies listed in the environment file. Implementations are located in the 03_Implementaciones folder, where PyTorch and TensorFlow scripts can be executed directly. Applications in 04_Aplicaciones can be opened in Jupyter notebooks to explore complete workflows, from data preparation to evaluation. The structure is modular, so readers can run individual files or follow full end-to-end pipelines.
 
 8 . **More** 🙌🏽
 
-
+For additional discussions, contributions, or extensions, readers are encouraged to explore the Annex, which includes formulas, a glossary, personal notes, and curated references. This repository is meant to be a space for continuous improvement, academic exploration, and collaborative learning. Future versions may expand into optimization techniques, multimodal systems, reinforcement learning, scaling laws, and more advanced forms of representation learning.
 
 ---------------------------------------------
 
