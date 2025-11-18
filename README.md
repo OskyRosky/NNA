@@ -1767,39 +1767,31 @@ We now turn to Recurrent Neural Networks (RNNs): architectures designed to think
 
 ## C. Recurrent Neural Networks (RNNs) introduced temporal memory.
 
-Recurrent Neural Networks (RNNs) marked the moment when artificial intelligence learned to process time.
-While feedforward and convolutional networks excel at understanding static patterns — images, tabular data, spatial relationships — they lack the ability to remember what came before.
-They see the world as isolated snapshots.
+Recurrent Neural Networks (RNNs) marked the moment when artificial intelligence learned to process time. While feedforward and convolutional networks excel at understanding static patterns — images, tabular data, spatial relationships — they lack the ability to remember what came before. They see the world as isolated snapshots.
+
+![class](/ima/ima16.jpg) 
 
 But many forms of real-world information unfold as sequences.
-Language appears word by word.
-Speech flows as a continuous waveform.
-Sensor readings evolve over hours or days.
-Financial markets shift through trends and cycles.
+
+- Language appears word by word.
+- Speech flows as a continuous waveform.
+- Sensor readings evolve over hours or days.
+- Financial markets shift through trends and cycles.
 
 The challenge became clear: to analyze these phenomena, neural networks needed memory — a mechanism to retain past information and use it to influence future predictions.
 
-The origins of RNNs date back to the 1980s and early 1990s.
-One foundational idea came from John Hopfield, whose Hopfield Network (1982) introduced the notion of recurrent connections that allow the system to settle into stable memory states. Though not a practical sequence model, it brought the idea of neural memory into computational neuroscience.
+The origins of RNNs date back to the 1980s and early 1990s. One foundational idea came from John Hopfield, whose Hopfield Network (1982) introduced the notion of recurrent connections that allow the system to settle into stable memory states. Though not a practical sequence model, it brought the idea of neural memory into computational neuroscience.
 
 Shortly after, David Rumelhart and Ronald Williams formalized the Elman Network (1990), where feedback connections from hidden layers allowed the network to maintain a form of short-term memory.
 This structure enabled the network to process sequences step by step, updating an internal state as new inputs arrived.
 
-The key insight of these early models was simple but profound:
-a network does not need to see an entire sequence at once — it can “carry” information forward through time.
+The key insight of these early models was simple but profound: a network does not need to see an entire sequence at once — it can “carry” information forward through time. The mathematics formalized this intuition through the idea of recurrent dynamics. At each time step t, the hidden state h_t is computed as a function of the current input x_t and the previous state h_{t-1}. This transformation encodes past information into a compact, evolving representation.
 
-The mathematics formalized this intuition through the idea of recurrent dynamics.
-At each time step t, the hidden state h_t is computed as a function of the current input x_t and the previous state h_{t-1}. This transformation encodes past information into a compact, evolving representation.
+Yet, despite their conceptual elegance, early RNNs suffered from a major practical challenge. During training, gradients either vanished — becoming too small to influence earlier states — or exploded, destabilizing learning. These problems made long-range dependencies almost impossible to learn with basic recurrent architectures.
 
-Yet, despite their conceptual elegance, early RNNs suffered from a major practical challenge.
-During training, gradients either vanished — becoming too small to influence earlier states — or exploded, destabilizing learning. These problems made long-range dependencies almost impossible to learn with basic recurrent architectures.
+The solution emerged in the late 1990s with the invention of Long Short-Term Memory (LSTM) networks by Hochreiter and Schmidhuber (1997). LSTMs introduced gates — neural circuits that control what information to keep, forget, or output — effectively stabilizing memory over long sequences. Later, Gated Recurrent Units (GRUs) offered a streamlined alternative with comparable performance.
 
-The solution emerged in the late 1990s with the invention of Long Short-Term Memory (LSTM) networks by Hochreiter and Schmidhuber (1997).
-LSTMs introduced gates — neural circuits that control what information to keep, forget, or output — effectively stabilizing memory over long sequences.
-Later, Gated Recurrent Units (GRUs) offered a streamlined alternative with comparable performance.
-
-These innovations transformed sequence modeling.
-RNNs became the backbone of early breakthroughs in:
+These innovations transformed sequence modeling. RNNs became the backbone of early breakthroughs in:
 
 •	speech recognition
 
