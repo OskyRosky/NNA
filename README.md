@@ -106,6 +106,8 @@ Biological Inspiration
 
 Artificial neural networks were inspired by the way biological neurons transmit and transform signals inside the brain. A biological neuron receives electrical impulses through its dendrites, processes them in the soma, and emits a signal through the axon. When thousands of neurons interact, they create complex patterns that give rise to perception, memory, and reasoning.
 
+ ![class](/ima/ima3.jpg)
+
 Artificial neurons mimic that same mechanism, but with mathematical components. Instead of electrical impulses, they receive numerical inputs. Instead of synapses, they use weights. Each neuron multiplies its inputs by these weights, sums the results, and applies a nonlinear activation function to produce an output.
 
 When connected together, these artificial neurons form layers. The first layer receives raw data (like pixels or words), the hidden layers extract abstract features, and the final layer delivers predictions or classifications. This simple principle — composition through layers — is what allows ANNs to approximate almost any function, from recognizing faces to predicting language.
@@ -117,6 +119,8 @@ A Brief History of Development
 The story of neural networks began in the 1940s, when Warren McCulloch and Walter Pitts proposed a simplified model of a neuron that could perform logical operations. A decade later, Frank Rosenblatt introduced the Perceptron, the first true learning algorithm capable of adjusting its own weights based on experience.
 
 However, enthusiasm faded during the 1970s after Marvin Minsky and Seymour Papert showed that the Perceptron could not solve nonlinear problems, such as distinguishing between overlapping patterns. This period, known as the AI winter, slowed progress for years.
+
+ ![class](/ima/ima4.png)
 
 The revival came in the 1980s with the rediscovery of the backpropagation algorithm, which made it possible to train networks with multiple hidden layers — the Multilayer Perceptron (MLP). This innovation reopened the field and set the stage for modern deep learning.
 
@@ -154,6 +158,8 @@ Through repetition, feedback, and optimization, ANNs gradually transform raw inf
 # III. Components of an ANN Analysis
 
 Before building or training any neural network, it is essential to understand the components that make it work. Every network, regardless of its scale or complexity, is built upon the same foundation: neurons, layers, weights, activations, and learning mechanisms. These elements interact to transform raw data into structured predictions through continuous adaptation.
+
+ ![class](/ima/ima5.jpg)
 
 This section walks through those internal components, explaining their roles and how they shape the learning process.
 
@@ -243,11 +249,13 @@ Beyond these numbers, a well-evaluated model should also be interpretable and st
 
 Together, these components form the anatomy of every artificial neural network. They define how data enters, how it transforms, and how learning occurs. Mastering these inner mechanisms is the foundation for understanding the architectures and applications that come next.
 
-# IV. Before Conducting an ANN Analysis
+# IV. Before Conducting an NNA.
 
 Building a neural network is not just about writing code.
 Before any model can learn, its data must be understood, structured, and prepared with care.
 The quality of this preparation determines the success of the entire analysis.
+
+ ![class](/ima/ima6.jpg)
 
 A neural network is like a lens. If the data is blurry or distorted, even the most advanced architecture will fail to see clearly.
 This section explains what should happen before training begins: preparing the data, choosing the right model, defining hyperparameters, and validating the results.
@@ -346,6 +354,8 @@ Mastering this iterative process is what transforms a modeler into a true practi
 Artificial neural networks have grown into a large and diverse family of models.
 Although they share the same foundation — neurons, weights, activations, and gradient-based learning — they differ in how they connect layers and transform information.
 These structural variations define the taxonomy of ANNs, which serves as a conceptual map of the field.
+
+ ![class](/ima/ima7.jpg)
 
 Understanding this taxonomy is essential. It reveals why some models excel at vision, others at sequences, and others at compression or generation. It also highlights the evolution of neural architectures through decades of innovation.
 
