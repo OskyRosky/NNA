@@ -1769,7 +1769,7 @@ We now turn to Recurrent Neural Networks (RNNs): architectures designed to think
 
 Recurrent Neural Networks (RNNs) marked the moment when artificial intelligence learned to process time. While feedforward and convolutional networks excel at understanding static patterns — images, tabular data, spatial relationships — they lack the ability to remember what came before. They see the world as isolated snapshots.
 
-![class](/ima/ima16.jpg) 
+![class](/ima/ima16.webp) 
 
 But many forms of real-world information unfold as sequences.
 
