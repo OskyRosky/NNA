@@ -361,7 +361,7 @@ Understanding this taxonomy is essential. It reveals why some models excel at vi
 
 ⸻
 
-Fundamental Structures
+**Fundamental Structures**
 
 Every neural network can be described as a composition of transformations that convert inputs into outputs through successive layers:
 
@@ -410,11 +410,11 @@ $$
 
 Stacking multiple convolutional layers allows the network to build a hierarchy of features, where early layers capture simple visual components and deeper layers recognize complex structures.
 
-Key CNN architectures mark milestones in this evolution.
-LeNet-5 introduced the basic convolution–pooling sequence in 1998.
-AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
-VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
-Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
+- Key CNN architectures mark milestones in this evolution.
+- LeNet-5 introduced the basic convolution–pooling sequence in 1998.
+- AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
+- VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
+- Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
 
 Today, CNNs are applied beyond images — to audio spectrograms, time series, and even text embeddings — making them one of the most versatile structures in the ANN family.
 
@@ -422,8 +422,7 @@ Today, CNNs are applied beyond images — to audio spectrograms, time series, an
 
 3. Recurrent Neural Networks (RNNs)
 
-Recurrent Networks were designed to handle sequential data, where order and context matter.
-Unlike feedforward networks, they maintain an internal state that captures information from previous time steps, giving them a form of memory.
+Recurrent Networks were designed to handle sequential data, where order and context matter. Unlike feedforward networks, they maintain an internal state that captures information from previous time steps, giving them a form of memory.
 
 A recurrent neuron can be described mathematically as:
 
@@ -491,14 +490,44 @@ Transformers unified the field by demonstrating that attention — not recurrenc
 
 ⸻
 
+6. Generative Networks
 
+Generative Networks form the branch of neural architectures designed to model data distributions rather than predict labels. Their goal is to learn the structure of the underlying data space and to create new samples that are coherent, realistic, or stylistically aligned with the original dataset. Instead of estimating p(y \mid x) for classification or regression, they focus on approximating p(x) itself.
 
-7. Generative Networks
+At a conceptual level, a generative network learns a transformation:
 
+$$
+z \rightarrow x
+$$
+
+where z is a latent representation sampled from a simple prior distribution.
+This mapping allows the model to synthesize images, text, audio, or other data modalities.
+
+Several major families define this generative domain:
+
+• Variational Autoencoders (VAEs)
+
+They introduce probabilistic latent spaces and reconstruct data through encoder–decoder mappings, enabling smooth interpolation and sampling.
+
+• Generative Adversarial Networks (GANs)
+
+They train a generator and a discriminator in opposition, producing high-fidelity outputs through adversarial learning.
+
+• Diffusion Models
+
+They generate data by gradually transforming noise into coherent samples, currently achieving state-of-the-art performance in image and audio synthesis.
+
+• Normalizing Flows
+
+They use invertible transformations to model exact likelihoods and allow precise sampling.
+
+Together, these models define the generative branch of deep learning.
+They underpin modern tools for image creation, style transfer, text-to-image pipelines, music synthesis, data augmentation, simulation, and multimodal generation.
+In the taxonomy of ANNs, generative networks represent the shift from understanding data to creating it.
 
 ⸻
 
-6. Hybrid and Advanced Architectures
+7. Hybrid and Advanced Architectures
 
 Hybrid and advanced architectures combine ideas from multiple families, often blurring boundaries between them.
 They are designed to handle complex, multimodal, or structured data, and to push the limits of representation learning.
