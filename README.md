@@ -106,6 +106,8 @@ Biological Inspiration
 
 Artificial neural networks were inspired by the way biological neurons transmit and transform signals inside the brain. A biological neuron receives electrical impulses through its dendrites, processes them in the soma, and emits a signal through the axon. When thousands of neurons interact, they create complex patterns that give rise to perception, memory, and reasoning.
 
+ ![class](/ima/ima3.jpg)
+
 Artificial neurons mimic that same mechanism, but with mathematical components. Instead of electrical impulses, they receive numerical inputs. Instead of synapses, they use weights. Each neuron multiplies its inputs by these weights, sums the results, and applies a nonlinear activation function to produce an output.
 
 When connected together, these artificial neurons form layers. The first layer receives raw data (like pixels or words), the hidden layers extract abstract features, and the final layer delivers predictions or classifications. This simple principle — composition through layers — is what allows ANNs to approximate almost any function, from recognizing faces to predicting language.
@@ -117,6 +119,8 @@ A Brief History of Development
 The story of neural networks began in the 1940s, when Warren McCulloch and Walter Pitts proposed a simplified model of a neuron that could perform logical operations. A decade later, Frank Rosenblatt introduced the Perceptron, the first true learning algorithm capable of adjusting its own weights based on experience.
 
 However, enthusiasm faded during the 1970s after Marvin Minsky and Seymour Papert showed that the Perceptron could not solve nonlinear problems, such as distinguishing between overlapping patterns. This period, known as the AI winter, slowed progress for years.
+
+ ![class](/ima/ima4.png)
 
 The revival came in the 1980s with the rediscovery of the backpropagation algorithm, which made it possible to train networks with multiple hidden layers — the Multilayer Perceptron (MLP). This innovation reopened the field and set the stage for modern deep learning.
 
@@ -154,6 +158,8 @@ Through repetition, feedback, and optimization, ANNs gradually transform raw inf
 # III. Components of an ANN Analysis
 
 Before building or training any neural network, it is essential to understand the components that make it work. Every network, regardless of its scale or complexity, is built upon the same foundation: neurons, layers, weights, activations, and learning mechanisms. These elements interact to transform raw data into structured predictions through continuous adaptation.
+
+ ![class](/ima/ima5.jpg)
 
 This section walks through those internal components, explaining their roles and how they shape the learning process.
 
@@ -243,11 +249,13 @@ Beyond these numbers, a well-evaluated model should also be interpretable and st
 
 Together, these components form the anatomy of every artificial neural network. They define how data enters, how it transforms, and how learning occurs. Mastering these inner mechanisms is the foundation for understanding the architectures and applications that come next.
 
-# IV. Before Conducting an ANN Analysis
+# IV. Before Conducting an NNA.
 
 Building a neural network is not just about writing code.
 Before any model can learn, its data must be understood, structured, and prepared with care.
 The quality of this preparation determines the success of the entire analysis.
+
+ ![class](/ima/ima6.jpg)
 
 A neural network is like a lens. If the data is blurry or distorted, even the most advanced architecture will fail to see clearly.
 This section explains what should happen before training begins: preparing the data, choosing the right model, defining hyperparameters, and validating the results.
@@ -347,11 +355,13 @@ Artificial neural networks have grown into a large and diverse family of models.
 Although they share the same foundation — neurons, weights, activations, and gradient-based learning — they differ in how they connect layers and transform information.
 These structural variations define the taxonomy of ANNs, which serves as a conceptual map of the field.
 
+ ![class](/ima/ima7.jpg)
+
 Understanding this taxonomy is essential. It reveals why some models excel at vision, others at sequences, and others at compression or generation. It also highlights the evolution of neural architectures through decades of innovation.
 
 ⸻
 
-Fundamental Structures
+**Fundamental Structures**
 
 Every neural network can be described as a composition of transformations that convert inputs into outputs through successive layers:
 
@@ -400,11 +410,11 @@ $$
 
 Stacking multiple convolutional layers allows the network to build a hierarchy of features, where early layers capture simple visual components and deeper layers recognize complex structures.
 
-Key CNN architectures mark milestones in this evolution.
-LeNet-5 introduced the basic convolution–pooling sequence in 1998.
-AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
-VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
-Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
+- Key CNN architectures mark milestones in this evolution.
+- LeNet-5 introduced the basic convolution–pooling sequence in 1998.
+- AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
+- VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
+- Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
 
 Today, CNNs are applied beyond images — to audio spectrograms, time series, and even text embeddings — making them one of the most versatile structures in the ANN family.
 
@@ -412,8 +422,7 @@ Today, CNNs are applied beyond images — to audio spectrograms, time series, an
 
 3. Recurrent Neural Networks (RNNs)
 
-Recurrent Networks were designed to handle sequential data, where order and context matter.
-Unlike feedforward networks, they maintain an internal state that captures information from previous time steps, giving them a form of memory.
+Recurrent Networks were designed to handle sequential data, where order and context matter. Unlike feedforward networks, they maintain an internal state that captures information from previous time steps, giving them a form of memory.
 
 A recurrent neuron can be described mathematically as:
 
@@ -481,14 +490,44 @@ Transformers unified the field by demonstrating that attention — not recurrenc
 
 ⸻
 
+6. Generative Networks
 
+Generative Networks form the branch of neural architectures designed to model data distributions rather than predict labels. Their goal is to learn the structure of the underlying data space and to create new samples that are coherent, realistic, or stylistically aligned with the original dataset. Instead of estimating p(y \mid x) for classification or regression, they focus on approximating p(x) itself.
 
-7. Generative Networks
+At a conceptual level, a generative network learns a transformation:
 
+$$
+z \rightarrow x
+$$
+
+where z is a latent representation sampled from a simple prior distribution.
+This mapping allows the model to synthesize images, text, audio, or other data modalities.
+
+Several major families define this generative domain:
+
+• Variational Autoencoders (VAEs)
+
+They introduce probabilistic latent spaces and reconstruct data through encoder–decoder mappings, enabling smooth interpolation and sampling.
+
+• Generative Adversarial Networks (GANs)
+
+They train a generator and a discriminator in opposition, producing high-fidelity outputs through adversarial learning.
+
+• Diffusion Models
+
+They generate data by gradually transforming noise into coherent samples, currently achieving state-of-the-art performance in image and audio synthesis.
+
+• Normalizing Flows
+
+They use invertible transformations to model exact likelihoods and allow precise sampling.
+
+Together, these models define the generative branch of deep learning.
+They underpin modern tools for image creation, style transfer, text-to-image pipelines, music synthesis, data augmentation, simulation, and multimodal generation.
+In the taxonomy of ANNs, generative networks represent the shift from understanding data to creating it.
 
 ⸻
 
-6. Hybrid and Advanced Architectures
+7. Hybrid and Advanced Architectures
 
 Hybrid and advanced architectures combine ideas from multiple families, often blurring boundaries between them.
 They are designed to handle complex, multimodal, or structured data, and to push the limits of representation learning.
@@ -607,6 +646,8 @@ Feedforward Networks mark the true beginning of artificial neural computation.
 They embody the idea that intelligence can emerge from the layered composition of simple functions — a sequence of transformations that gradually turn raw input data into structured, meaningful representations.
 
 Historically, this family was born in the mid-20th century, when researchers began to formalize the analogy between biological neurons and computational systems. The foundational moment came in 1943, with Warren McCulloch and Walter Pitts, who proposed the first mathematical model of a neuron capable of logical reasoning through weighted inputs and a binary activation threshold. Their work, “A Logical Calculus of the Ideas Immanent in Nervous Activity,” laid the conceptual groundwork for what would later become the perceptron.
+
+![class](/ima/ima8.png)
 
 In 1958, Frank Rosenblatt translated that theoretical neuron into a functioning machine: the Perceptron. Built with simple electrical circuits, it demonstrated that a computer could learn to classify patterns through experience rather than explicit programming. Rosenblatt’s perceptron was inspired by the brain’s visual cortex and aimed to mimic its capacity to detect and combine elementary features. The publication “The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain” became one of the most influential papers in early artificial intelligence.
 
