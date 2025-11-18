@@ -656,13 +656,6 @@ The 1960s and 1970s, however, revealed the perceptron’s limitations. In 1969, 
 The Feedforward family thus represents the foundational principle of deep learning: hierarchical abstraction.
 Each layer transforms its input into a more complex representation, moving from raw sensory data to abstract features and finally to a decision or prediction. Information flows strictly in one direction — from input to output — with no feedback loops. This unidirectional architecture allows simplicity, stability, and interpretability, making it the conceptual ancestor of all subsequent network designs.
 
-The purpose of this family is not only computational but philosophical: to show that learning can emerge from the accumulation of simple nonlinear functions. It bridges biology, mathematics, and computer science in a single idea — that knowledge is structure, and structure can be learned.
-
-In the following subsections, we will explore the three most representative models of this family:
-the Single-Layer Perceptron (SLP), which formalized the concept of a neuron;
-the Multilayer Perceptron (MLP), which introduced depth and backpropagation;
-and the Radial Basis Function Network (RBFN), which redefined the notion of similarity in continuous spaces.
-
 Main subtypes to cover:
 
 1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
@@ -683,12 +676,24 @@ In the following subsections, we will explore the three most representative mode
 
 - Radial Basis Function Network (RBFN), which redefined the notion of similarity in continuous spaces.
 
-1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
+
+The purpose of this family is not only computational but philosophical: to show that learning can emerge from the accumulation of simple nonlinear functions. It bridges biology, mathematics, and computer science in a single idea — that knowledge is structure, and structure can be learned.
+
+In the following subsections, we will explore the three most representative models of this family:
+the Single-Layer Perceptron (SLP), which formalized the concept of a neuron;
+the Multilayer Perceptron (MLP), which introduced depth and backpropagation;
+and the Radial Basis Function Network (RBFN), which redefined the notion of similarity in continuous spaces.
+
+
+
+### 1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
 
 What is it?
 
 The Single-Layer Perceptron (SLP) is the earliest and simplest form of an Artificial Neural Network.
 It consists of a single computational unit — or neuron — that takes multiple inputs, applies a set of learnable weights, adds a bias, and passes the result through an activation function to produce an output.
+
+![class](/ima/ima9.png)
 
 Formally, the perceptron can be described as:
 
@@ -840,6 +845,8 @@ What is it?
 
 The Multilayer Perceptron (MLP) extends the perceptron’s original idea by introducing one or more hidden layers between the input and output.
 Each hidden layer consists of neurons that apply nonlinear transformations, enabling the network to model complex, curved relationships that a single-layer perceptron cannot capture.
+
+![class](/ima/ima10.webp)
 
 Formally, an MLP with one hidden layer can be expressed as:
 
@@ -1017,6 +1024,8 @@ What is it?
 The Radial Basis Function Network (RBFN) is a feedforward neural model that introduces a new way of interpreting learning: rather than adjusting weights globally across all inputs, it focuses on local similarity.
 An RBF network measures how close each input is to a set of internal “prototype” points, using those distances to form the output.
 
+![class](/ima/ima11.jpg)
+
 Formally, an RBFN consists of three layers:
 
 1.	Input layer: receives the feature vector \mathbf{x}.
@@ -1186,6 +1195,8 @@ This gave rise to Convolutional Neural Networks (CNNs), which introduced the con
 
 Convolutional Neural Networks (CNNs) represent the next major evolutionary leap in artificial intelligence — the moment when neural computation learned to see. Unlike the fully connected structures of feedforward networks, CNNs introduced the concept of spatial locality, allowing machines to detect patterns that occur near each other in space, such as edges, textures, or shapes.
 
+![class](/ima/ima12.png)
+
 The origins of CNNs trace back to the 1980s and early 1990s, building on neuroscientific studies of the visual cortex. In 1962, Hubel and Wiesel published groundbreaking research showing that certain neurons in the cat’s brain respond selectively to local visual stimuli — lines, orientations, and movements. This biological insight inspired computational models that could replicate the same principle: a neuron should not process the entire image, but only a small receptive field.
 
 The first working system to embody this idea was Fukushima’s Neocognitron (1980), a hierarchical, self-organizing model capable of recognizing handwritten digits. Although primitive by modern standards, it introduced the essential mechanisms of local connections and weight sharing. A few years later, Yann LeCun and colleagues translated these concepts into a trainable architecture — the Convolutional Neural Network — and used backpropagation to optimize it. Their 1989 paper “Backpropagation Applied to Handwritten Zip Code Recognition” presented LeNet-5, the first practical CNN, which achieved remarkable accuracy on digit classification.
@@ -1226,10 +1237,14 @@ In the following subsections, we will explore three architectures that shaped th
 
 Each of these models represents a milestone — a new chapter in the story of how computers learned to perceive the world.
 
+--------
+
 1.	LeNet-5 – the first Convolutional Neural Network (CNN)
 
 LeNet-5 is the first fully realized Convolutional Neural Network (CNN) and the foundational model of modern computer vision.
 Developed by Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner in 1998, it was designed to recognize handwritten digits from the MNIST dataset — a task that had long challenged traditional machine-learning algorithms.
+
+![class](/ima/ima13.png)
 
 LeNet-5 introduced the complete CNN pipeline: convolutional layers for feature extraction, pooling layers for dimensionality reduction, and fully connected layers for classification.
 It proved that neural networks could learn hierarchical visual features directly from raw pixels, removing the need for handcrafted feature engineering.
@@ -1249,9 +1264,7 @@ Its simplicity makes it ideal for teaching the principles of convolution, weight
 
 Intuition
 
-The intuition behind LeNet-5 lies in local perception.
-A neuron should not see the entire image at once — only a small patch.
-By connecting to local receptive fields and applying the same filter across the image, the model captures spatially coherent patterns such as edges or corners.
+The intuition behind LeNet-5 lies in local perception. A neuron should not see the entire image at once — only a small patch. By connecting to local receptive fields and applying the same filter across the image, the model captures spatially coherent patterns such as edges or corners.
 
 Pooling layers then summarize nearby activations, introducing translation invariance:
 a pattern recognized in one region will still be detected elsewhere.
@@ -1313,10 +1326,15 @@ These weaknesses, along with the computational constraints of the 1990s, kept CN
 Key Hyperparameters (Conceptual View)
 
 •	Kernel size: typically 5×5 filters in early layers.
+
 •	Stride: controls how the filter moves across the image (commonly 1).
+
 •	Pooling size: often 2×2 with average pooling.
+
 •	Number of feature maps: determines how many distinct patterns are learned (e.g., 6, 16, 120 in LeNet-5).
+
 •	Learning rate (η): governs convergence speed.
+
 •	Batch size and epochs: affect stability and training duration.
 
 These hyperparameters define the model’s ability to capture patterns at different spatial scales.
@@ -1325,13 +1343,12 @@ These hyperparameters define the model’s ability to capture patterns at differ
 
 Evaluation Focus
 
-Performance is measured primarily through classification accuracy and cross-entropy loss.
-Because LeNet-5 operates on images, visualization of feature maps provides valuable qualitative insight into what the network learns — showing how early filters detect edges while deeper layers respond to digit shapes.
-Training and validation curves remain central for diagnosing convergence.
+Performance is measured primarily through classification accuracy and cross-entropy loss. Because LeNet-5 operates on images, visualization of feature maps provides valuable qualitative insight into what the network learns — showing how early filters detect edges while deeper layers respond to digit shapes. Training and validation curves remain central for diagnosing convergence.
 
 ⸻
 
 When to Use / When Not to Use
+
 Use it when:
 
 •	Teaching or prototyping CNNs on small image datasets.
@@ -1384,6 +1401,8 @@ The next section explores how AlexNet transformed LeNet’s elegant simplicity i
 
 AlexNet is the convolutional network that ignited the modern deep learning revolution.
 Developed by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, and presented at the 2012 ImageNet Large Scale Visual Recognition Challenge (ILSVRC), it achieved a stunning top-5 error rate of 15.3%, far outperforming the runner-up at 26%.
+
+![class](/ima/ima14.jpeg)
 
 While conceptually a descendant of LeNet-5, AlexNet introduced the scale, depth, and computational innovations necessary to handle large, complex, color images.
 It consisted of eight layers — five convolutional and three fully connected — trained on over 1.2 million images from 1,000 classes.
@@ -1472,7 +1491,8 @@ Key innovations included:
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
+
 AlexNet assumes access to:
 
 •	A large labeled dataset (like ImageNet).
@@ -1565,14 +1585,14 @@ The next section examines ResNet, the architecture that taught networks how to g
 
 ----------
 
-
-
 3.	ResNet – residual connections to enable very deep networks.
 
 What is it?
 
 The Residual Network (ResNet), introduced by Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun in 2015, redefined how deep learning architectures are built and trained.
 Presented in the paper “Deep Residual Learning for Image Recognition”, ResNet won the ILSVRC 2015 competition with a Top-5 accuracy of 96.4%, surpassing all previous models by a wide margin.
+
+![class](/ima/ima15.jpg) 
 
 Its innovation was simple yet revolutionary: the introduction of residual connections, also called skip connections, that allow gradients to flow directly through the network — making it possible to train models hundreds, even thousands, of layers deep.
 
