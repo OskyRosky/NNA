@@ -2415,10 +2415,11 @@ This transition leads us to Autoencoders, a class of networks designed to extrac
 
 ## D. Autoencoders introduced unsupervised compression.
 
-
 Autoencoders represent a shift in perspective within neural architectures. Instead of learning to classify or predict, they learn to reconstruct. Their goal is not to map inputs to labels, but to map inputs back to themselves — in a way that forces the network to discover meaningful, compressed representations of the data.
 
 The idea dates back to the late 1980s and early 1990s, when researchers such as Rumelhart, Hinton, and Williams explored networks that learned internal “codes” by compressing signals into a hidden bottleneck and reconstructing them at the output. Their structure resembled the human tendency to summarize information, remember key features, and discard noise.
+
+![class](/ima/ima20.png)
 
 The core philosophy is simple:
 if a network can efficiently reproduce an input after compressing it, then it must have learned something fundamental about the structure of that input.
@@ -2473,12 +2474,14 @@ In the next sections, we will explore three central types of autoencoders that s
 
 Together, these architectures illustrate how neural networks can learn compressed meaning — the essence of data.
 
-1. Classic Autoencoder (Learning Through Compression).
+### 1. Classic Autoencoder (Learning Through Compression).
 
 What is it?
 
 The Classic Autoencoder is the foundational encoder–decoder architecture in neural networks. Its central idea is to learn a compressed internal representation of data without any labels.
 The model was popularized in the late 1980s and 1990s through the work of Rumelhart, Hinton, and Williams, who envisioned neural networks that could learn “codes” capturing the essential structure of inputs.
+
+![class](/ima/ima21.png)
 
 An autoencoder learns to reproduce its input at the output, forcing the network to discover which features are necessary and which can be ignored.
 This process reveals meaningful structure in the data and yields a latent representation that acts as a learned dimensionality reduction.
@@ -2492,9 +2495,13 @@ Why use it?
 Classic autoencoders are used when:
 
 •	You need unsupervised learning from raw data.
+
 •	Dimensionality reduction must preserve nonlinear structure, unlike PCA.
+
 •	You want to pretrain deeper architectures by learning intermediate representations.
+
 •	The goal is to detect anomalies, where reconstruction errors reveal unusual patterns.
+
 •	A compressed representation is useful for visualization or downstream tasks.
 
 They are particularly valuable when labeled data is scarce but unlabeled data is abundant.
@@ -2503,16 +2510,16 @@ They are particularly valuable when labeled data is scarce but unlabeled data is
 
 Intuition
 
-The autoencoder learns to “summarize” the input.
-The encoder compresses the input into a small vector — the latent code — and the decoder tries to reconstruct the original from that code.
+The autoencoder learns to “summarize” the input. The encoder compresses the input into a small vector — the latent code — and the decoder tries to reconstruct the original from that code.
 
-If reconstruction is accurate, the code must have captured the essential structure of the input.
-If reconstruction fails, the model adjusts itself, learning a better internal representation.
+If reconstruction is accurate, the code must have captured the essential structure of the input. If reconstruction fails, the model adjusts itself, learning a better internal representation.
 
 You can think of the autoencoder as a camera that:
 
 •	takes a photo,
+
 •	compresses it heavily,
+
 •	and tries to decompress it back to the original.
 
 Success indicates that the compression contained the right information.
@@ -2569,7 +2576,9 @@ Assumptions and Limitations
 Assumptions
 
 •	Inputs contain hidden structure that can be compressed.
+
 •	Reconstruction errors reflect meaningful deviations from typical patterns.
+
 •	The latent dimension forces the network to generalize rather than memorize.
 
 Limitations
@@ -2591,10 +2600,15 @@ Despite these limitations, autoencoders remain strong baseline models.
 Key Hyperparameters (Conceptual View)
 
 •	Latent dimension size: determines the compression strength.
+
 •	Number of layers: more depth improves representational capacity.
+
 •	Activation functions: ReLU or Tanh are common.
+
 •	Weight regularization: prevents trivial memorization.
+
 •	Optimizer and learning rate: influence convergence stability.
+
 •	Batch size: affects the smoothness of the learned representation.
 
 Choosing the right latent dimension is the most critical design choice.
@@ -2604,10 +2618,14 @@ Choosing the right latent dimension is the most critical design choice.
 Evaluation Focus
 
 Classic autoencoders are evaluated through:
-	•	Reconstruction error (MSE, MAE).
-	•	Latent space visualization for interpretability.
-	•	Anomaly detection sensitivity, measuring reconstruction deviation.
-	•	Compression quality, comparing latent-size constraints.
+
+•	Reconstruction error (MSE, MAE).
+
+•	Latent space visualization for interpretability.
+
+•	Anomaly detection sensitivity, measuring reconstruction deviation.
+
+•	Compression quality, comparing latent-size constraints.
 
 Visualization of reconstructions often gives qualitative insight into the model’s generalization.
 
@@ -2616,17 +2634,26 @@ Visualization of reconstructions often gives qualitative insight into the model�
 When to Use / When Not to Use
 
 Use autoencoders when:
-	•	You need nonlinear dimensionality reduction.
-	•	Anomaly detection is required.
-	•	You want to pretrain deeper neural networks.
-	•	Labels are unavailable.
-	•	You want an interpretable latent code.
+
+•	You need nonlinear dimensionality reduction.
+
+•	Anomaly detection is required.
+
+•	You want to pretrain deeper neural networks.
+
+•	Labels are unavailable.
+
+•	You want an interpretable latent code.
 
 Avoid autoencoders when:
-	•	You need generative diversity (VAEs or diffusion models are better).
-	•	You want guaranteed structure in the latent space.
-	•	You need invariances that convolutional or variational models provide.
-	•	Data is extremely small or noisy.
+
+•	You need generative diversity (VAEs or diffusion models are better).
+
+•	You want guaranteed structure in the latent space.
+
+•	You need invariances that convolutional or variational models provide.
+
+•	Data is extremely small or noisy.
 
 Classic autoencoders are best seen as the starting point in representation learning.
 
@@ -2635,14 +2662,15 @@ Classic autoencoders are best seen as the starting point in representation learn
 References
 
 Canonical Papers
-	1.	Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning Internal Representations by Error Propagation.
-	2.	Bourlard, H., & Kamp, Y. (1988). Auto-Association by Multilayer Perceptrons and Singular Value Decomposition.
-	3.	Hinton, G. E., & Salakhutdinov, R. (2006). Reducing the Dimensionality of Data with Neural Networks. Science.
+
+1.	Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning Internal Representations by Error Propagation.
+2.	Bourlard, H., & Kamp, Y. (1988). Auto-Association by Multilayer Perceptrons and Singular Value Decomposition.
+3.	Hinton, G. E., & Salakhutdinov, R. (2006). Reducing the Dimensionality of Data with Neural Networks. Science.
 
 Web Resources
-	1.	DeepLearningBook.org – Chapter on Autoencoders.
-	2.	Stanford CS231n – Representation Learning with Autoencoders.
 
+1.	DeepLearningBook.org – Chapter on Autoencoders.
+2.	Stanford CS231n – Representation Learning with Autoencoders.
 
 --------------
 
@@ -2662,6 +2690,8 @@ What is it?
 The Denoising Autoencoder (DAE), introduced by Vincent et al. (2008), extends the classic autoencoder by learning to reconstruct clean inputs from deliberately corrupted versions.
 The objective is not mere compression but robust representation learning, where the latent space captures stable, meaningful features rather than noise or trivial memorization.
 
+![class](/ima/ima22.png)
+
 The DAE marked a major step in unsupervised learning, revealing that adding noise during training forces the network to generalize — a principle that inspired many later advances, including modern diffusion models.
 
 ⸻
@@ -2669,11 +2699,16 @@ The DAE marked a major step in unsupervised learning, revealing that adding nois
 Why use it?
 
 DAEs are used when:
-	•	Input data contains noise, missing values, or distortions.
-	•	The goal is to learn stable, invariant representations for downstream tasks.
-	•	You want a feature extractor that captures the core structure of the data.
-	•	Classic autoencoders tend to memorize, and you want stronger generalization.
-	•	You need a foundation for stacking deeper autoencoders or pretraining networks.
+
+•	Input data contains noise, missing values, or distortions.
+
+•	The goal is to learn stable, invariant representations for downstream tasks.
+
+•	You want a feature extractor that captures the core structure of the data.
+
+•	Classic autoencoders tend to memorize, and you want stronger generalization.
+
+•	You need a foundation for stacking deeper autoencoders or pretraining networks.
 
 In practice, DAEs outperform classic autoencoders on many unsupervised tasks because they explicitly learn what to preserve and what to ignore.
 
@@ -2683,16 +2718,13 @@ Intuition
 
 The key intuition is simple and powerful:
 
-If the model can reconstruct a clean input from its corrupted version, then the features it learns must reflect true structure, not noise.
-
-During training, the input x is corrupted into \tilde{x}. The encoder processes \tilde{x}, but the loss is computed against the original clean input x.
-This forces the network to become noise-insensitive, learning smoother and more robust latent manifolds.
+If the model can reconstruct a clean input from its corrupted version, then the features it learns must reflect true structure, not noise. During training, the input x is corrupted into \tilde{x}. The encoder processes \tilde{x}, but the loss is computed against the original clean input x. This forces the network to become noise-insensitive, learning smoother and more robust latent manifolds.
 
 The DAE behaves like someone who sees a blurred photo and must reconstruct the original scene — focusing on meaningful shapes rather than artifacts.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Given clean input x, we generate a corrupted version \tilde{x} using a stochastic process such as Gaussian noise or masking.
 
@@ -2727,11 +2759,12 @@ The DAE’s learning objective becomes a denoising problem rather than pure reco
 Training Logic
 
 Training follows these steps:
-	1.	Corrupt each input x into \tilde{x}.
-	2.	Encode \tilde{x} into latent representation z.
-	3.	Decode z to reconstruct \hat{x}.
-	4.	Compute reconstruction error against the clean input x.
-	5.	Backpropagate the loss and update parameters.
+
+1.	Corrupt each input x into \tilde{x}.
+2.	Encode \tilde{x} into latent representation z.
+3.	Decode z to reconstruct \hat{x}.
+4.	Compute reconstruction error against the clean input x.
+5.	Backpropagate the loss and update parameters.
 
 This forces the model to emphasize the most informative and stable features.
 DAEs can be stacked to form deep networks, which played a major role in pretraining deep architectures before large labeled datasets became available.
@@ -2741,27 +2774,40 @@ DAEs can be stacked to form deep networks, which played a major role in pretrain
 Assumptions and Limitations
 
 Assumptions
-	•	Noise is meaningful and helps highlight important structure.
-	•	Clean inputs can be approximated from corrupted versions.
-	•	The latent space benefits from being smooth and noise-resistant.
+
+•	Noise is meaningful and helps highlight important structure.
+
+•	Clean inputs can be approximated from corrupted versions.
+
+•	The latent space benefits from being smooth and noise-resistant.
 
 Limitations
-	•	Over-corruption can destroy important signal.
-	•	Under-corruption may not provide enough pressure for generalization.
-	•	DAEs are deterministic and do not produce structured latent distributions.
-	•	They do not support generative sampling like VAEs or diffusion models.
+
+•	Over-corruption can destroy important signal.
+
+•	Under-corruption may not provide enough pressure for generalization.
+
+•	DAEs are deterministic and do not produce structured latent distributions.
+
+•	They do not support generative sampling like VAEs or diffusion models.
 
 Even so, DAEs remain an essential technique for robust feature learning.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Type of noise: Gaussian, dropout-mask, salt-and-pepper.
-	•	Noise level: determines difficulty of reconstruction.
-	•	Latent dimension: controls compression strength.
-	•	Depth and width: deeper encoders learn hierarchical invariances.
-	•	Activation functions: ReLU or Tanh depending on the data domain.
-	•	Learning rate and optimizer: influence smoothness of latent manifold learning.
+
+•	Type of noise: Gaussian, dropout-mask, salt-and-pepper.
+
+•	Noise level: determines difficulty of reconstruction.
+
+•	Latent dimension: controls compression strength.
+
+•	Depth and width: deeper encoders learn hierarchical invariances.
+
+•	Activation functions: ReLU or Tanh depending on the data domain.
+
+•	Learning rate and optimizer: influence smoothness of latent manifold learning.
 
 The noise level is the most influential factor — too high eliminates structure, too low allows memorization.
 
@@ -2770,10 +2816,14 @@ The noise level is the most influential factor — too high eliminates structure
 Evaluation Focus
 
 DAEs are evaluated primarily by:
-	•	Reconstruction error on clean inputs.
-	•	Robustness tests using noise not seen during training.
-	•	Quality of latent features in downstream tasks (classification, clustering).
-	•	Smoothness and continuity of latent space.
+
+•	Reconstruction error on clean inputs.
+
+•	Robustness tests using noise not seen during training.
+
+•	Quality of latent features in downstream tasks (classification, clustering).
+
+•	Smoothness and continuity of latent space.
 
 Visualizing reconstructions under different corruption levels reveals how well the model generalizes.
 
@@ -2782,16 +2832,24 @@ Visualizing reconstructions under different corruption levels reveals how well t
 When to Use / When Not to Use
 
 Use Denoising Autoencoders when:
-	•	Inputs are noisy or incomplete.
-	•	You need robust, stable latent representations.
-	•	Dimensionality reduction must preserve nonlinear invariances.
-	•	You want to pretrain deep networks.
+
+•	Inputs are noisy or incomplete.
+
+•	You need robust, stable latent representations.
+
+•	Dimensionality reduction must preserve nonlinear invariances.
+
+•	You want to pretrain deep networks.
 
 Avoid them when:
-	•	You need generative diversity or sample synthesis.
-	•	A probabilistic latent structure is required.
-	•	You want explicit control over the geometry of the latent space.
-	•	The noise model is hard to specify or unrealistic.
+
+•	You need generative diversity or sample synthesis.
+
+•	A probabilistic latent structure is required.
+
+•	You want explicit control over the geometry of the latent space.
+
+•	The noise model is hard to specify or unrealistic.
 
 DAEs excel at representation learning, not at generating new data.
 
@@ -2800,13 +2858,15 @@ DAEs excel at representation learning, not at generating new data.
 References
 
 Canonical Papers
-	1.	Vincent, P. et al. (2008). Extracting and Composing Robust Features with Denoising Autoencoders. ICML.
-	2.	Vincent, P. et al. (2010). Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network. JMLR.
-	3.	Bengio, Y. et al. (2013). Representation Learning: A Review and New Perspectives. IEEE PAMI.
+
+1.	Vincent, P. et al. (2008). Extracting and Composing Robust Features with Denoising Autoencoders. ICML.
+2.	Vincent, P. et al. (2010). Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network. JMLR.
+3.	Bengio, Y. et al. (2013). Representation Learning: A Review and New Perspectives. IEEE PAMI.
 
 Web Resources
-	1.	DeepLearningBook.org – Chapter on Representation Learning.
-	2.	Machine Learning Mastery – Denoising Autoencoders Explained.
+
+1.	DeepLearningBook.org – Chapter on Representation Learning.
+2.	Machine Learning Mastery – Denoising Autoencoders Explained.
 
 ------------
 
@@ -2818,7 +2878,7 @@ This model is the Variational Autoencoder (VAE) — the architecture that transf
 
 -------------
 
-3. Variational Autoencoder (VAE) – Learning Generative Latent Spaces
+### 3. Variational Autoencoder (VAE) – Learning Generative Latent Spaces
 
 What is it?
 
@@ -2827,6 +2887,8 @@ Unlike classic or denoising autoencoders, which learn deterministic codes, VAEs 
 
 VAEs unify ideas from Bayesian inference and deep learning. They approximate the intractable posterior distribution of latent variables using neural networks — a method known as Variational Inference — and optimize this approximation through the Evidence Lower Bound (ELBO).
 
+![class](/ima/ima23.png)
+
 Their contribution was transformative: VAEs demonstrated how neural networks could learn generative models that are both probabilistic and differentiable, paving the way for modern generative AI.
 
 ⸻
@@ -2834,36 +2896,41 @@ Their contribution was transformative: VAEs demonstrated how neural networks cou
 Why use it?
 
 VAEs are used when:
-	•	You need generative capabilities, such as creating new images, signals, or text.
-	•	A structured and smooth latent manifold is important for interpolation or representation learning.
-	•	You want a probabilistic latent representation rather than a deterministic one.
-	•	You need a model that balances reconstruction quality with latent structure regularization.
-	•	Sampling, creativity, or exploring latent variations are required.
+
+•	You need generative capabilities, such as creating new images, signals, or text.
+
+•	A structured and smooth latent manifold is important for interpolation or representation learning.
+
+•	You want a probabilistic latent representation rather than a deterministic one.
+
+•	You need a model that balances reconstruction quality with latent structure regularization.
+
+•	Sampling, creativity, or exploring latent variations are required.
 
 They are widely used in:
-	•	image generation,
-	•	anomaly detection,
-	•	semi-supervised learning,
-	•	representation learning,
-	•	and generative modeling of structured data.
+
+•	image generation,
+
+•	anomaly detection,
+
+•	semi-supervised learning,
+
+•	representation learning,
+
+•	and generative modeling of structured data.
 
 ⸻
 
-Intuition
+**Intuition**
 
-The VAE assumes that every observation x is generated from an underlying hidden variable z.
-Instead of learning a single code for each input, the encoder learns the parameters of a probability distribution — typically a Gaussian with mean \mu and variance \sigma^2.
-
-From this distribution, the model samples a latent code using the reparameterization trick.
+The VAE assumes that every observation x is generated from an underlying hidden variable z. Instead of learning a single code for each input, the encoder learns the parameters of a probability distribution — typically a Gaussian with mean \mu and variance \sigma^2. From this distribution, the model samples a latent code using the reparameterization trick.
 The decoder then reconstructs the input from that sampled code.
 
-This means the VAE learns not just how to compress, but also how to generate plausible new samples from the latent space.
-
-The VAE’s latent space is continuous, smooth, and structured — allowing natural interpolations between samples.
+This means the VAE learns not just how to compress, but also how to generate plausible new samples from the latent space.The VAE’s latent space is continuous, smooth, and structured — allowing natural interpolations between samples.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Given input x, the encoder outputs mean and variance:
 
@@ -2902,11 +2969,12 @@ The KL term shapes the latent space into a smooth, continuous manifold.
 Training Logic
 
 Training follows:
-	1.	Encode x into \mu and \sigma.
-	2.	Sample z via the reparameterization trick.
-	3.	Decode z to obtain \hat{x}.
-	4.	Compute ELBO loss.
-	5.	Backpropagate and update weights.
+
+1.	Encode x into \mu and \sigma.
+2.	Sample z via the reparameterization trick.
+3.	Decode z to obtain \hat{x}.
+4.	Compute ELBO loss.
+5.	Backpropagate and update weights.
 
 The reparameterization trick is essential because it allows gradients to flow through stochastic sampling.
 
@@ -2917,27 +2985,30 @@ VAEs train stably and are more mathematically grounded than many generative coun
 Assumptions and Limitations
 
 Assumptions
-	•	Data can be modeled by a low-dimensional latent distribution.
-	•	A continuous latent space captures important generative factors.
-	•	The chosen prior (usually Gaussian) reflects the structure of hidden variables.
+
+•	Data can be modeled by a low-dimensional latent distribution.
+•	A continuous latent space captures important generative factors.
+•	The chosen prior (usually Gaussian) reflects the structure of hidden variables.
 
 Limitations
-	•	Reconstructions tend to be blurrier than GAN outputs due to probabilistic decoding.
-	•	The KL term may overpower reconstruction unless carefully balanced.
-	•	Latent representations can collapse without good hyperparameter control.
-	•	Sampling quality is limited compared to state-of-the-art diffusion models.
+
+•	Reconstructions tend to be blurrier than GAN outputs due to probabilistic decoding.
+•	The KL term may overpower reconstruction unless carefully balanced.
+•	Latent representations can collapse without good hyperparameter control.
+•	Sampling quality is limited compared to state-of-the-art diffusion models.
 
 Despite this, VAEs remain foundational in probabilistic deep generative modeling.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Latent dimension: determines generative richness.
-	•	β coefficient: balances reconstruction and latent regularization.
-	•	Number of layers: defines encoder/decoder expressiveness.
-	•	Type of prior: typically Gaussian, but alternatives exist.
-	•	Noise variance / decoder likelihood: affects sharpness of reconstructions.
-	•	Optimizer and learning rate: crucial for stable balancing of the KL term.
+
+•	Latent dimension: determines generative richness.
+•	β coefficient: balances reconstruction and latent regularization.
+•	Number of layers: defines encoder/decoder expressiveness.
+•	Type of prior: typically Gaussian, but alternatives exist.
+•	Noise variance / decoder likelihood: affects sharpness of reconstructions.
+•	Optimizer and learning rate: crucial for stable balancing of the KL term.
 
 The β-VAE variant is particularly influential for disentangling latent features.
 
@@ -2946,11 +3017,12 @@ The β-VAE variant is particularly influential for disentangling latent features
 Evaluation Focus
 
 VAEs are evaluated through:
-	•	Reconstruction error (MSE, MAE).
-	•	KL divergence stability.
-	•	ELBO during training.
-	•	Latent space visualization (continuity, clustering, semantics).
-	•	Quality of generated samples through sampling from z \sim \mathcal{N}(0, I).
+
+•	Reconstruction error (MSE, MAE).
+•	KL divergence stability.
+•	ELBO during training.
+•	Latent space visualization (continuity, clustering, semantics).
+•	Quality of generated samples through sampling from z \sim \mathcal{N}(0, I).
 
 Visualization of latent interpolations is one of the strongest qualitative evaluation tools.
 
@@ -2959,17 +3031,19 @@ Visualization of latent interpolations is one of the strongest qualitative evalu
 When to Use / When Not to Use
 
 Use VAEs when:
-	•	You need a smooth latent space for interpolation or analysis.
-	•	Generative sampling is required.
-	•	You want probabilistic representation learning.
-	•	Semi-supervised or unsupervised contexts dominate.
-	•	Latent structure matters more than photorealistic generation.
+
+•	You need a smooth latent space for interpolation or analysis.
+•	Generative sampling is required.
+•	You want probabilistic representation learning.
+•	Semi-supervised or unsupervised contexts dominate.
+•	Latent structure matters more than photorealistic generation.
 
 Avoid VAEs when:
-	•	You need extremely sharp or high-fidelity image generation.
-	•	You require discrete latent structure (unless using VQ-VAE).
-	•	Reconstruction quality is more important than generative smoothness.
-	•	You need the state-of-the-art generative performance (GANs or diffusion win here).
+
+•	You need extremely sharp or high-fidelity image generation.
+•	You require discrete latent structure (unless using VQ-VAE).
+•	Reconstruction quality is more important than generative smoothness.
+•	You need the state-of-the-art generative performance (GANs or diffusion win here).
 
 VAEs are ideal when mathematical clarity and latent interpretability are priorities.
 
@@ -2978,13 +3052,15 @@ VAEs are ideal when mathematical clarity and latent interpretability are priorit
 References
 
 Canonical Papers
-	1.	Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. arXiv.
-	2.	Rezende, D. J., Mohamed, S., & Wierstra, D. (2014). Stochastic Backpropagation and Approximate Inference in Deep Generative Models. ICML.
-	3.	Higgins, I. et al. (2017). β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework. ICLR.
+
+1.	Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes. arXiv.
+2.	Rezende, D. J., Mohamed, S., & Wierstra, D. (2014). Stochastic Backpropagation and Approximate Inference in Deep Generative Models. ICML.
+3.	Higgins, I. et al. (2017). β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework. ICLR.
 
 Web Resources
-	1.	Lil’Log Blog – A Gentle Introduction to VAEs.
-	2.	DeepMind’s β-VAE writeup – Disentangling factors of variation.
+
+1.	Lil’Log Blog – A Gentle Introduction to VAEs.
+2.	DeepMind’s β-VAE writeup – Disentangling factors of variation.
 
 -------------------
 
@@ -2996,9 +3072,6 @@ This innovation created the Transformer, the architecture that reshaped natural 
 
 -------------------
 
-
-
-
 ## E. Transformers introduced attention and parallel sequence processing
 
 Transformers represent one of the most profound shifts in the history of neural networks.
@@ -3007,6 +3080,8 @@ While recurrent and convolutional models shaped early breakthroughs in language 
 In 2017, everything changed.
 
 The paper “Attention Is All You Need” by Vaswani et al. introduced the Transformer, an architecture built entirely on attention mechanisms. Instead of relying on recurrence or fixed-size convolutional windows, the Transformer analyzes relationships between all positions in a sequence simultaneously, enabling models to capture global context with unprecedented efficiency.
+
+![class](/ima/ima24.png)
 
 This shift made Transformer models:
 	•	fully parallelizable, accelerating training dramatically,
