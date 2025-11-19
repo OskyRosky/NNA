@@ -3077,11 +3077,11 @@ This innovation created the Transformer, the architecture that reshaped natural 
 Transformers represent one of the most profound shifts in the history of neural networks.
 While recurrent and convolutional models shaped early breakthroughs in language and vision, both architectures shared a fundamental limitation: they processed sequences incrementally, step by step. This sequential dependency created a bottleneck that slowed training, limited parallelization, and made long-range dependencies difficult to model.
 
-In 2017, everything changed.
+**In 2017, everything changed.**
 
 The paper “Attention Is All You Need” by Vaswani et al. introduced the Transformer, an architecture built entirely on attention mechanisms. Instead of relying on recurrence or fixed-size convolutional windows, the Transformer analyzes relationships between all positions in a sequence simultaneously, enabling models to capture global context with unprecedented efficiency.
 
-![class](/ima/ima24.png)
+![class](/ima/ima24.webp)
 
 This shift made Transformer models:
 	•	fully parallelizable, accelerating training dramatically,
@@ -3101,9 +3101,10 @@ Within two years, models such as BERT (2018) redefined contextual language under
 The transformer became the first general-purpose neural architecture — a single conceptual framework capable of interpreting text, images, audio, code, molecules, and more.
 
 At its core, the Transformer embodies three principles:
-	1.	Attention as computation: representations are formed by dynamically weighting relationships between tokens.
-	2.	Parallelization over recurrence: sequences can be processed in full, enabling large-scale training.
-	3.	Depth plus context: stacking attention blocks builds hierarchical representations of increasing abstraction.
+
+1.	Attention as computation: representations are formed by dynamically weighting relationships between tokens.
+2.	Parallelization over recurrence: sequences can be processed in full, enabling large-scale training.
+3.	Depth plus context: stacking attention blocks builds hierarchical representations of increasing abstraction.
 
 Transformers unlocked the era of foundation models, large language models, and generative AI. They form the structural backbone of ChatGPT, Claude, Gemini, LLaMA, and nearly all modern state-of-the-art systems. Together, these models reveal how the Transformer family reshaped artificial intelligence — shifting from sequence learners to universal pattern recognizers.
 
@@ -3123,22 +3124,31 @@ Main Transformers :
 In the following sections, we will study three fundamental architectures that represent the conceptual and historical evolution of the Transformer family:
 
 •	Original Transformer (Vaswani et al., 2017), which introduced attention-based sequence modeling,
+
 •	BERT, which demonstrated the power of bidirectional context for understanding,
+
 •	GPT, which established autoregressive generative modeling and scaling laws.
+
 •	ALBERT / RoBERTa / DistilBERT – efficiency and fine-tuning variants
 
-1. The Original Transformer – Attention Is All You Need
+### 1. The Original Transformer – Attention Is All You Need
 
 What is it?
 
 The Original Transformer, introduced by Vaswani et al. (2017) in the landmark paper “Attention Is All You Need”, is the first neural architecture built entirely on attention mechanisms, without any recurrence or convolution.
 This model redefined sequence learning by allowing networks to process all positions in a sequence simultaneously, using learned attention weights to determine how tokens relate to one another.
 
+![class](/ima/ima25.png)
+
 The Transformer introduced:
-	•	Self-attention, which models global interactions between tokens.
-	•	Multi-head attention, which learns multiple relational patterns in parallel.
-	•	Positional encodings, which restore sequence order without recurrence.
-	•	A fully parallel architecture that scales elegantly with depth and data.
+
+•	Self-attention, which models global interactions between tokens.
+
+•	Multi-head attention, which learns multiple relational patterns in parallel.
+
+•	Positional encodings, which restore sequence order without recurrence.
+
+•	A fully parallel architecture that scales elegantly with depth and data.
 
 This design became the foundation for every major modern AI system, including BERT, GPT, ViT, Whisper, LLaMA, Gemini, and many more.
 
@@ -3147,24 +3157,34 @@ This design became the foundation for every major modern AI system, including BE
 Why use it?
 
 The Transformer is used when:
-	•	You need to model long-range dependencies efficiently.
-	•	Parallel computation is required (RNNs cannot parallelize across timesteps).
-	•	Large-scale training with billions of tokens or parameters is involved.
-	•	Tasks require rich contextualization (e.g., translation, language modeling).
-	•	The goal is to learn universal, flexible representations adaptable across domains.
+
+•	You need to model long-range dependencies efficiently.
+
+•	Parallel computation is required (RNNs cannot parallelize across timesteps).
+
+•	Large-scale training with billions of tokens or parameters is involved.
+
+•	Tasks require rich contextualization (e.g., translation, language modeling).
+
+•	The goal is to learn universal, flexible representations adaptable across domains.
 
 Transformers excel in:
-	•	NLP (translation, summarization, QA, generation),
-	•	Vision (image classification, segmentation),
-	•	Audio/Speech (ASR, TTS),
-	•	Time series,
-	•	Multimodal models.
+
+•	NLP (translation, summarization, QA, generation),
+
+•	Vision (image classification, segmentation),
+
+•	Audio/Speech (ASR, TTS),
+
+•	Time series,
+
+•	Multimodal models.
 
 Their performance increases predictably with scale — a key reason they dominate current AI research.
 
 ⸻
 
-Intuition
+**Intuition**
 
 Attention answers a simple question:
 
@@ -3179,7 +3199,7 @@ The absence of recurrence frees the architecture from temporal bottlenecks, enab
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Self-attention computes a weighted sum of values:
 
@@ -3213,10 +3233,14 @@ PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)
 $$
 
 The encoder and decoder stacks combine:
-	•	Multi-head attention
-	•	Feedforward networks
-	•	Residual connections
-	•	Layer normalization
+
+•	Multi-head attention
+
+•	Feedforward networks
+
+•	Residual connections
+
+•	Layer normalization
 
 This combination forms the template adopted by all future transformer variants.
 
@@ -3225,60 +3249,71 @@ This combination forms the template adopted by all future transformer variants.
 Training Logic
 
 Training follows supervised learning with teacher forcing for sequence-to-sequence tasks (like translation). The process is:
-	1.	Encode the input using stacked attention blocks.
-	2.	Decode while masking future positions (for autoregressive decoding).
-	3.	Compute cross-entropy loss between predicted and target tokens.
-	4.	Backpropagate through the attention layers.
-	5.	Update parameters using Adam or AdamW.
+
+1.	Encode the input using stacked attention blocks.
+2.	Decode while masking future positions (for autoregressive decoding).
+3.	Compute cross-entropy loss between predicted and target tokens.
+4.	Backpropagate through the attention layers.
+5.	Update parameters using Adam or AdamW.
 
 Transformers require:
-	•	Large batches
-	•	Learning rate warmup
-	•	Careful initialization
+
+•	Large batches
+•	Learning rate warmup
+•	Careful initialization
 
 These practices stabilize training and ensure good convergence.
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
-	•	Attention alone can model all dependencies.
-	•	Long-range relationships matter.
-	•	Data is abundant enough to train large models.
+
+•	Attention alone can model all dependencies.
+•	Long-range relationships matter.
+•	Data is abundant enough to train large models.
 
 Limitations
-	•	Quadratic complexity in sequence length (self-attention scales as O(n^2)).
-	•	Requires extensive compute and memory.
-	•	May struggle on very small datasets or with limited supervision.
-	•	Does not naturally impose recurrence or locality when needed.
+
+•	Quadratic complexity in sequence length (self-attention scales as O(n^2)).
+•	Requires extensive compute and memory.
+•	May struggle on very small datasets or with limited supervision.
+•	Does not naturally impose recurrence or locality when needed.
 
 Despite these limitations, no other architecture has matched its versatility and scalability.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
-	•	Model dimension d_{model} (e.g., 512, 1024).
-	•	Number of layers (encoder/decoder depth).
-	•	Number of attention heads.
-	•	Feedforward layer width (e.g., 2048–4096).
-	•	Dropout rate.
-	•	Learning rate schedule (warmup steps, decay).
-	•	Masking strategy (causal or bidirectional).
+**Key Hyperparameters (Conceptual View)**
+
+•	Model dimension d_{model} (e.g., 512, 1024).
+•	Number of layers (encoder/decoder depth).
+•	Number of attention heads.
+•	Feedforward layer width (e.g., 2048–4096).
+•	Dropout rate.
+•	Learning rate schedule (warmup steps, decay).
+•	Masking strategy (causal or bidirectional).
 
 These parameters govern model capacity, parallelization, and sequence-handling behavior.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Transformers are evaluated using:
-	•	BLEU for machine translation,
-	•	Accuracy/F1/Exact Match for NLP tasks,
-	•	Perplexity for language models,
-	•	Cross-entropy loss during training,
-	•	Downstream fine-tuning performance,
-	•	Zero-shot and few-shot capabilities in large models.
+
+•	BLEU for machine translation,
+
+•	Accuracy/F1/Exact Match for NLP tasks,
+
+•	Perplexity for language models,
+
+•	Cross-entropy loss during training,
+
+•	Downstream fine-tuning performance,
+
+•	Zero-shot and few-shot capabilities in large models.
 
 Model performance improves steadily with scale, dataset size, and compute budget.
 
@@ -3287,16 +3322,24 @@ Model performance improves steadily with scale, dataset size, and compute budget
 When to Use / When Not to Use
 
 Use Transformers when:
-	•	You have large data and computational resources.
-	•	Global context is essential.
-	•	You need scalable, parallelizable architectures.
-	•	You are working with text, sequences, or structured patterns.
-	•	State-of-the-art accuracy is required.
+
+•	You have large data and computational resources.
+
+•	Global context is essential.
+
+•	You need scalable, parallelizable architectures.
+
+•	You are working with text, sequences, or structured patterns.
+
+•	State-of-the-art accuracy is required.
 
 Avoid Transformers when:
-	•	You have very small datasets.
-	•	You must deploy extremely lightweight models.
-	•	Sequence length is extremely large (unless using efficient attention).
+
+•	You have very small datasets.
+
+•	You must deploy extremely lightweight models.
+
+•	Sequence length is extremely large (unless using efficient attention).
 
 Transformers are general-purpose and highly flexible, but they require compute to shine.
 
