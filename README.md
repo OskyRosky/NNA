@@ -1769,7 +1769,7 @@ We now turn to Recurrent Neural Networks (RNNs): architectures designed to think
 
 Recurrent Neural Networks (RNNs) marked the moment when artificial intelligence learned to process time. While feedforward and convolutional networks excel at understanding static patterns — images, tabular data, spatial relationships — they lack the ability to remember what came before. They see the world as isolated snapshots.
 
-![class](/ima/ima16.webp) 
+![class](/ima/ima16.png) 
 
 But many forms of real-world information unfold as sequences.
 
@@ -1843,6 +1843,8 @@ What is it?
 
 The Simple Recurrent Neural Network (Simple RNN) is the earliest practical architecture designed to process sequential data. It formalizes the idea that a neural network can maintain a hidden state that evolves over time, allowing the model to remember information from previous inputs.
 
+![class](/ima/ima17.png)
+
 The idea originated with Elman (1990) and Jordan (1986) networks, which introduced feedback loops as a way to encode temporal dependencies. Although limited by training challenges, Simple RNNs established the foundation for modern sequence modeling.
 
 ⸻
@@ -1850,10 +1852,14 @@ The idea originated with Elman (1990) and Jordan (1986) networks, which introduc
 Why use it?
 
 Simple RNNs are used when:
-	•	The task requires processing sequences rather than isolated inputs.
-	•	Dependencies between neighboring timesteps are important.
-	•	The problem benefits from a compact, lightweight model.
-	•	One wants to understand the core mechanisms of recurrent computation.
+
+•	The task requires processing sequences rather than isolated inputs.
+
+•	Dependencies between neighboring timesteps are important.
+
+•	The problem benefits from a compact, lightweight model.
+
+•	One wants to understand the core mechanisms of recurrent computation.
 
 Typical applications include toy language modeling, short-range time series, early speech processing tasks, and educational illustrations of recurrent neural dynamics.
 
@@ -1896,13 +1902,15 @@ The key property is weight sharing across time, which allows the network to gene
 Training Logic
 
 Training follows Backpropagation Through Time (BPTT):
-	1.	The network processes the sequence step by step.
-	2.	The total loss is computed across all timesteps.
-	3.	Gradients are propagated backward through the entire sequence.
+
+1.	The network processes the sequence step by step.
+2.	The total loss is computed across all timesteps.
+3.	Gradients are propagated backward through the entire sequence.
 
 During BPTT, repeated multiplication through recurrent weights often leads to:
-	•	vanishing gradients, when values shrink toward zero, or
-	•	exploding gradients, when they grow uncontrollably.
+
+•	vanishing gradients, when values shrink toward zero, or
+•	exploding gradients, when they grow uncontrollably.
 
 This instability is the main reason Simple RNNs struggle with long-term dependencies.
 
@@ -1963,15 +1971,17 @@ Temporal diagnostics such as gradient norms or memory decay curves help identify
 When to Use / When Not to Use
 
 Use Simple RNNs when:
-	•	The goal is educational — understanding recurrence fundamentals.
-	•	Sequences are short and relationships are local.
-	•	Computation must remain extremely lightweight.
+
+•	The goal is educational — understanding recurrence fundamentals.
+•	Sequences are short and relationships are local.
+•	Computation must remain extremely lightweight.
 
 Avoid Simple RNNs when:
-	•	The task involves long-range dependencies.
-	•	Precise temporal memory is required.
-	•	Data is noisy or the sequence length is large.
-	•	State-of-the-art performance is needed.
+
+•	The task involves long-range dependencies.
+•	Precise temporal memory is required.
+•	Data is noisy or the sequence length is large.
+•	State-of-the-art performance is needed.
 
 In these scenarios, LSTMs or GRUs are superior.
 
@@ -1980,13 +1990,15 @@ In these scenarios, LSTMs or GRUs are superior.
 References
 
 Canonical Papers
-	1.	Elman, J. L. (1990). Finding Structure in Time. Cognitive Science.
-	2.	Jordan, M. I. (1986). Attractor Dynamics and Parallelism in a Connectionist Sequential Machine. Proceedings of CogSci.
-	3.	Werbos, P. (1990). Backpropagation Through Time: What It Does and How to Do It. Proceedings of IEEE.
+
+1.	Elman, J. L. (1990). Finding Structure in Time. Cognitive Science.
+2.	Jordan, M. I. (1986). Attractor Dynamics and Parallelism in a Connectionist Sequential Machine. Proceedings of CogSci.
+3.	Werbos, P. (1990). Backpropagation Through Time: What It Does and How to Do It. Proceedings of IEEE.
 
 Web Resources
-	1.	Stanford CS231n – RNN Overview: https://cs231n.github.io/recurrent-networks/
-	2.	Colah’s Blog – Understanding LSTMs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+1.	Stanford CS231n – RNN Overview: https://cs231n.github.io/recurrent-networks/
+2.	Colah’s Blog – Understanding LSTMs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 ---------
 
@@ -2005,6 +2017,8 @@ What is it?
 The Long Short-Term Memory (LSTM) network, introduced by Sepp Hochreiter and Jürgen Schmidhuber in 1997, is a recurrent neural architecture specifically designed to overcome the vanishing gradient problem that limits traditional RNNs.
 Its core innovation is the introduction of gates, neural mechanisms that regulate which information is remembered, which is forgotten, and which is exposed as output.
 
+![class](/ima/ima18.png)
+
 By stabilizing gradient flow, LSTMs can store patterns over long time spans — from dozens to hundreds of timesteps — enabling them to model long-term dependencies in speech, text, time series, and sequential decision problems.
 
 ⸻
@@ -2012,9 +2026,12 @@ By stabilizing gradient flow, LSTMs can store patterns over long time spans — 
 Why use it?
 
 LSTMs are used when:
-	•	The task involves long-range relationships that simple RNNs cannot capture.
-	•	Precise temporal memory is essential, such as in translation, music generation, or sensor-based prediction.
-	•	The sequence contains delayed signals, where events early in the data influence much later outputs.
+
+•	The task involves long-range relationships that simple RNNs cannot capture.
+
+•	Precise temporal memory is essential, such as in translation, music generation, or sensor-based prediction.
+
+•	The sequence contains delayed signals, where events early in the data influence much later outputs.
 
 Their robustness has made them the standard sequential model for more than a decade before the transformer era.
 
@@ -2024,9 +2041,12 @@ Intuition
 
 The LSTM introduces a cell state, denoted as c_t, which behaves like a conveyor belt carrying information across time.
 Gates act as regulators that open or close depending on the input, controlling:
-	•	What information flows into the memory
-	•	What is kept or erased
-	•	What is exposed to the next layer or output
+
+•	What information flows into the memory
+
+•	What is kept or erased
+
+•	What is exposed to the next layer or output
 
 This structure mimics how humans process extended sequences: we selectively forget irrelevant details, reinforce important ones, and expose only a distilled representation to guide future decisions.
 
@@ -2083,10 +2103,14 @@ Training Logic
 LSTMs are trained using Backpropagation Through Time, like simple RNNs, but with an important difference: gates allow gradients to flow more smoothly.
 
 Training steps:
-	1.	Sequential forward pass through LSTM cells.
-	2.	Loss computation across all timesteps.
-	3.	Backpropagation through the unrolled network.
-	4.	Parameter updates using SGD, Adam, or RMSProp.
+
+1.	Sequential forward pass through LSTM cells.
+
+2.	Loss computation across all timesteps.
+
+3.	Backpropagation through the unrolled network.
+
+4.	Parameter updates using SGD, Adam, or RMSProp.
 
 Regularization techniques such as recurrent dropout, layer normalization, or peephole connections can improve performance further.
 
@@ -2095,26 +2119,38 @@ Regularization techniques such as recurrent dropout, layer normalization, or pee
 Assumptions and Limitations
 
 Assumptions
-	•	There exist meaningful dependencies over long intervals.
-	•	The temporal signal contains interpretable patterns that benefit from memory retention.
+
+•	There exist meaningful dependencies over long intervals.
+
+•	The temporal signal contains interpretable patterns that benefit from memory retention.
 
 Limitations
-	•	High computational cost due to gating operations.
-	•	Difficult to parallelize across timesteps (unlike transformers).
-	•	Overkill for short sequences or tasks with limited temporal structure.
-	•	Longer training times than GRUs and simple RNNs.
+
+•	High computational cost due to gating operations.
+
+•	Difficult to parallelize across timesteps (unlike transformers).
+
+•	Overkill for short sequences or tasks with limited temporal structure.
+
+•	Longer training times than GRUs and simple RNNs.
 
 Despite these drawbacks, LSTMs remain reliable when transformers are not feasible or when memory-efficient sequence models are required.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Hidden dimension: controls the capacity of the memory.
-	•	Number of layers: deeper LSTMs capture more hierarchical temporal structure.
-	•	Bidirectionality: adds a backward pass for contextualized representations.
-	•	Dropout: helps mitigate overfitting.
-	•	Sequence length: long sequences increase computational cost.
-	•	Batch size and learning rate: critical for stable training.
+
+•	Hidden dimension: controls the capacity of the memory.
+
+•	Number of layers: deeper LSTMs capture more hierarchical temporal structure.
+
+•	Bidirectionality: adds a backward pass for contextualized representations.
+
+•	Dropout: helps mitigate overfitting.
+
+•	Sequence length: long sequences increase computational cost.
+
+•	Batch size and learning rate: critical for stable training.
 
 LSTMs are sensitive to learning rate schedules and benefit from warm restarts or decay strategies.
 
@@ -2123,10 +2159,14 @@ LSTMs are sensitive to learning rate schedules and benefit from warm restarts or
 Evaluation Focus
 
 Evaluation depends on the domain:
-	•	Perplexity in NLP tasks.
-	•	RMSE or MAE in continuous-time prediction.
-	•	Accuracy or F1-score for classification of sequential data.
-	•	Temporal correlation metrics for forecasting tasks.
+
+•	Perplexity in NLP tasks.
+
+•	RMSE or MAE in continuous-time prediction.
+
+•	Accuracy or F1-score for classification of sequential data.
+
+•	Temporal correlation metrics for forecasting tasks.
 
 Inspecting gate activations or the evolution of the cell state can provide insight into what the model remembers or forgets.
 
@@ -2135,29 +2175,42 @@ Inspecting gate activations or the evolution of the cell state can provide insig
 When to Use / When Not to Use
 
 Use LSTMs when:
-	•	Long-term dependencies shape future outcomes.
-	•	Data is noisy but contains meaningful temporal structure.
-	•	You cannot use transformers due to compute constraints.
-	•	The sequence length varies significantly.
+
+•	Long-term dependencies shape future outcomes.
+
+•	Data is noisy but contains meaningful temporal structure.
+
+•	You cannot use transformers due to compute constraints.
+
+•	The sequence length varies significantly.
 
 Avoid LSTMs when:
-	•	Only short-term or local dependencies matter.
-	•	Real-time inference must be extremely fast.
-	•	You need parallelizable sequence processing.
-	•	The dataset is too small to justify high model capacity.
+
+•	Only short-term or local dependencies matter.
+
+•	Real-time inference must be extremely fast.
+
+•	You need parallelizable sequence processing.
+
+•	The dataset is too small to justify high model capacity.
 
 ⸻
 
 References
 
 Canonical Papers
-	1.	Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. Neural Computation.
-	2.	Gers, F. A., Schmidhuber, J., & Cummins, F. (2000). Learning to Forget: Continual Prediction with LSTM. Neural Computation.
-	3.	Graves, A. (2013). Generating Sequences With Recurrent Neural Networks. arXiv.
+
+1.	Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. Neural Computation.
+
+2.	Gers, F. A., Schmidhuber, J., & Cummins, F. (2000). Learning to Forget: Continual Prediction with LSTM. Neural Computation.
+
+3.	Graves, A. (2013). Generating Sequences With Recurrent Neural Networks. arXiv.
 
 Web Resources
-	1.	Colah’s Blog – Understanding LSTMs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-	2.	Stanford CS224n – LSTM Notes: https://web.stanford.edu/class/cs224n/
+
+1.	Colah’s Blog – Understanding LSTMs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+2.	Stanford CS224n – LSTM Notes: https://web.stanford.edu/class/cs224n/
 
 
 ----------
@@ -2179,6 +2232,8 @@ What is it?
 The Gated Recurrent Unit (GRU), introduced by Cho et al. in 2014, is a streamlined recurrent architecture designed to provide most of the benefits of LSTMs while reducing computational complexity.
 GRUs merge certain gates and remove the explicit memory cell, resulting in a simpler structure that often trains faster and generalizes well across a wide range of sequential tasks.
 
+![class](/ima/ima19.png)
+
 Their design philosophy is elegant: keep the essential idea of gating, simplify the mechanics, and retain long-range dependencies without the full overhead of LSTMs.
 
 ⸻
@@ -2186,10 +2241,14 @@ Their design philosophy is elegant: keep the essential idea of gating, simplify 
 Why use it?
 
 GRUs are chosen when:
-	•	Long-term dependencies matter, but computational efficiency is a priority.
-	•	The dataset is moderate in size and benefits from reduced parameterization.
-	•	You want the stability of LSTMs without the cost of multiple gates.
-	•	Training time or resource constraints limit the use of heavier architectures.
+
+•	Long-term dependencies matter, but computational efficiency is a priority.
+	
+•	The dataset is moderate in size and benefits from reduced parameterization.
+	
+•	You want the stability of LSTMs without the cost of multiple gates.
+	
+•	Training time or resource constraints limit the use of heavier architectures.
 
 They excel in speech recognition, text classification, time series forecasting, and embedded systems where model size is crucial.
 
@@ -2198,8 +2257,9 @@ They excel in speech recognition, text classification, time series forecasting, 
 Intuition
 
 The GRU simplifies memory control through two gates instead of three:
-	1.	Update gate: decides how much of the past to keep.
-	2.	Reset gate: decides how much of the past to forget.
+
+1.	Update gate: decides how much of the past to keep.
+2.	Reset gate: decides how much of the past to forget.
 
 Instead of a separate cell state, the GRU directly updates its hidden state.
 This creates a more fluid, adaptive memory system where the model can choose to keep or overwrite information based on the temporal context.
@@ -2244,9 +2304,12 @@ Training Logic
 
 Training GRUs follows the same Backpropagation Through Time procedure as other RNNs.
 However, due to simpler gating, gradients flow more directly, often making GRUs:
-	•	Faster to train,
-	•	Less prone to overfitting,
-	•	More stable on medium-length sequences.
+
+•	Faster to train,
+
+•	Less prone to overfitting,
+
+•	More stable on medium-length sequences.
 
 Optimizers such as Adam, RMSProp, or SGD with momentum are commonly used.
 
@@ -2255,13 +2318,18 @@ Optimizers such as Adam, RMSProp, or SGD with momentum are commonly used.
 Assumptions and Limitations
 
 Assumptions
-	•	Some temporal dependencies require gating, but not at the full complexity of LSTMs.
-	•	The dataset contains meaningful patterns across time but does not demand extensive memory retention.
+
+•	Some temporal dependencies require gating, but not at the full complexity of LSTMs.
+
+•	The dataset contains meaningful patterns across time but does not demand extensive memory retention.
 
 Limitations
-	•	Sometimes performs slightly worse than LSTMs on tasks requiring very long memory.
-	•	Fewer gates mean less control over forgetting and retaining information.
-	•	Might oversimplify state transitions for complex linguistic or symbolic tasks.
+
+•	Sometimes performs slightly worse than LSTMs on tasks requiring very long memory.
+
+•	Fewer gates mean less control over forgetting and retaining information.
+
+•	Might oversimplify state transitions for complex linguistic or symbolic tasks.
 
 Despite these limitations, GRUs often match or even exceed LSTM performance in practice.
 
@@ -2288,10 +2356,11 @@ GRUs are more robust to hyperparameter choices than LSTMs, making them easier to
 Evaluation Focus
 
 Primary metrics depend on the domain:
-	•	Perplexity for language modeling.
-	•	RMSE/MAE for forecasting.
-	•	Accuracy/F1-score for sequence classification.
-	•	Temporal smoothness or lag error for sensor-based prediction.
+
+•	Perplexity for language modeling.
+•	RMSE/MAE for forecasting.
+•	Accuracy/F1-score for sequence classification.
+•	Temporal smoothness or lag error for sensor-based prediction.
 
 GRUs are often benchmarked directly against LSTMs to compare training speed and accuracy.
 
@@ -2300,28 +2369,37 @@ GRUs are often benchmarked directly against LSTMs to compare training speed and 
 When to Use / When Not to Use
 
 Use GRUs when:
-	•	You need a balance between performance and efficiency.
-	•	The dataset is medium in size or noise-sensitive.
-	•	Deployment efficiency is important (mobile, embedded, real-time systems).
-	•	Training resources are limited.
+
+•	You need a balance between performance and efficiency.
+
+•	The dataset is medium in size or noise-sensitive.
+
+•	Deployment efficiency is important (mobile, embedded, real-time systems).
+
+•	Training resources are limited.
 
 Avoid GRUs when:
-	•	Very long-term dependencies dominate the task.
-	•	You need precise memory control (LSTM gates are more expressive).
-	•	Sequence modeling requires hierarchical or heavily contextual memory.
+
+•	Very long-term dependencies dominate the task.
+
+•	You need precise memory control (LSTM gates are more expressive).
+
+•	Sequence modeling requires hierarchical or heavily contextual memory.
 
 ⸻
 
 References
 
 Canonical Papers
-	1.	Cho, K. et al. (2014). Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation. EMNLP.
-	2.	Chung, J., Gulcehre, C., Cho, K., & Bengio, Y. (2014). Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling. NIPS Workshops.
-	3.	Graves, A. (2012). Supervised Sequence Labelling with Recurrent Neural Networks. Springer.
+
+1.	Cho, K. et al. (2014). Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation. EMNLP.
+2.	Chung, J., Gulcehre, C., Cho, K., & Bengio, Y. (2014). Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling. NIPS Workshops.
+3.	Graves, A. (2012). Supervised Sequence Labelling with Recurrent Neural Networks. Springer.
 
 Web Resources
-	1.	Colah’s Blog – Understanding LSTMs & GRUs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-	2.	Machine Learning Mastery – GRU Networks Explained: https://machinelearningmastery.com
+
+1.	Colah’s Blog – Understanding LSTMs & GRUs: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+2.	Machine Learning Mastery – GRU Networks Explained: https://machinelearningmastery.com
 
 ----------
 
