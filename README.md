@@ -4720,7 +4720,7 @@ Once these architectures are presented, we will close the chapter by reflecting 
 --------------------------------------------------
 
 
-1. Graph Neural Networks (GNNs) – Learning Over Structured, Relational Data
+### 1. Graph Neural Networks (GNNs) – Learning Over Structured, Relational Data
 
 What is it?
 
