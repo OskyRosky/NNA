@@ -2358,8 +2358,11 @@ Evaluation Focus
 Primary metrics depend on the domain:
 
 •	Perplexity for language modeling.
+
 •	RMSE/MAE for forecasting.
+
 •	Accuracy/F1-score for sequence classification.
+
 •	Temporal smoothness or lag error for sensor-based prediction.
 
 GRUs are often benchmarked directly against LSTMs to compare training speed and accuracy.
@@ -3350,12 +3353,15 @@ References
 Canonical Papers
 
 1.	Vaswani, A. et al. (2017). Attention Is All You Need. NeurIPS.
+
 2.	Ba, L. J., Kiros, J. R., & Hinton, G. E. (2016). Layer Normalization. arXiv.
+
 3.	Shaw, P., Uszkoreit, J., & Vaswani, A. (2018). Self-Attention with Relative Position Representations. NAACL.
 
 Web Resources
 
 1.	Illustrated Transformer – Jay Alammar.
+
 2.	Stanford CS224n Notes on Attention & Transformers.
 
 -------------------------
@@ -3369,16 +3375,20 @@ Now we explore how this encoder-only architecture reshaped the landscape of lang
 
 -------------------------
 
-2. BERT – Bidirectional Encoding for Deep Understanding
+### 2. BERT – Bidirectional Encoding for Deep Understanding
 
 What is it?
 
 BERT (Bidirectional Encoder Representations from Transformers), introduced by Devlin et al. (2018), is an encoder-only transformer model designed to learn deep bidirectional representations of language.
 Unlike earlier models that processed text left-to-right (GPT) or with limited context (RNNs), BERT reads sequences in both directions simultaneously, allowing it to understand context from the entire sentence at once.
 
+![class](/ima/ima26.png)
+
 BERT introduced two major innovations:
-	1.	Masked Language Modeling (MLM) — randomly masking tokens and training the model to recover them.
-	2.	Next Sentence Prediction (NSP) — learning relationships between sentences.
+
+1.	Masked Language Modeling (MLM) — randomly masking tokens and training the model to recover them.
+
+2.	Next Sentence Prediction (NSP) — learning relationships between sentences.
 
 These tasks allowed BERT to learn general-purpose linguistic representations from massive unlabeled corpora, establishing the modern paradigm of pretrain → fine-tune.
 
@@ -3389,11 +3399,16 @@ BERT revolutionized natural language understanding, achieving state-of-the-art r
 Why use it?
 
 BERT is used when:
-	•	You need contextual embeddings that understand meaning across both directions.
-	•	The task involves classification, QA, NER, summarization, sentence similarity, or reasoning.
-	•	You want to leverage transfer learning from large-scale pretraining.
-	•	Training from scratch is infeasible due to data scarcity.
-	•	Interpretability in terms of attention patterns is important.
+
+•	You need contextual embeddings that understand meaning across both directions.
+
+•	The task involves classification, QA, NER, summarization, sentence similarity, or reasoning.
+
+•	You want to leverage transfer learning from large-scale pretraining.
+
+•	Training from scratch is infeasible due to data scarcity.
+
+•	Interpretability in terms of attention patterns is important.
 
 BERT is a universal encoder for text, capable of capturing syntactic, semantic, and relational structure.
 
@@ -3401,11 +3416,9 @@ BERT is a universal encoder for text, capable of capturing syntactic, semantic, 
 
 Intuition
 
-Traditional models read text sequentially. BERT does not.
-It sees the entire sequence at once and builds representations where each token attends to every other token — forward and backward.
+Traditional models read text sequentially. BERT does not. It sees the entire sequence at once and builds representations where each token attends to every other token — forward and backward.
 
-The MLM task captures the intuition of human cloze tests:
-the model must infer a missing word based on the full surrounding context.
+The MLM task captures the intuition of human cloze tests: the model must infer a missing word based on the full surrounding context.
 
 For example:
 
@@ -3457,13 +3470,20 @@ $$
 Training Logic
 
 BERT undergoes a two-phase pipeline:
-	1.	Pretraining
-	•	Trained on massive corpora such as Wikipedia and BookCorpus.
-	•	Learns deep contextual patterns.
-	•	MLM and NSP guide the model toward language understanding.
-	2.	Fine-tuning
-	•	A task-specific head (classification, QA, etc.) is added on top.
-	•	The entire network is optimized jointly on the new task.
+
+1.	Pretraining
+	
+•	Trained on massive corpora such as Wikipedia and BookCorpus.
+
+•	Learns deep contextual patterns.
+
+•	MLM and NSP guide the model toward language understanding.
+
+2.	Fine-tuning
+
+•	A task-specific head (classification, QA, etc.) is added on top.
+
+•	The entire network is optimized jointly on the new task.
 
 Fine-tuning requires only modest labeled data because the heavy lifting is done during pretraining.
 
@@ -3472,29 +3492,44 @@ Fine-tuning requires only modest labeled data because the heavy lifting is done 
 Assumptions and Limitations
 
 Assumptions
-	•	Bidirectional context improves semantic understanding.
-	•	The text corpus used for pretraining approximates the distribution of target tasks.
-	•	Sequence length remains manageable (typically ≤512 tokens).
+
+•	Bidirectional context improves semantic understanding.
+
+•	The text corpus used for pretraining approximates the distribution of target tasks.
+
+•	Sequence length remains manageable (typically ≤512 tokens).
 
 Limitations
-	•	Expensive pretraining; requires large compute.
-	•	Not suited for generation (cannot autoregress).
-	•	NSP was later found to be unnecessary; successor models remove it.
-	•	Sequence length constraints prevent modeling long documents unless extended architectures are used (Longformer, BigBird).
-	•	Hard to deploy on resource-constrained systems.
+
+•	Expensive pretraining; requires large compute.
+
+•	Not suited for generation (cannot autoregress).
+
+•	NSP was later found to be unnecessary; successor models remove it.
+
+•	Sequence length constraints prevent modeling long documents unless extended architectures are used (Longformer, BigBird).
+
+•	Hard to deploy on resource-constrained systems.
 
 Yet despite these limitations, BERT remains the cornerstone of modern language understanding.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Hidden size: 768 (base) or 1024 (large).
-	•	Number of layers: 12/24 transformer blocks.
-	•	Heads: 12/16 attention heads.
-	•	Max sequence length: usually 512 tokens.
-	•	Dropout rate: stabilizes training.
-	•	Learning rate schedule: warmup + linear decay.
-	•	Masking ratio during MLM (typically 15%).
+
+•	Hidden size: 768 (base) or 1024 (large).
+
+•	Number of layers: 12/24 transformer blocks.
+
+•	Heads: 12/16 attention heads.
+
+•	Max sequence length: usually 512 tokens.
+
+•	Dropout rate: stabilizes training.
+
+•	Learning rate schedule: warmup + linear decay.
+
+•	Masking ratio during MLM (typically 15%).
 
 These parameters define computational cost and representational strength.
 
@@ -3503,11 +3538,16 @@ These parameters define computational cost and representational strength.
 Evaluation Focus
 
 Evaluation depends on the downstream task:
-	•	GLUE/MNLI accuracy for general understanding.
-	•	Exact Match and F1 for extractive QA (SQuAD).
-	•	Accuracy for sentence classification.
-	•	Token-level F1 for NER.
-	•	STS correlation for semantic similarity tasks.
+
+•	GLUE/MNLI accuracy for general understanding.
+
+•	Exact Match and F1 for extractive QA (SQuAD).
+
+•	Accuracy for sentence classification.
+
+•	Token-level F1 for NER.
+
+•	STS correlation for semantic similarity tasks.
 
 Attention visualizations often reveal how BERT encodes syntactic and semantic structure.
 
@@ -3516,16 +3556,24 @@ Attention visualizations often reveal how BERT encodes syntactic and semantic st
 When to Use / When Not to Use
 
 Use BERT when:
-	•	You need strong contextual understanding of language.
-	•	The task involves classification, extraction, or reasoning.
-	•	You want to fine-tune a pretrained model on modest data.
-	•	You value interpretability in attention maps.
+
+•	You need strong contextual understanding of language.
+
+•	The task involves classification, extraction, or reasoning.
+
+•	You want to fine-tune a pretrained model on modest data.
+
+•	You value interpretability in attention maps.
 
 Avoid BERT when:
-	•	You need generation (GPT is better).
-	•	You require long-context modeling.
-	•	Deployment must be extremely fast or lightweight.
-	•	The use case depends on structured latent space or generative sampling.
+
+•	You need generation (GPT is better).
+
+•	You require long-context modeling.
+
+•	Deployment must be extremely fast or lightweight.
+
+•	The use case depends on structured latent space or generative sampling.
 
 BERT remains the gold standard for language understanding, not generation.
 
@@ -3561,6 +3609,8 @@ What is it?
 
 The GPT (Generative Pretrained Transformer) family, introduced by OpenAI beginning in 2018, is an autoregressive transformer architecture designed for natural language generation.
 GPT models read text from left to right, predicting the next token at each step. This simple mechanism — combined with large-scale pretraining — turned them into powerful generative models capable of producing coherent, contextually rich text across long sequences.
+
+![class](/ima/ima27.png)
 
 GPT introduced several fundamental ideas:
 	•	Autoregressive pretraining on massive text corpora.
@@ -3657,13 +3707,17 @@ where N represents model size, dataset size, or compute, and \alpha is a predict
 Training Logic
 
 GPT training involves:
-	1.	Large-scale unsupervised pretraining on diverse web corpora.
-	2.	Optimization with Adam or AdamW.
-	3.	Learning rate warmup followed by cosine or linear decay.
-	4.	Potential fine-tuning for specific tasks (GPT-1 and GPT-2).
-	5.	For modern GPTs:
+
+1.	Large-scale unsupervised pretraining on diverse web corpora.
+2.	Optimization with Adam or AdamW.
+3.	Learning rate warmup followed by cosine or linear decay.
+4.	Potential fine-tuning for specific tasks (GPT-1 and GPT-2).
+5.	For modern GPTs:
+
 	•	Instruction tuning,
+	
 	•	Reinforcement Learning from Human Feedback (RLHF),
+	
 	•	Supervised preference optimization.
 
 GPT-3 and later models demonstrated that fine-tuning is optional: the model can generalize using only instructions (prompting).
@@ -3673,29 +3727,44 @@ GPT-3 and later models demonstrated that fine-tuning is optional: the model can 
 Assumptions and Limitations
 
 Assumptions
-	•	Autoregressive modeling is sufficient for rich generative behavior.
-	•	Pretraining corpus reflects language distributions needed for downstream tasks.
-	•	Longer context windows improve reasoning and coherence.
+
+•	Autoregressive modeling is sufficient for rich generative behavior.
+
+•	Pretraining corpus reflects language distributions needed for downstream tasks.
+
+•	Longer context windows improve reasoning and coherence.
 
 Limitations
-	•	Cannot perform true bidirectional understanding like BERT (without architectural modifications).
-	•	Prone to hallucinations and factual drift in long sequences.
-	•	Computationally expensive during training and inference.
-	•	Sensitive to prompt wording and context management.
-	•	Large memory footprint and latency for long contexts.
+
+•	Cannot perform true bidirectional understanding like BERT (without architectural modifications).
+
+•	Prone to hallucinations and factual drift in long sequences.
+
+•	Computationally expensive during training and inference.
+
+•	Sensitive to prompt wording and context management.
+
+•	Large memory footprint and latency for long contexts.
 
 GPT’s power comes at the cost of complexity and compute.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Number of layers (transformer blocks).
-	•	Model width (hidden dimension).
-	•	Number of attention heads.
-	•	Context window length.
-	•	Batch size and learning rate schedule.
-	•	Dropout and weight decay.
-	•	Tokenizer vocabulary size.
+
+•	Number of layers (transformer blocks).
+
+•	Model width (hidden dimension).
+
+•	Number of attention heads.
+
+•	Context window length.
+
+•	Batch size and learning rate schedule.
+
+•	Dropout and weight decay.
+
+•	Tokenizer vocabulary size.
 
 In GPT models, context window and parameter scaling are the most influential factors for emergent abilities.
 
@@ -3704,12 +3773,18 @@ In GPT models, context window and parameter scaling are the most influential fac
 Evaluation Focus
 
 GPT models are evaluated using:
-	•	Perplexity for language modeling.
-	•	Zero-shot and few-shot performance on benchmarks.
-	•	Downstream accuracy after instruction tuning.
-	•	Human preference evaluations (RLHF).
-	•	Long-context coherence and reasoning depth.
-	•	Hallucination and factual consistency metrics.
+
+•	Perplexity for language modeling.
+
+•	Zero-shot and few-shot performance on benchmarks.
+
+•	Downstream accuracy after instruction tuning.
+
+•	Human preference evaluations (RLHF).
+
+•	Long-context coherence and reasoning depth.
+
+•	Hallucination and factual consistency metrics.
 
 GPT’s success is measured both quantitatively and qualitatively.
 
@@ -3718,17 +3793,19 @@ GPT’s success is measured both quantitatively and qualitatively.
 When to Use / When Not to Use
 
 Use GPT when:
-	•	You need strong text generation.
-	•	Few-shot or zero-shot learning is beneficial.
-	•	The task involves open-ended reasoning or creativity.
-	•	You need a conversational agent or code assistant.
-	•	You want a model that scales predictably with data.
+
+•	You need strong text generation.
+•	Few-shot or zero-shot learning is beneficial.
+•	The task involves open-ended reasoning or creativity.
+•	You need a conversational agent or code assistant.
+•	You want a model that scales predictably with data.
 
 Avoid GPT when:
-	•	You need strict deterministic outputs or high factual accuracy.
-	•	You require bidirectional understanding (BERT excels here).
-	•	Resources are limited and inference must be fast.
-	•	Sequence lengths far exceed available context windows.
+
+•	You need strict deterministic outputs or high factual accuracy.
+•	You require bidirectional understanding (BERT excels here).
+•	Resources are limited and inference must be fast.
+•	Sequence lengths far exceed available context windows.
 
 GPT is the dominant architecture for generative tasks, not structured token classification.
 
@@ -3760,176 +3837,183 @@ Models such as ALBERT, RoBERTa, and DistilBERT represent this movement toward ef
 
 ### 4. ALBERT / RoBERTa / DistilBERT – efficient and optimized encoder variants.
 
+
 What is it?
 
-ALBERT, RoBERTa y DistilBERT representan una generación de encoder transformers optimizados, creados para resolver un problema claro: el BERT original era demasiado pesado y costoso de entrenar.
+ALBERT, RoBERTa, and DistilBERT represent a generation of optimized Transformer encoders created to address a clear limitation: the original BERT model delivered exceptional performance but was computationally heavy, slow to train, and difficult to deploy in real-world systems.
 
-Aunque BERT demostró el poder de la pretraining bidireccional para tareas de comprensión de lenguaje, su tamaño, tiempo de entrenamiento y costo computacional lo volvieron difícil de desplegar en entornos reales.
+![class](/ima/ima28.png)
 
-Para enfrentar estas limitaciones surgieron tres líneas complementarias:
-	•	RoBERTa (2019, Facebook AI) mostró que BERT podía ser dramáticamente mejorado usando más datos, más pasos, una mejor estrategia de batching y la eliminación de la tarea NSP (Next Sentence Prediction).
-	•	ALBERT (2019, Google) redujo el tamaño del modelo mediante parameter sharing y factorized embeddings, manteniendo o incluso mejorando el rendimiento.
-	•	DistilBERT (2019, HuggingFace) aplicó knowledge distillation para comprimir BERT en un modelo 40% más pequeño y 60% más rápido, conservando la mayor parte del desempeño.
+BERT showed that deep bidirectional pretraining could unlock powerful language understanding, yet its size and computational requirements made it impractical for many production environments.
+These three variants emerged to make BERT more efficient—faster to train, lighter to deploy, and cheaper to fine-tune—while preserving most of its performance.
 
-Los tres modelos reflejan un mismo movimiento: hacer más eficiente el razonamiento profundo del encoder transformer, sin sacrificar calidad.
+RoBERTa, ALBERT, and DistilBERT pursue this goal through three complementary strategies:
+	•	RoBERTa (2019, Facebook AI) improved BERT through better training: more data, larger batches, longer schedules, dynamic masking, and removal of the Next Sentence Prediction (NSP) objective.
+	•	ALBERT (2019, Google) reduced BERT’s parameter count by applying cross-layer parameter sharing and factorized embeddings, achieving the same or better performance with significantly fewer parameters.
+	•	DistilBERT (2019, HuggingFace) applied knowledge distillation to compress BERT into a model that is 40% smaller and 60% faster, while retaining most of its accuracy.
+
+Together, these models reflect a broader movement: efficient deep contextual encoders that deliver strong performance without the computational burden of full-scale BERT.
 
 ⸻
 
-Why use it?
+Why Use It?
 
-Estos modelos se utilizan cuando el objetivo principal es comprensión — clasificación, extracción, análisis semántico, embeddings, búsqueda, QA — pero con necesidades de eficiencia claras:
-	•	despliegue en dispositivos con recursos limitados,
-	•	inferencia rápida en producción,
-	•	menor costo de entrenamiento y fine-tuning,
-	•	modelos compactos para pipelines de NLP industriales.
+These models are used when the goal is deep language understanding—classification, semantic similarity, extraction, embeddings, retrieval, question answering—but under constraints such as:
+	•	limited computational resources,
+	•	fast inference requirements,
+	•	deployment on edge or embedded devices,
+	•	reduced memory footprint during training and fine-tuning,
+	•	industrial NLP pipelines requiring speed and stability.
 
-RoBERTa se utiliza cuando se busca máximo rendimiento,
-ALBERT cuando se requiere menos memoria,
-DistilBERT cuando se necesita velocidad sin perder demasiada precisión.
+In general:
+	•	RoBERTa is chosen for maximum performance.
+	•	ALBERT is chosen when memory efficiency matters.
+	•	DistilBERT is chosen for fast inference and lightweight deployment.
 
 ⸻
 
 Intuition
 
-BERT demostró que el entendimiento profundo del contexto requiere atención bidireccional. Sin embargo, su arquitectura era redundante y sobredimensionada. Las variantes eficientes se construyen sobre tres intuiciones simples:
-	1.	RoBERTa: Las restricciones del entrenamiento original limitaban el potencial de BERT. Si se libera el entrenamiento — más datos, batches enormes, más pasos — el modelo mejora sin cambiar su arquitectura.
-	2.	ALBERT: Los parámetros pueden compartirse entre capas y las embedding matrices pueden factorizarse sin perder capacidad representacional.
-	3.	DistilBERT: Un modelo pequeño puede “aprender” del grande si se entrena para imitar sus distribuciones internas.
+BERT proved that contextual bidirectional attention captures deep semantic structure.
+However, its architecture was redundant and oversized for practical use.
+The efficient variants are built on three simple intuitions:
+	1.	RoBERTa:
+BERT’s original training constraints limited its full potential.
+If training is “unlocked”—more data, larger batches, longer schedules—the model improves without changing the architecture.
+	2.	ALBERT:
+Many parameters in BERT are repeated across layers.
+By sharing parameters and factorizing embeddings, the model retains representational power while dramatically reducing size.
+	3.	DistilBERT:
+A smaller model can learn from a larger teacher through knowledge distillation, reproducing its internal representations and predictions.
 
-La filosofía general es que la inteligencia contextual del transformer puede preservarse con menos parámetros si se optimiza la ingeniería del modelo y el entrenamiento.
+The general philosophy is that contextual intelligence can be preserved with fewer parameters if training and architectural engineering are optimized.
 
 ⸻
 
 Mathematical Foundation
 
-Aunque las bases son las del Transformer encoder original, cada modelo introduce su propia contribución matemática.
+Although all three architectures rely on the original Transformer encoder, each introduces a distinct mathematical contribution.
 
-Distillation loss (DistilBERT):
+Distillation Loss (DistilBERT)
 
-El modelo estudiantil se entrena para aproximar la distribución del modelo maestro:
+The student model learns to approximate the teacher’s softened output distribution:
 
 $$
-\mathcal{L}{\text{distill}} = H\left( p{\text{teacher}}, p_{\text{student}} \right)
+\mathcal{L}{\text{distill}} = H\big(p{\text{teacher}}, , p_{\text{student}}\big)
 $$
 
-donde H(\cdot) es la entropía cruzada suavizada con temperatura.
+where H(\cdot) is the cross-entropy with temperature scaling.
 
-Parameter sharing (ALBERT):
+Parameter Sharing (ALBERT)
 
-Si W^{(l)} es el conjunto de parámetros en la capa l, ALBERT impone:
+Instead of learning independent weights for each encoder layer, ALBERT enforces:
 
 $$
 W^{(1)} = W^{(2)} = \cdots = W^{(L)}
 $$
 
-reduciendo drásticamente el número total de parámetros sin disminuir la profundidad efectiva.
+reducing parameters while keeping depth intact.
 
-Factorized embeddings (ALBERT):
+Factorized Embeddings (ALBERT)
 
-En lugar de mapear directamente vocabulario → espacio oculto, ALBERT factoriza el proceso:
+Rather than mapping vocabulary directly into a large hidden space, ALBERT factorizes embeddings:
 
 $$
-\text{Embedding}{\text{word}} \in \mathbb{R}^{V \times E}
-\qquad \text{y} \qquad
+\text{Embedding}{\text{word}} \in \mathbb{R}^{V \times E},
+\qquad
 \text{Embedding}{\text{project}} \in \mathbb{R}^{E \times H}
 $$
 
-donde E \ll H, reduciendo memoria y acelerando el entrenamiento.
+where E \ll H.
+This lowers memory usage and speeds up training.
 
-RoBERTa:
-Matemáticamente, RoBERTa no modifica la arquitectura; optimiza el proceso de entrenamiento, lo cual tiene un impacto directo en la convergencia y el rendimiento final.
+RoBERTa
+
+Mathematically identical to BERT’s encoder.
+Its improvements come from training dynamics, not architecture.
 
 ⸻
 
 Training Logic
 
-Los tres modelos adoptan procesos de entrenamiento distintos, pero basados en las mismas tareas preentrenadas de BERT: Masked Language Modeling (MLM).
+Although they share the core task of Masked Language Modeling (MLM), each model adopts a different training strategy.
 
-1.	RoBERTa:
+RoBERTa
+	•	Removes NSP.
+	•	Uses massive batches and far more training steps.
+	•	Employs dynamic masking.
+	•	Trains on significantly larger datasets.
 
-•	Sin NSP.
-	•	Batches enormes.
-	•	Más datos y más pasos.
-	•	Token masking dinámico.
-	
-2.	ALBERT:
+ALBERT
+	•	Trains with MLM + Sentence Order Prediction (SOP), a more stable alternative to NSP.
+	•	Shares parameters across layers.
+	•	Uses factorized embeddings to reduce size.
 
-	•	MLM + Sentence Order Prediction (SOP), una variante más estable que NSP.
-	•	Parameter sharing entre capas.
-	•	Embeddings factorizados.
-	
-3.	DistilBERT:
+DistilBERT
+	•	Trained through knowledge distillation from BERT.
+	•	Combines MLM loss with distillation loss.
+	•	Uses 6 layers instead of 12.
 
-	•	Distillation loss desde BERT.
-	•	Combinación de MLM y distillation.
-	•	6 capas en vez de 12.
-
-El fin común es alcanzar alto rendimiento con menor costo computacional.
+The shared purpose is to maintain strong performance while reducing computation and memory cost.
 
 ⸻
 
 Assumptions and Limitations
 
 Assumptions
-	•	La representación bidireccional profunda es suficiente para comprensión semántica.
-	•	La eficiencia no sacrifica la capacidad contextual.
-	•	El pretraining masivo sigue siendo necesario.
+	•	Deep bidirectional encoding is necessary for high-quality language understanding.
+	•	Efficient architectures can maintain contextual capacity with fewer parameters.
+	•	Large-scale pretraining remains crucial for strong performance.
 
 Limitations
-	•	No son modelos generativos.
-	•	Limitados a contextos relativamente cortos.
-	•	Requieren tokenizers complejos.
-	•	A pesar de ser “eficientes”, aún son costosos para hardware muy limitado.
+	•	None of these models are generative; they are encoders only.
+	•	Their maximum context window remains limited.
+	•	They depend on complex tokenization schemes.
+	•	Even “efficient” models can be expensive for extremely constrained hardware.
 
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Número de capas (12 → 6 en DistilBERT).
-	•	Dimensión oculta (H).
-	•	Dimensión de embeddings (E en ALBERT).
-	•	Etapas de distillation.
-	•	Tamaño de batch.
-	•	Tareas de preentrenamiento (MLM, SOP).
-	•	Máscaras dinámicas o estáticas.
+
+•	Number of encoder layers (e.g., 12 → 6 in DistilBERT).
+•	Hidden size H.
+•	Embedding size E (factorized in ALBERT).
+•	Temperature for distillation.
+•	Batch size during pretraining.
+•	Choice of pretraining tasks (MLM, SOP).
+•	Dynamic vs. static masking.
 
 ⸻
 
 Evaluation Focus
 
-Para estos modelos se evalúa principalmente:
-	•	Exactitud en clasificación (GLUE, SuperGLUE).
-	•	Calidad de embeddings (STS-B).
-	•	Eficiencia:
-	•	parámetros,
-	•	latencia,
-	•	memoria.
-	•	Robustez en tareas de comprensión.
+Evaluation centers on two pillars: accuracy and efficiency.
 
-En general, se busca maximizar calidad con el menor costo.
+•	Performance on GLUE, SuperGLUE, STS-B, and other understanding benchmarks.
+•	Quality of embeddings for semantic tasks.
+•	Efficiency metrics:
+•	number of parameters,
+•	inference latency,
+•	memory consumption.
+•	Robustness across standard NLP tasks.
+
+The core objective: maximum quality at minimum cost.
 
 ⸻
 
 When to Use / When Not to Use
 
 Use these models when:
+	•	You need a fast, efficient encoder for classification, QA, NER, retrieval, topic modeling, or embeddings.
+	•	You deploy on limited hardware.
+	•	You require low latency production environments.
+	•	You need stable fine-tuning across multiple NLP tasks.
 
-•	necesitas un encoder rápido para clasificación, QA, embeddings, NER, topic modeling, etc.
-
-•	trabajas con infraestructura limitada.
-
-•	requieres producción eficiente.
-
-•	necesitas fine-tuning especializado.
-
-Avoid them when:
-
-•	necesitas generación de texto.
-
-•	el contexto requiere bidireccionalidad y secuencias largas.
-
-•	el modelo debe razonar de manera compleja en múltiples pasos.
-
-•	la tarea es creativa o abierta (GPT es superior).
+Avoid these models when:
+	•	You need natural language generation (GPT-style models are better).
+	•	The task requires long-context reasoning.
+	•	You need step-by-step or multi-hop reasoning.
+	•	The task is open-ended or creative.
 
 ⸻
 
@@ -3943,15 +4027,14 @@ Canonical Papers
 
 Web Resources
 
-1.	HuggingFace documentation for BERT variants.
-2.	Jay Alammar – The Illustrated BERT, RoBERTa, and ALBERT.
+1.	HuggingFace – BERT and variants documentation https://huggingface.co/docs/transformers/model_doc/bert
+	
+2.	Jay Alammar – The Illustrated BERT, RoBERTa, ALBERT, and DistilBERT https://jalammar.github.io/illustrated-bert/
 
 
 -------------------------
 
-With ALBERT, RoBERTa, and DistilBERT, the family of encoder transformers reached maturity: models that understand deeply, run efficiently, and adapt well to real-world NLP tasks. Yet, comprehension alone is only half of the story.
-
-As soon as models could understand language with precision, the next challenge emerged naturally:
+With ALBERT, RoBERTa, and DistilBERT, the family of encoder transformers reached maturity: models that understand deeply, run efficiently, and adapt well to real-world NLP tasks. Yet, comprehension alone is only half of the story. As soon as models could understand language with precision, the next challenge emerged naturally:
 Can neural networks create? Can they generate coherent, realistic, and meaningful data?
 
 This question marked the birth of Generative Models, a family that redefined creativity in machine learning.
@@ -3959,23 +4042,26 @@ GANs, VAEs, autoregressive transformers, and diffusion models opened the door to
 
 -------------------------
 
-
-F. Generative Models introduced creativity and data synthesis
+## F. Generative Models introduced creativity and data synthesis
 
 Generative models mark a decisive turning point in the evolution of neural networks.
 For decades, machine learning focused on prediction: identifying classes, estimating values, extracting patterns, or understanding structure. Generative modeling shifted the paradigm toward creation: producing entirely new data that resembles the underlying distribution.
 
 The idea of machines generating data is not new. Early work in statistical modeling explored latent variable systems and probabilistic graphical models. However, neural generative models underwent a renaissance starting in the 2010s, when advances in deep learning made it possible to train systems that create realistic images, coherent text, expressive audio, and even structured multimodal artifacts.
 
+![class](/ima/ima29.png)
+
 Three milestones shaped this transformation:
-	1.	Variational Autoencoders (VAEs) (Kingma & Welling, 2013) introduced a principled probabilistic framework for learning latent spaces that could be sampled to generate new data. They showed that representation learning and generative modeling were deeply interconnected.
-	2.	Generative Adversarial Networks (GANs) (Goodfellow et al., 2014) brought a revolutionary adversarial training scheme in which two networks — a generator and a discriminator — compete, pushing each other to produce increasingly realistic outputs. GANs delivered images that approached photographic quality and ignited widespread interest in synthetic media.
-	3.	Diffusion Models (Sohl-Dickstein et al., 2015; Ho et al., 2020) introduced a new probabilistic process in which noise is gradually removed through learned denoising steps. This family would later power modern systems such as Stable Diffusion, DALL·E 2, and Imagen, redefining the frontier of generative AI.
+
+1.	Variational Autoencoders (VAEs) (Kingma & Welling, 2013) introduced a principled probabilistic framework for learning latent spaces that could be sampled to generate new data. They showed that representation learning and generative modeling were deeply interconnected.
+	
+2.	Generative Adversarial Networks (GANs) (Goodfellow et al., 2014) brought a revolutionary adversarial training scheme in which two networks — a generator and a discriminator — compete, pushing each other to produce increasingly realistic outputs. GANs delivered images that approached photographic quality and ignited widespread interest in synthetic media.
+	
+3.	Diffusion Models (Sohl-Dickstein et al., 2015; Ho et al., 2020) introduced a new probabilistic process in which noise is gradually removed through learned denoising steps. This family would later power modern systems such as Stable Diffusion, DALL·E 2, and Imagen, redefining the frontier of generative AI.
 
 Generative models differ from earlier ANN families because their goal is not classification or prediction but density estimation and sample generation. They attempt to learn the structure of the data distribution and produce new samples that are statistically consistent with it.
 
-Their impact is profound.
-They enable synthetic data generation for privacy-preserving analytics, accelerate scientific discovery by generating molecular candidates, power creative applications in art and design, and underpin many of the multimodal AI systems that dominate the current landscape.
+Their impact is profound. They enable synthetic data generation for privacy-preserving analytics, accelerate scientific discovery by generating molecular candidates, power creative applications in art and design, and underpin many of the multimodal AI systems that dominate the current landscape.
 
 Generative AI also comes with deep philosophical and societal implications.
 These models blur the line between human-created and machine-created content, raising questions about authorship, authenticity, and responsibility. Their power places them at the center of debates on misinformation, copyright, and the future of creative work.
@@ -4005,12 +4091,13 @@ Each model will be developed using the analytical framework established earlier,
 -------------------------
 
 
-1. Variational Autoencoders (VAE) – Latent Variable Generators
+### 1. Variational Autoencoders (VAE) – Latent Variable Generators
 
 What is it?
 
-A Variational Autoencoder (VAE) is a probabilistic generative model introduced by Kingma and Welling (2013).
-It extends the classic autoencoder architecture by incorporating principles from Bayesian inference and latent-variable modeling.
+A Variational Autoencoder (VAE) is a probabilistic generative model introduced by Kingma and Welling (2013). It extends the classic autoencoder architecture by incorporating principles from Bayesian inference and latent-variable modeling.
+
+![class](/ima/ima30.png)
 
 Instead of mapping each input to a single deterministic point in latent space, the VAE learns a distribution over latent variables.
 Sampling from this distribution allows the model to generate new, coherent data.
@@ -4023,7 +4110,8 @@ Why use it?
 
 VAEs are ideal when the goal is both representation learning and generation.
 They excel in tasks such as:
-	•	learning compact latent spaces for images, text, or signals,
+
+•	learning compact latent spaces for images, text, or signals,
 	•	generating coherent but slightly smooth samples,
 	•	data compression or anomaly detection,
 	•	learning interpretable latent structure (e.g., “style” vs. “content”),
@@ -4083,13 +4171,17 @@ This allows gradients to flow through stochastic sampling, making the entire mod
 ⸻
 
 Training Logic
-	1.	The encoder produces \mu(x) and \sigma(x).
-	2.	A latent sample is obtained via the reparameterization trick.
-	3.	The decoder reconstructs x from z.
-	4.	The ELBO loss balances:
+
+1.	The encoder produces \mu(x) and \sigma(x).
+2.	A latent sample is obtained via the reparameterization trick.
+3.	The decoder reconstructs x from z.
+4.	The ELBO loss balances:
+
 	•	fidelity of reconstruction,
+	
 	•	closeness of the approximate posterior to the prior.
-	5.	Optimization uses Adam or similar gradient-based methods.
+	
+5.	Optimization uses Adam or similar gradient-based methods.
 
 Training encourages the VAE to learn a smooth, continuous latent space where interpolation yields meaningful samples.
 
@@ -4112,11 +4204,12 @@ VAEs trade sharpness for stability and mathematical clarity.
 ⸻
 
 Key Hyperparameters (Conceptual View)
-	•	Latent dimensionality \dim(z).
-	•	Weighting factor on the KL term (e.g., \beta in β-VAE).
-	•	Choice of prior distribution.
-	•	Decoder likelihood (Gaussian, Bernoulli).
-	•	Network depth for encoder and decoder.
+
+•	Latent dimensionality \dim(z).
+•	Weighting factor on the KL term (e.g., \beta in β-VAE).
+•	Choice of prior distribution.
+•	Decoder likelihood (Gaussian, Bernoulli).
+•	Network depth for encoder and decoder.
 
 The latent dimensionality and KL weighting strongly shape the model’s expressiveness.
 
@@ -4125,12 +4218,13 @@ The latent dimensionality and KL weighting strongly shape the model’s expressi
 Evaluation Focus
 
 VAE evaluation emphasizes:
-	•	Reconstruction loss,
-	•	Latent space structure (continuity, disentanglement),
-	•	Generation quality,
-	•	Diversity of generated samples,
-	•	KL divergence behavior,
-	•	Downstream task performance (classification or clustering in latent space).
+
+•	Reconstruction loss,
+•	Latent space structure (continuity, disentanglement),
+•	Generation quality,
+•	Diversity of generated samples,
+•	KL divergence behavior,
+•	Downstream task performance (classification or clustering in latent space).
 
 The VAE is judged less on photorealism and more on representation quality.
 
@@ -4158,9 +4252,10 @@ VAEs are ideal for scientific, analytical, and representation-driven application
 References
 
 Canonical Papers
-	1.	Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes.
-	2.	Rezende, D. J., Mohamed, S., & Wierstra, D. (2014). Stochastic Backpropagation and Approximate Inference in Deep Generative Models.
-	3.	Higgins, I. et al. (2017). β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework.
+
+1.	Kingma, D. P., & Welling, M. (2013). Auto-Encoding Variational Bayes.
+2.	Rezende, D. J., Mohamed, S., & Wierstra, D. (2014). Stochastic Backpropagation and Approximate Inference in Deep Generative Models.
+3.	Higgins, I. et al. (2017). β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework.
 
 Web Resources
 	1.	“The Illustrated VAE” – Jay Alammar.
@@ -4176,12 +4271,14 @@ GANs challenge the model to generate sharp, realistic samples by forcing a gener
 
 -------------------------
 
-2. Generative Adversarial Networks (GANs) – Adversarial Training for Realistic Synthesis
+### 2. Generative Adversarial Networks (GANs) – Adversarial Training for Realistic Synthesis
 
 What is it?
 
 A Generative Adversarial Network (GAN) is a deep generative architecture introduced by Goodfellow et al. (2014).
 Its defining idea is adversarial training: two networks, a generator G and a discriminator D, are trained in opposition.
+
+![class](/ima/ima31.webp)
 
 The generator attempts to create data that resemble the true distribution, while the discriminator learns to distinguish real samples from synthetic ones.
 This dynamic forms a minimax game where each network improves by challenging the other.
@@ -4358,15 +4455,16 @@ Their stability, scalability, and stunning visual fidelity have made them the fo
 
 -------------------------
 
-3. Diffusion Models – Stochastic Denoising and State-of-the-Art Generation
+### 3. Diffusion Models – Stochastic Denoising and State-of-the-Art Generation
 
 What is it?
 
 Diffusion Models are a class of generative architectures based on iterative denoising.
 They were originally proposed by Sohl-Dickstein et al. (2015) and dramatically advanced by Ho, Jain, and Abbeel (2020) through the Denoising Diffusion Probabilistic Model (DDPM).
 
-The idea is conceptually elegant:
-a diffusion model learns to reverse a gradual noising process.
+The idea is conceptually elegant: a diffusion model learns to reverse a gradual noising process.
+
+![class](/ima/ima32.png)
 
 During training, clean data are slowly destroyed by adding Gaussian noise over many small steps.
 During generation, the model learns to run the process in reverse, transforming pure noise into a coherent sample.
@@ -4560,9 +4658,11 @@ This movement leads naturally into the next family: Hybrid and Advanced Architec
 -------------------------
 
 
-G. Hybrid and Advanced Architectures unified previous paradigms
+## G. Hybrid and Advanced Architectures unified previous paradigms
 
 As neural networks matured, researchers realized that no single architecture could fully capture the complexity of real-world data. Feedforward networks lacked spatial awareness, CNNs struggled with long-range dependencies, RNNs faltered with parallelization, autoencoders focused on reconstruction rather than creativity, and transformers required enormous compute to reach their full potential.
+
+![class](/ima/ima32.ppm)
 
 Each family introduced a breakthrough — but each breakthrough arrived with its own boundaries.
 
