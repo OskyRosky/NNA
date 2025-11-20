@@ -3610,7 +3610,7 @@ What is it?
 The GPT (Generative Pretrained Transformer) family, introduced by OpenAI beginning in 2018, is an autoregressive transformer architecture designed for natural language generation.
 GPT models read text from left to right, predicting the next token at each step. This simple mechanism — combined with large-scale pretraining — turned them into powerful generative models capable of producing coherent, contextually rich text across long sequences.
 
-![class](/ima/ima27.png)
+![class](/ima/ima27.jpeg)
 
 GPT introduced several fundamental ideas:
 	•	Autoregressive pretraining on massive text corpora.
@@ -4662,7 +4662,7 @@ This movement leads naturally into the next family: Hybrid and Advanced Architec
 
 As neural networks matured, researchers realized that no single architecture could fully capture the complexity of real-world data. Feedforward networks lacked spatial awareness, CNNs struggled with long-range dependencies, RNNs faltered with parallelization, autoencoders focused on reconstruction rather than creativity, and transformers required enormous compute to reach their full potential.
 
-![class](/ima/ima32.ppm)
+![class](/ima/ima33.ppm)
 
 Each family introduced a breakthrough — but each breakthrough arrived with its own boundaries.
 
