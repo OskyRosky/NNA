@@ -5113,10 +5113,13 @@ Use hybrid models when:
 
 Avoid hybrids when:
 
-	•	the dataset is very small (simpler architectures may suffice),
-	•	real-time inference is required on edge devices,
-	•	you need ultra-lightweight deployment (MobileNet may be better),
-	•	attention computation becomes prohibitively expensive.
+•	the dataset is very small (simpler architectures may suffice),
+
+•	real-time inference is required on edge devices,
+
+•	you need ultra-lightweight deployment (MobileNet may be better),
+
+•	attention computation becomes prohibitively expensive.
 
 Hybrids are ideal for high-performance vision tasks in both research and production.
 
@@ -5470,8 +5473,11 @@ Capacity increases as we move from fixed representations (feedforward networks) 
 But this capacity comes with trade-offs:
 
 •	Interpretability decreases,
+
 •	Data requirements increase,
+
 •	Computational demands rise sharply, and
+
 •	Generalization requires careful tuning.
 
 The progression from perceptrons to Transformers illustrates how neural networks evolve by addressing the limitations of their predecessors — deeper abstraction, richer context, more flexible computation.
@@ -5528,9 +5534,12 @@ Neural networks appear in nearly every domain of modern AI. This section highlig
 
 Convolutional Neural Networks (CNNs) dominate visual tasks because they capture spatial hierarchies and local patterns.
 In the application notebooks, readers will find examples of:
-	•	classifying images into categories using CNNs and transfer learning,
-	•	detecting objects or segmenting regions of interest,
-	•	comparing architectures such as LeNet, ResNet, and EfficientNet in practical settings.
+
+•	classifying images into categories using CNNs and transfer learning,
+
+•	detecting objects or segmenting regions of interest,
+
+•	comparing architectures such as LeNet, ResNet, and EfficientNet in practical settings.
 
 These examples demonstrate how convolutional layers extract meaningful structure from pixels and how deeper networks progressively refine representation.
 
@@ -5541,7 +5550,9 @@ Recurrent networks and Transformers are central to modern NLP.
 Here we explore:
 
 •	Sentiment classification using RNNs or LSTMs,
+
 •	Text understanding and contextual embeddings using BERT,
+
 •	Text generation using autoregressive models such as GPT.
 
 The notebooks show how tokenization, embeddings, and attention mechanisms convert raw text into patterns the model can learn.
@@ -5552,7 +5563,9 @@ RNNs, GRUs, LSTMs, and more recently Transformers specialized for sequences, exc
 Applications include:
 
 •	Predicting energy consumption,
+
 •	Modeling financial time series,
+
 •	Forecasting demand or anomaly scores.
 
 The examples highlight the importance of temporal dependencies and demonstrate how models incorporate trends, seasonality, and long-range structure.
@@ -5563,7 +5576,9 @@ Autoencoders and variational models are well suited for detecting irregularities
 The applications showcase:
 
 •	Using autoencoders to detect unusual patterns in sensor data,
+
 •	Employing reconstruction error as an indicator of failure or drift,
+
 •	Identifying outliers in industrial or environmental datasets.
 
 These notebooks show how compressed representations capture the normal behavior of a system and flag deviations.
@@ -5574,8 +5589,11 @@ Generative models create new content, revealing the creative side of neural comp
 Readers will find examples of:
 
 •	Generating images using GANs,
+
 •	Performing image-to-image translation (e.g., Day→Night, Sketch→Photo),
+
 •	Generating coherent text using Transformer-based language models,
+
 •	Experimenting with diffusion models for high-fidelity synthesis.
 
 These practical pieces show how networks learn distributions and how creative outputs emerge from statistical structure.
@@ -5591,7 +5609,7 @@ Readers who want to explore applications can follow a simple, recommended progre
 3.	Open the applied notebooks in 04_Aplicaciones to observe how those architectures behave on real datasets and real tasks.
 4.	Modify or extend the examples to deepen understanding or test new ideas.
 
-This cycle — concept, code, application — is at the heart of the learning experience proposed by this repository.
+This cycle: concept, code, application,  is at the heart of the learning experience proposed by this repository.
 
 
 # VIII. Annex and References
@@ -5604,17 +5622,13 @@ This section also emphasizes the academic orientation of the repository. Neural 
 
 1. Formulas in LaTeX
 
-This subsection collects all key mathematical expressions presented throughout the repository, rewritten in clean LaTeX for quick access. Examples include the perceptron rule, activation functions, cross-entropy loss, backpropagation gradients, convolutional operations, recurrent update equations, attention mechanisms, variational objectives, and diffusion formulations.
-
-By organizing these formulas into a single place, readers can revise the mathematical backbone of neural networks without navigating multiple sections. This reference is especially useful for learners building intuition or writing academic material based on these architectures.
+This subsection collects all key mathematical expressions presented throughout the repository, rewritten in clean LaTeX for quick access. Examples include the perceptron rule, activation functions, cross-entropy loss, backpropagation gradients, convolutional operations, recurrent update equations, attention mechanisms, variational objectives, and diffusion formulations. By organizing these formulas into a single place, readers can revise the mathematical backbone of neural networks without navigating multiple sections. This reference is especially useful for learners building intuition or writing academic material based on these architectures.
 
 ⸻
 
 2. Glossary of Terms
 
-Deep learning involves a specialized vocabulary that can become overwhelming without a structured guide. This glossary provides concise definitions of essential concepts such as activation function, latent space, gradient descent, self-attention, residual connection, encoder–decoder, diffusion process, and many more.
-
-Each definition is written in plain language and linked conceptually to the broader context of the repository, helping readers form a strong and coherent conceptual map of the field.
+Deep learning involves a specialized vocabulary that can become overwhelming without a structured guide. This glossary provides concise definitions of essential concepts such as activation function, latent space, gradient descent, self-attention, residual connection, encoder–decoder, diffusion process, and many more. Each definition is written in plain language and linked conceptually to the broader context of the repository, helping readers form a strong and coherent conceptual map of the field.
 
 ⸻
 
