@@ -4727,6 +4727,8 @@ What is it?
 A Graph Neural Network (GNN) is a neural architecture designed to learn from graph-structured data—data defined not by fixed grids or sequences, but by arbitrary relationships between entities.
 Introduced in early forms in the 2000s (Gori et al., 2005; Scarselli et al., 2009) and popularized by Message Passing Neural Networks (MPNNs) in the mid-2010s, GNNs allow neural computation to operate directly on nodes, edges, and global graph structure.
 
+![class](/ima/ima34.jpg)
+
 Unlike CNNs (built for spatial grids) or RNNs (built for sequences), GNNs are built for relational reasoning, handling social networks, molecules, knowledge graphs, and any data whose structure matters as much as its content.
 
 ⸻
@@ -4736,11 +4738,17 @@ Why use it?
 GNNs excel whenever the relationships between entities are essential for understanding the data. They are widely used for:
 
 •	molecular property prediction,
+
 •	drug discovery,
+
 •	recommendation systems,
+
 •	traffic networks,
+
 •	knowledge graph completion,
+
 •	fraud detection in financial networks,
+
 •	multi-agent interactions.
 
 They are powerful because they can model interconnected systems, where each element influences others through structured interactions.
@@ -4756,7 +4764,9 @@ Each node in the graph gathers information from its neighbors, aggregates it, tr
 At each layer, a node learns:
 
 •	“What are my neighbors like?”
+
 •	“How should their information influence my internal representation?”
+
 •	“What global patterns emerge as messages flow through the graph?”
 
 The GNN becomes a system that performs distributed computation, where learning emerges from iterative relational updates.
@@ -4780,10 +4790,14 @@ h_{v}^{(t+1)} = U_{t}(h_{v}^{(t)}, m_{v}^{(t)})
 $$
 
 where:
-	•	h_v^{(t)} is the representation of node v at layer t,
-	•	\mathcal{N}(v) are its neighbors,
-	•	e_{uv} are edge features,
-	•	M_t and U_t are learned neural functions (often MLPs).
+
+•	h_v^{(t)} is the representation of node v at layer t,
+
+•	\mathcal{N}(v) are its neighbors,
+
+•	e_{uv} are edge features,
+
+•	M_t and U_t are learned neural functions (often MLPs).
 
 Graph Convolutional Networks (GCN), a popular variant, use the simplified formulation:
 
@@ -4906,8 +4920,11 @@ This need gave rise to a new class of hybrids that combine the inductive biases 
 What is it?
 
 Convolution–Attention Hybrid Networks are architectures that combine two complementary paradigms in deep learning:
-	•	the local inductive biases of Convolutional Neural Networks (CNNs),
-	•	the global receptive field and flexible contextual modeling of Transformers.
+
+•	the local inductive biases of Convolutional Neural Networks (CNNs),
+•	the global receptive field and flexible contextual modeling of Transformers.
+
+![class](/ima/ima35.png)
 
 One of the best-known examples is CoAtNet (Dai et al., 2021), which stands for Convolution and Attention Network. CoAtNet demonstrated that these two architectures need not compete; instead, they work best when integrated into a unified hierarchy.
 
@@ -5145,6 +5162,8 @@ $$
 
 A numerical ODE solver integrates this function over time to compute the final output.
 
+![class](/ima/ima36.png)
+
 This formulation replaces layer depth with continuous-time trajectories, offering a powerful tool for modeling temporal dynamics, irregularly sampled data, physical systems, and memory-efficient deep networks.
 
 Neural ODEs bridge the gap between differential equations and deep representation learning, creating a mathematically elegant class of models rooted in continuous computation.
@@ -5196,8 +5215,11 @@ Neural ODEs imagine: State evolves continuously from t₀ to t₁, guided by f(h
 This conceptual shift offers several benefits:
 
 •	depth becomes adaptive rather than fixed,
+
 •	gradients flow through time using the adjoint method,
+
 •	the model aligns naturally with physical processes,
+
 •	computation scales with problem complexity, not architecture design.
 
 It is deep learning through the lens of continuous mathematics.
@@ -5382,6 +5404,8 @@ Hybrid and advanced architectures reflect the growing maturity of deep learning.
 ## Summary of NNA family
 
 Before advancing to applications, it is helpful to pause and reflect on the landscape we have traveled across. Neural networks have grown from simple linear separators into vast architectures capable of reasoning over images, language, time, and structure. Each family of neural models emerged from a concrete scientific challenge, and together they trace the conceptual evolution of deep learning.
+
+![class](/ima/ima37.jpg)
 
 This summary brings these perspectives together, compares their foundations, and prepares the ground for seeing how they operate in real-world tasks.
 
