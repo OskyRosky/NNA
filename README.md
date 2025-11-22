@@ -410,9 +410,13 @@ $$
 Stacking multiple convolutional layers allows the network to build a hierarchy of features, where early layers capture simple visual components and deeper layers recognize complex structures.
 
 - Key CNN architectures mark milestones in this evolution.
+
 - LeNet-5 introduced the basic convolution–pooling sequence in 1998.
+
 - AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
+
 - VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
+
 - Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
 
 Today, CNNs are applied beyond images — to audio spectrograms, time series, and even text embeddings — making them one of the most versatile structures in the ANN family.
@@ -457,10 +461,14 @@ where f_{\text{enc}} is the encoder, f_{\text{dec}} is the decoder, x is the inp
 
 By minimizing the difference between x and \hat{x}, autoencoders learn to capture the underlying structure of data.
 They have many variants, each serving a unique role:
-	•	Denoising Autoencoder (DAE), which learns to reconstruct clean data from noisy inputs.
-	•	Sparse Autoencoder, which enforces sparsity constraints to produce interpretable features.
-	•	Convolutional Autoencoder (CAE), specialized for image reconstruction.
-	•	Variational Autoencoder (VAE), which introduces probabilistic encoding and allows sampling from the latent space to generate new data.
+
+•	Denoising Autoencoder (DAE), which learns to reconstruct clean data from noisy inputs.
+
+•	Sparse Autoencoder, which enforces sparsity constraints to produce interpretable features.
+
+•	Convolutional Autoencoder (CAE), specialized for image reconstruction.
+
+•	Variational Autoencoder (VAE), which introduces probabilistic encoding and allows sampling from the latent space to generate new data.
 
 Autoencoders connect the discriminative and generative sides of deep learning — they learn structure without supervision and form the foundation for more complex generative models.
 
@@ -468,8 +476,7 @@ Autoencoders connect the discriminative and generative sides of deep learning �
 
 5. **Transformers**
 
-Transformers represent a paradigm shift in deep learning.
-They replace recurrence with attention mechanisms that allow each element in a sequence to weigh its relationship to every other element.
+Transformers represent a paradigm shift in deep learning. They replace recurrence with attention mechanisms that allow each element in a sequence to weigh its relationship to every other element.
 This parallel processing enables faster training and captures long-range dependencies more effectively than RNNs.
 
 The self-attention mechanism is defined as:
@@ -779,7 +786,9 @@ Furthermore, it outputs only binary decisions, making it unsuitable for multi-cl
 Key Hyperparameters (Conceptual View)
 
 •	Learning rate (η): Controls the magnitude of weight updates; too high leads to instability, too low slows convergence.
+
 •	Number of iterations: Defines how many times the dataset is processed.
+
 •	Activation function: Typically a binary step, though sigmoid or tanh can be used in variants.
 
 The simplicity of these hyperparameters makes the SLP an ideal teaching tool for understanding optimization dynamics.
@@ -1063,7 +1072,9 @@ Unlike the MLP, which modifies the entire decision surface whenever weights are 
 This local property makes RBFNs effective in:
 
 •	Function approximation with continuous targets.
+
 •	Time series prediction and control systems where local behavior matters.
+
 •	Pattern recognition tasks that rely on similarity or clustering intuition.
 
 Because of their foundation on Gaussian functions, RBFNs naturally handle nonlinearity without requiring deep architectures.
@@ -1567,13 +1578,17 @@ Its success was not just quantitative but paradigmatic: it shifted how the entir
 Use it when:
 
 •	Teaching or benchmarking CNNs on large-scale datasets.
+
 •	Demonstrating the principles of deep learning history.
+
 •	Exploring ReLU, dropout, and GPU acceleration in practice.
 
 Do not use it when:
 
 •	Working with resource-constrained systems (too large).
+
 •	Training stability and normalization are critical.
+
 •	Applications demand interpretability over raw accuracy.
 
 ⸻
