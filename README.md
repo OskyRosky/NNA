@@ -1,4 +1,3 @@
-
 # Everything about NNA.
 
  ![class](/ima/ima1.webp)
@@ -74,7 +73,7 @@ The intention is not to build a tutorial, but rather a knowledge map that organi
 
 ⸻
 
-Purpose of this Repository
+**Purpose of this Repository**
 
 The main goal of this project is to gather the essential knowledge around ANNs into a single, structured space. It includes theoretical explanations, mathematical intuition, historical context, and practical examples implemented in Python using frameworks like PyTorch and TensorFlow.
 
@@ -86,7 +85,7 @@ It also recognizes that learning neural networks is not a static process. New ar
 
 ⸻
 
-How This Material Is Organized
+**How this material is organized**
 
 The structure of the repository was carefully designed to follow the logical growth of understanding. It begins with an introduction that explains where ANNs come from, followed by theoretical sections that describe their inner mechanics, and finally progresses toward architectures, applications, and resources for deeper study.
 
@@ -211,7 +210,7 @@ Variants such as Leaky ReLU, ELU, and GELU were developed to improve stability a
 
 ⸻
 
-The Training Process
+**The Training Process**
 
 Learning in an ANN happens through a process called backpropagation, where the model repeatedly adjusts its weights to minimize error. It begins with forward propagation, in which data moves through the network to produce an output. Then, the loss function compares that output with the correct value, producing an error signal.
 
@@ -229,7 +228,7 @@ Through this process, the model gradually moves toward a configuration of weight
 
 ⸻
 
-Optimizers and Regularization
+**Optimizers and Regularization**
 
 Optimizers control how the model updates its parameters. The simplest one, Stochastic Gradient Descent (SGD), updates weights in the direction opposite to the gradient of the loss. More advanced methods like Adam, RMSProp, or Adagrad adjust learning rates dynamically for each parameter, speeding up convergence and improving stability.
 
@@ -237,7 +236,7 @@ Regularization methods ensure that the model does not memorize the training data
 
 ⸻
 
-Model Evaluation
+**Model Evaluation**
 
 Once a neural network has been trained, its performance must be measured objectively. Evaluation involves comparing its predictions with ground-truth data using metrics that depend on the task.
 
@@ -262,7 +261,7 @@ This section explains what should happen before training begins: preparing the d
 
 ⸻
 
-Data Preparation
+**Data Preparation**
 
 The first step in any neural network project is to ensure that the data is clean, consistent, and suitable for training.
 Neural networks are extremely sensitive to data quality. A few outliers, missing values, or inconsistent scales can disrupt learning completely.
@@ -283,7 +282,7 @@ Without this separation, there is no true way to measure whether a network has l
 
 ⸻
 
-Model Selection
+**Model Selection**
 
 Choosing the right type of network is as important as cleaning the data.
 Not all neural architectures are suited for every problem. The structure must reflect the nature of the input and the desired outcome.
@@ -297,7 +296,7 @@ A well-chosen architecture simplifies learning, while an unsuitable one forces t
 
 ⸻
 
-Hyperparameters and Configuration
+**Hyperparameters and Configuration**
 
 Once the type of model is chosen, its configuration must be defined.
 Hyperparameters determine how the network learns — how fast, how deep, and how flexible it becomes.
@@ -322,7 +321,7 @@ It often requires experimentation, intuition, and the use of tools like grid sea
 
 ⸻
 
-Model Validation
+**Model Validation**
 
 Validation ensures that what the model learns is truly general and not just memorized.
 During training, the network continuously improves its accuracy on the training data, but that does not guarantee that it will perform well on new inputs.
@@ -378,7 +377,7 @@ This structural diversity defines the main branches of the ANN taxonomy.
 
 ⸻
 
-1. Feedforward Networks
+1. **Feedforward Networks**
 
 Feedforward Networks, also known as Multilayer Perceptrons (MLPs), are the earliest and simplest form of ANN. Information flows in a single direction — from input to output — with no feedback loops or temporal dependencies.
 
@@ -397,7 +396,7 @@ Although they are the simplest members of the taxonomy, they laid the foundation
 
 ⸻
 
-2. Convolutional Neural Networks (CNNs)
+2. **Convolutional Neural Networks (CNNs)**
 
 Convolutional Networks revolutionized how machines perceive visual and spatial data.
 Instead of connecting every neuron to every pixel, CNNs use filters that slide over the input, learning local patterns like edges, textures, and shapes.
@@ -411,16 +410,20 @@ $$
 Stacking multiple convolutional layers allows the network to build a hierarchy of features, where early layers capture simple visual components and deeper layers recognize complex structures.
 
 - Key CNN architectures mark milestones in this evolution.
+
 - LeNet-5 introduced the basic convolution–pooling sequence in 1998.
+
 - AlexNet (2012) demonstrated the power of deep CNNs on large-scale image datasets.
+
 - VGGNet simplified architectures with uniform 3×3 filters, while ResNet introduced residual connections to combat vanishing gradients.
+
 - Later models like DenseNet, Inception, and EfficientNet pushed efficiency, depth, and scalability even further.
 
 Today, CNNs are applied beyond images — to audio spectrograms, time series, and even text embeddings — making them one of the most versatile structures in the ANN family.
 
 ⸻
 
-3. Recurrent Neural Networks (RNNs)
+3. **Recurrent Neural Networks (RNNs)**
 
 Recurrent Networks were designed to handle sequential data, where order and context matter. Unlike feedforward networks, they maintain an internal state that captures information from previous time steps, giving them a form of memory.
 
@@ -443,7 +446,7 @@ These variants transformed how machines process sequences, forming the bridge be
 
 ⸻
 
-4. Autoencoders
+4. **Autoencoders**
 
 Autoencoders are neural networks that learn to represent data efficiently by reconstructing it.
 They compress inputs into a latent representation (encoding) and then attempt to reconstruct the original data (decoding).
@@ -458,19 +461,22 @@ where f_{\text{enc}} is the encoder, f_{\text{dec}} is the decoder, x is the inp
 
 By minimizing the difference between x and \hat{x}, autoencoders learn to capture the underlying structure of data.
 They have many variants, each serving a unique role:
-	•	Denoising Autoencoder (DAE), which learns to reconstruct clean data from noisy inputs.
-	•	Sparse Autoencoder, which enforces sparsity constraints to produce interpretable features.
-	•	Convolutional Autoencoder (CAE), specialized for image reconstruction.
-	•	Variational Autoencoder (VAE), which introduces probabilistic encoding and allows sampling from the latent space to generate new data.
+
+•	Denoising Autoencoder (DAE), which learns to reconstruct clean data from noisy inputs.
+
+•	Sparse Autoencoder, which enforces sparsity constraints to produce interpretable features.
+
+•	Convolutional Autoencoder (CAE), specialized for image reconstruction.
+
+•	Variational Autoencoder (VAE), which introduces probabilistic encoding and allows sampling from the latent space to generate new data.
 
 Autoencoders connect the discriminative and generative sides of deep learning — they learn structure without supervision and form the foundation for more complex generative models.
 
 ⸻
 
-5. Transformers
+5. **Transformers**
 
-Transformers represent a paradigm shift in deep learning.
-They replace recurrence with attention mechanisms that allow each element in a sequence to weigh its relationship to every other element.
+Transformers represent a paradigm shift in deep learning. They replace recurrence with attention mechanisms that allow each element in a sequence to weigh its relationship to every other element.
 This parallel processing enables faster training and captures long-range dependencies more effectively than RNNs.
 
 The self-attention mechanism is defined as:
@@ -490,7 +496,7 @@ Transformers unified the field by demonstrating that attention — not recurrenc
 
 ⸻
 
-6. Generative Networks
+6. **Generative Networks**
 
 Generative Networks form the branch of neural architectures designed to model data distributions rather than predict labels. Their goal is to learn the structure of the underlying data space and to create new samples that are coherent, realistic, or stylistically aligned with the original dataset. Instead of estimating p(y \mid x) for classification or regression, they focus on approximating p(x) itself.
 
@@ -527,7 +533,7 @@ In the taxonomy of ANNs, generative networks represent the shift from understand
 
 ⸻
 
-7. Hybrid and Advanced Architectures
+7. **Hybrid and Advanced Architectures**
 
 Hybrid and advanced architectures combine ideas from multiple families, often blurring boundaries between them.
 They are designed to handle complex, multimodal, or structured data, and to push the limits of representation learning.
@@ -568,42 +574,43 @@ Rather than focusing on isolated code or formulas, each network type is examined
 
 Each model is therefore presented through the following ten analytical lenses:
 
-1.	What is it?
+1.	**What is it?v
 
 A concise conceptual definition and a brief note on its historical or disciplinary origin.
 
-2.	Why use it?
+2.	**Why use it?**
 
 The problems, data structures, or scenarios where the model naturally excels.
 
-3.	Intuition
+3.	**Intuition** 
+
 The geometric, probabilistic, or algorithmic “mental picture” that explains how the model learns or transforms information.
 
-4.	Mathematical foundation
+4.	**Mathematical foundation**
 
 The core principle behind its learning process — the estimation rule, optimization objective, or transformation equation — expressed in plain language and minimal notation.
 
-5.	Training logic
+5.	**Training logic**
 
 A conceptual overview of how parameters are adjusted to minimize loss, maximize accuracy, or improve generalization during learning.
 
-6.	Assumptions and limitations
+6.	**Assumptions and limitations**
 
 The data conditions required for the model to perform well, and the contexts where it tends to fail or overfit.
 
-7.	Key hyperparameters (conceptual view)
+7.	**Key hyperparameters (conceptual view)**
 
 The main parameters that control model flexibility, depth, bias–variance balance, and capacity for generalization.
 
-8.	Evaluation focus
+8.	**Evaluation focus**
 
 The most relevant metrics, validation strategies, or diagnostic tools to assess performance — connecting back to the evaluation principles described in Section III.
 
-9.	When to use / When not to use
+9.	**When to use / When not to use**
 
 Practical guidance on appropriate use cases and common misapplications.
 
-10.	References
+10.	**References**
 
 A short list of canonical academic sources (three) and authoritative web or video materials (two) for further reading and exploration.
 
@@ -688,7 +695,7 @@ and the Radial Basis Function Network (RBFN), which redefined the notion of simi
 
 ### 1.	Single-Layer Perceptron (SLP) – the original neuron model by Rosenblatt.
 
-What is it?
+**What is it?v
 
 The Single-Layer Perceptron (SLP) is the earliest and simplest form of an Artificial Neural Network.
 It consists of a single computational unit — or neuron — that takes multiple inputs, applies a set of learnable weights, adds a bias, and passes the result through an activation function to produce an output.
@@ -709,7 +716,7 @@ It marked the first successful attempt to build a machine that could generalize 
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 The SLP is a conceptual and educational cornerstone in machine learning.
 Although too simple for modern applications, it remains essential for understanding how neural systems process and transform information.
@@ -720,7 +727,7 @@ Because of its simplicity, it serves as a pedagogical model for explaining weigh
 
 ⸻
 
-Intuition
+**Intuition**
 
 At its core, the perceptron is a linear separator.
 It projects data points into a space where a hyperplane — defined by its weights — splits one class from another.
@@ -731,7 +738,7 @@ The activation function acts as a binary switch: if the weighted sum exceeds a t
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The perceptron learning algorithm aims to find a set of weights w_i that correctly classifies all training samples when the data are linearly separable.
 The training proceeds iteratively, updating weights whenever a misclassification occurs.
@@ -747,7 +754,7 @@ This rule moves the decision boundary closer to misclassified examples, graduall
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training the perceptron involves the following conceptual loop:
 
@@ -766,7 +773,7 @@ Because the perceptron only succeeds when the data are linearly separable, conve
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 The primary assumption of the perceptron is linear separability — that there exists a hyperplane dividing the data perfectly.
 If this condition is not met (as in the XOR problem), the perceptron will fail to converge.
@@ -779,21 +786,23 @@ Furthermore, it outputs only binary decisions, making it unsuitable for multi-cl
 Key Hyperparameters (Conceptual View)
 
 •	Learning rate (η): Controls the magnitude of weight updates; too high leads to instability, too low slows convergence.
+
 •	Number of iterations: Defines how many times the dataset is processed.
+
 •	Activation function: Typically a binary step, though sigmoid or tanh can be used in variants.
 
 The simplicity of these hyperparameters makes the SLP an ideal teaching tool for understanding optimization dynamics.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 The SLP is typically evaluated on its classification accuracy or convergence rate. Given its deterministic behavior, performance is often analyzed geometrically — by visualizing the resulting decision boundary.
 For linearly separable data, accuracy should reach 100%. For non-separable data, metrics such as the number of misclassifications per epoch or the margin size provide insight.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use it when:
 
@@ -813,7 +822,7 @@ Do not use it when:
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -841,7 +850,7 @@ This evolution gave birth to the Multilayer Perceptron (MLP), the first true dee
 
 2.	Multilayer Perceptron (MLP) – the standard deep feedforward network.
 
-What is it?
+**What is it?**
 
 The Multilayer Perceptron (MLP) extends the perceptron’s original idea by introducing one or more hidden layers between the input and output.
 Each hidden layer consists of neurons that apply nonlinear transformations, enabling the network to model complex, curved relationships that a single-layer perceptron cannot capture.
@@ -862,7 +871,7 @@ This marked the beginning of modern connectionism, restoring neural networks to 
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 The MLP is the first universal function approximator. It can represent any continuous mapping between inputs and outputs, given enough hidden units and proper training. This flexibility makes it suitable for both regression and classification tasks across domains such as finance, medicine, natural language processing, and image analysis.
 
@@ -882,7 +891,7 @@ The deeper the network, the more flexible the transformation.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The MLP relies on compositional function approximation:
 
@@ -896,7 +905,8 @@ This theorem formalized what early researchers had observed: depth and nonlinear
 
 ⸻
 
-Training Logic
+**Training Logic**
+
 The learning process in an MLP is governed by backpropagation, an algorithm that computes the gradient of the loss function with respect to each weight by applying the chain rule of calculus backward through the network.
 
 The typical steps are:
@@ -919,7 +929,8 @@ where \eta is the learning rate and \mathcal{L} is the loss function.
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
+
 The MLP assumes that:
 
 •	The input data are independent and identically distributed (i.i.d.).
@@ -940,7 +951,7 @@ These weaknesses eventually led to specialized architectures like CNNs and RNNs,
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Number of hidden layers: Determines the network’s depth and representational capacity.
 
@@ -958,7 +969,8 @@ Each hyperparameter shapes the trade-off between underfitting, overfitting, and 
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
+
 Evaluation typically involves:
 
 •	Training and validation loss curves to assess convergence and overfitting.
@@ -971,7 +983,8 @@ Visualization of hidden-layer activations can also provide insight into how the 
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
+
 Use it when:
 
 •	The relationship between input and output is nonlinear but lacks strong spatial or sequential structure.
@@ -990,7 +1003,7 @@ Do not use it when:
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -1019,7 +1032,7 @@ This idea gave rise to the Radial Basis Function Network (RBFN) — a model that
 
 3.	Radial Basis Function Network (RBFN) – uses radial activation functions for localized responses.
 
-What is it?
+**What is it?**
 
 The Radial Basis Function Network (RBFN) is a feedforward neural model that introduces a new way of interpreting learning: rather than adjusting weights globally across all inputs, it focuses on local similarity.
 An RBF network measures how close each input is to a set of internal “prototype” points, using those distances to form the output.
@@ -1032,7 +1045,7 @@ Formally, an RBFN consists of three layers:
 2.	Hidden layer: applies a radial basis function to compute the similarity between \mathbf{x} and each prototype center \mathbf{c}_j.
 3.	Output layer: combines these activations linearly to produce the final prediction.
 
-Mathematically:
+**Mathematically:**
 
 $$
 \hat{y} = \sum_{j=1}^{M} w_j , \phi(|\mathbf{x} - \mathbf{c}_j|) + b
@@ -1051,7 +1064,7 @@ The architecture was first introduced by Broomhead and Lowe (1988) and Moody and
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 The RBFN excels in problems where the relationship between inputs and outputs is smooth, continuous, and locally structured.
 Unlike the MLP, which modifies the entire decision surface whenever weights are updated, an RBFN adjusts only in regions near the relevant prototypes — making learning more interpretable and often more stable.
@@ -1059,14 +1072,16 @@ Unlike the MLP, which modifies the entire decision surface whenever weights are 
 This local property makes RBFNs effective in:
 
 •	Function approximation with continuous targets.
+
 •	Time series prediction and control systems where local behavior matters.
+
 •	Pattern recognition tasks that rely on similarity or clustering intuition.
 
 Because of their foundation on Gaussian functions, RBFNs naturally handle nonlinearity without requiring deep architectures.
 
 ⸻
 
-Intuition
+**Intuition**
 
 Intuitively, the RBFN transforms the input space into a landscape of localized responses.
 Each hidden neuron activates when the input is close to its center, creating a “bubble” of influence in the feature space.
@@ -1092,7 +1107,7 @@ Training involves finding the optimal centers, spreads, and output weights that 
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 RBFNs are trained in two conceptual stages:
 
@@ -1115,12 +1130,15 @@ Assumptions and Limitations
 RBFNs assume that:
 
 •	The target function is locally smooth and can be modeled by overlapping radial functions.
+
 •	The number and placement of centers adequately cover the input space.
 
 Their main limitations include:
 
 •	Scalability: performance degrades with high-dimensional data or many centers, since each adds computational cost.
+
 •	Choice of parameters: selecting centers, spreads (\sigma), and number of units requires careful tuning.
+
 •	Global generalization: unlike MLPs, RBFNs may fail to extrapolate beyond the regions covered by their centers.
 
 ⸻
@@ -1128,8 +1146,11 @@ Their main limitations include:
 Key Hyperparameters (Conceptual View)
 
 •	Number of centers (M): defines model capacity; more centers increase expressiveness but risk overfitting.
+
 •	Kernel type: Gaussian, multiquadric, or thin-plate spline; controls smoothness.
+
 •	Spread (σ): determines locality — small σ means narrow influence, large σ means overlapping responses.
+
 •	Regularization term: adds numerical stability when solving for output weights.
 
 Balancing the number of centers and the spread width is crucial for effective learning.
@@ -1153,13 +1174,17 @@ When to Use / When Not to Use
 Use it when:
 
 •	You need smooth interpolation or local function approximation.
+
 •	Data exhibit clear clusters or regions of influence.
+
 •	Interpretability of local behavior is important.
 
 Do not use it when:
 
 •	Data are high-dimensional and not clusterable.
+
 •	The problem demands hierarchical feature abstraction.
+
 •	Training speed or memory efficiency is critical.
 
 ⸻
@@ -1169,12 +1194,15 @@ References
 Canonical Papers
 
 1.	Broomhead, D. S., & Lowe, D. (1988). Multivariable Functional Interpolation and Adaptive Networks. Complex Systems.
+
 2.	Moody, J., & Darken, C. (1989). Fast Learning in Networks of Locally-Tuned Processing Units. Neural Computation.
+
 3.	Poggio, T., & Girosi, F. (1990). Networks for Approximation and Learning. Proceedings of the IEEE.
 
 Web Resources
 
 1.	Towards Data Science – Understanding Radial Basis Function Networks: https://towardsdatascience.com/radial-basis-function-networks-explained￼
+
 2.	StatQuest – RBF Networks Clearly Explained: https://statquest.org/video/rbf-networks-explained/￼
 
 
@@ -1251,7 +1279,7 @@ It proved that neural networks could learn hierarchical visual features directly
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 LeNet-5 demonstrated that structure could replace scale — that efficient architectural design could outperform large numbers of parameters.
 It was built to solve a practical problem: reading bank checks automatically.
@@ -1262,7 +1290,7 @@ Its simplicity makes it ideal for teaching the principles of convolution, weight
 
 ⸻
 
-Intuition
+**Intuition**
 
 The intuition behind LeNet-5 lies in local perception. A neuron should not see the entire image at once — only a small patch. By connecting to local receptive fields and applying the same filter across the image, the model captures spatially coherent patterns such as edges or corners.
 
@@ -1272,7 +1300,7 @@ In this way, LeNet-5 progressively builds an understanding of shapes and digits 
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 A convolutional layer computes feature maps by sliding a learnable kernel K across the input image X:
 
@@ -1297,12 +1325,12 @@ Finally, fully connected layers combine high-level features to produce a classif
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows the standard backpropagation algorithm with gradient descent.
 Weights of convolutional kernels and fully connected layers are updated based on the error signal propagated backward through the network.
 
-Typical steps:
+**Typical steps:**
 
 1.	Forward pass: compute activations through convolution, pooling, and dense layers.
 2.	Compute loss (e.g., cross-entropy).
@@ -1313,7 +1341,7 @@ Despite its small size (≈ 60,000 parameters), LeNet-5 achieved state-of-the-ar
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 LeNet-5 assumes that local image statistics are meaningful — that nearby pixels are correlated and contain reusable patterns.
 However, it was designed for low-resolution grayscale images (32×32 pixels), making it less effective for complex, high-resolution tasks.
@@ -1323,7 +1351,7 @@ These weaknesses, along with the computational constraints of the 1990s, kept CN
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Kernel size: typically 5×5 filters in early layers.
 
@@ -1341,13 +1369,13 @@ These hyperparameters define the model’s ability to capture patterns at differ
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Performance is measured primarily through classification accuracy and cross-entropy loss. Because LeNet-5 operates on images, visualization of feature maps provides valuable qualitative insight into what the network learns — showing how early filters detect edges while deeper layers respond to digit shapes. Training and validation curves remain central for diagnosing convergence.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use it when:
 
@@ -1395,7 +1423,7 @@ The next section explores how AlexNet transformed LeNet’s elegant simplicity i
 
 -------------
 
-2.	AlexNet – introduced deep CNNs with ReLU activations and GPUs.
+### 2.	AlexNet – introduced deep CNNs with ReLU activations and GPUs.
 
 **What is it?**
 
@@ -1470,7 +1498,7 @@ The combination of these equations defines a deep hierarchical transformation fr
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 AlexNet was trained using Stochastic Gradient Descent (SGD) with momentum and weight decay, across two GPUs in parallel — a landmark engineering achievement in 2012.
 
@@ -1550,13 +1578,17 @@ Its success was not just quantitative but paradigmatic: it shifted how the entir
 Use it when:
 
 •	Teaching or benchmarking CNNs on large-scale datasets.
+
 •	Demonstrating the principles of deep learning history.
+
 •	Exploring ReLU, dropout, and GPU acceleration in practice.
 
 Do not use it when:
 
 •	Working with resource-constrained systems (too large).
+
 •	Training stability and normalization are critical.
+
 •	Applications demand interpretability over raw accuracy.
 
 ⸻
@@ -1585,7 +1617,7 @@ The next section examines ResNet, the architecture that taught networks how to g
 
 ----------
 
-3.	ResNet – residual connections to enable very deep networks.
+### 3.	ResNet – residual connections to enable very deep networks.
 
 What is it?
 
@@ -1600,7 +1632,7 @@ ResNet didn’t just perform better; it solved one of the fundamental optimizati
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 Before ResNet, increasing depth often led to degradation — deeper networks performed worse, not better.
 This was not due to overfitting, but to optimization difficulties: as layers increased, gradients vanished or exploded, preventing effective learning.
@@ -1621,7 +1653,7 @@ ResNet became the foundation for almost every subsequent CNN — from EfficientN
 
 ⸻
 
-Intuition
+**Intuition**
 
 At its core, ResNet treats learning as incremental improvement rather than total reconstruction.
 Each residual block passes its input forward unaltered while adding a small corrective adjustment — like whispering “just a little better” at every layer.
@@ -1634,7 +1666,8 @@ Even if some layers perform poorly, information can bypass them, ensuring stabil
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
+
 A standard residual block can be expressed as:
 
 $$
@@ -1644,7 +1677,9 @@ $$
 where:
 
 •	\mathbf{x} is the block’s input,
+
 •	\mathcal{F}(\mathbf{x}, \{W_i\}) represents the residual mapping (two or more convolutional layers), and
+
 •	\mathbf{y} is the output that combines the transformed and identity pathways.
 
 During training, the gradient with respect to the input \mathbf{x} becomes:
@@ -1659,7 +1694,8 @@ The most common variant, ResNet-50, stacks 50 layers using bottleneck residual b
 
 ⸻
 
-Training Logic
+**Training Logic**
+
 Training ResNet follows the standard CNN pipeline, but its structure allows for deeper architectures without modification to optimization algorithms.
 
 Steps:
@@ -1677,7 +1713,8 @@ Residual blocks act as modular units, making the architecture highly scalable an
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
+
 ResNet assumes that the optimal function can be expressed as a small perturbation (residual) of the identity mapping — an assumption that holds remarkably well for visual data.
 
 However, despite its efficiency, ResNet has limitations:
@@ -1694,7 +1731,7 @@ Nevertheless, its conceptual simplicity and empirical power made it the default 
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Depth (number of layers): e.g., 18, 34, 50, 101, 152.
 
@@ -1714,7 +1751,8 @@ Depth, stride, and block configuration define both computational cost and repres
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
+
 ResNet is typically evaluated using Top-1 and Top-5 accuracy on datasets such as ImageNet, CIFAR-10, or COCO.
 Its performance metrics go beyond accuracy — researchers often inspect gradient flow, training stability, and parameter efficiency.
 
@@ -1742,7 +1780,7 @@ Do not use it when:
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -1837,7 +1875,7 @@ In the following subsections, we will explore three central architectures in the
  RNNs handle sequential or time-dependent data, learning from context and order. Together, these models represent the full evolution of recurrent thinking — from simple memory traces to robust long-distance reasoning.
 
 
-**1. Simple RNN (the foundation of sequential computation).**
+### 1. Simple RNN (the foundation of sequential computation).
 
 What is it?
 
@@ -1849,7 +1887,7 @@ The idea originated with Elman (1990) and Jordan (1986) networks, which introduc
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 Simple RNNs are used when:
 
@@ -1865,7 +1903,7 @@ Typical applications include toy language modeling, short-range time series, ear
 
 ⸻
 
-Intuition
+**Intuition**
 
 Simple RNNs operate by carrying a memory vector from one timestep to the next.
 At each time t, the model reads the input x_t and updates its internal state h_t based on both the new information and the previous state.
@@ -1875,7 +1913,7 @@ This memory is shallow — it fades quickly — but it captures short-term patte
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The recurrence is governed by the equation:
 
@@ -1890,10 +1928,14 @@ y_t = W_y h_t + c
 $$
 
 Here:
-	•	h_t is the hidden state at time t,
-	•	W_h, W_x, W_y are learned weight matrices,
-	•	b, c are bias terms,
-	•	\tanh(\cdot) ensures bounded activation values.
+
+•	h_t is the hidden state at time t,
+
+•	W_h, W_x, W_y are learned weight matrices,
+
+•	b, c are bias terms,
+
+•	\tanh(\cdot) ensures bounded activation values.
 
 The key property is weight sharing across time, which allows the network to generalize across sequences of variable length.
 
@@ -1910,13 +1952,14 @@ Training follows Backpropagation Through Time (BPTT):
 During BPTT, repeated multiplication through recurrent weights often leads to:
 
 •	vanishing gradients, when values shrink toward zero, or
+
 •	exploding gradients, when they grow uncontrollably.
 
 This instability is the main reason Simple RNNs struggle with long-term dependencies.
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -1924,7 +1967,7 @@ Assumptions
 
 •	The signal-to-noise ratio of the temporal pattern is stable over short windows.
 
-Limitations
+**Limitations**
 
 •	Cannot reliably model long-term dependencies due to vanishing gradients.
 
@@ -1938,7 +1981,7 @@ These limitations motivated the search for gated recurrent mechanisms.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Hidden size: dimensionality of the internal state.
 
@@ -1954,7 +1997,7 @@ The model’s performance is sensitive to hidden size and training stability par
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Evaluation depends on the task:
 
@@ -1968,26 +2011,31 @@ Temporal diagnostics such as gradient norms or memory decay curves help identify
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use Simple RNNs when:
 
 •	The goal is educational — understanding recurrence fundamentals.
+
 •	Sequences are short and relationships are local.
+
 •	Computation must remain extremely lightweight.
 
 Avoid Simple RNNs when:
 
 •	The task involves long-range dependencies.
+
 •	Precise temporal memory is required.
+
 •	Data is noisy or the sequence length is large.
+
 •	State-of-the-art performance is needed.
 
 In these scenarios, LSTMs or GRUs are superior.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -2009,10 +2057,9 @@ This architectural shift gave rise to the Long Short-Term Memory (LSTM) network 
 
 ---------
 
+### 2. Long Short-Term Memory (LSTM) – introduces gating to preserve long-term dependencies.**
 
-**2. Long Short-Term Memory (LSTM) – introduces gating to preserve long-term dependencies.**
-
-What is it?
+**What is it?**
 
 The Long Short-Term Memory (LSTM) network, introduced by Sepp Hochreiter and Jürgen Schmidhuber in 1997, is a recurrent neural architecture specifically designed to overcome the vanishing gradient problem that limits traditional RNNs.
 Its core innovation is the introduction of gates, neural mechanisms that regulate which information is remembered, which is forgotten, and which is exposed as output.
@@ -2023,7 +2070,7 @@ By stabilizing gradient flow, LSTMs can store patterns over long time spans — 
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 LSTMs are used when:
 
@@ -2037,7 +2084,7 @@ Their robustness has made them the standard sequential model for more than a dec
 
 ⸻
 
-Intuition
+**Intuition**
 
 The LSTM introduces a cell state, denoted as c_t, which behaves like a conveyor belt carrying information across time.
 Gates act as regulators that open or close depending on the input, controlling:
@@ -2052,7 +2099,7 @@ This structure mimics how humans process extended sequences: we selectively forg
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 An LSTM block computes its state using four gates.
 
@@ -2098,7 +2145,7 @@ This gated structure ensures that gradients propagate through the cell state wit
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 LSTMs are trained using Backpropagation Through Time, like simple RNNs, but with an important difference: gates allow gradients to flow more smoothly.
 
@@ -2116,7 +2163,7 @@ Regularization techniques such as recurrent dropout, layer normalization, or pee
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -2138,7 +2185,7 @@ Despite these drawbacks, LSTMs remain reliable when transformers are not feasibl
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Hidden dimension: controls the capacity of the memory.
 
@@ -2156,7 +2203,7 @@ LSTMs are sensitive to learning rate schedules and benefit from warm restarts or
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Evaluation depends on the domain:
 
@@ -2172,7 +2219,7 @@ Inspecting gate activations or the evolution of the cell state can provide insig
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use LSTMs when:
 
@@ -2196,7 +2243,7 @@ Avoid LSTMs when:
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -2225,9 +2272,9 @@ This led to the development of the Gated Recurrent Unit (GRU), a model that bala
 ----------
 	
 
-**3.	Gated Recurrent Unit (GRU):  a simplified LSTM variant.**
+### 3.	Gated Recurrent Unit (GRU):  a simplified LSTM variant.**
 
-What is it?
+**What is it?**
 
 The Gated Recurrent Unit (GRU), introduced by Cho et al. in 2014, is a streamlined recurrent architecture designed to provide most of the benefits of LSTMs while reducing computational complexity.
 GRUs merge certain gates and remove the explicit memory cell, resulting in a simpler structure that often trains faster and generalizes well across a wide range of sequential tasks.
@@ -2238,7 +2285,7 @@ Their design philosophy is elegant: keep the essential idea of gating, simplify 
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 GRUs are chosen when:
 
@@ -2254,7 +2301,7 @@ They excel in speech recognition, text classification, time series forecasting, 
 
 ⸻
 
-Intuition
+**Intuition**
 
 The GRU simplifies memory control through two gates instead of three:
 
@@ -2268,7 +2315,7 @@ In practice, this makes GRUs more responsive to changes in the input while still
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Given input x_t and previous hidden state h_{t-1}:
 
@@ -2300,7 +2347,7 @@ This formulation blends old and new information, allowing the network to decide 
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training GRUs follows the same Backpropagation Through Time procedure as other RNNs.
 However, due to simpler gating, gradients flow more directly, often making GRUs:
@@ -2315,7 +2362,7 @@ Optimizers such as Adam, RMSProp, or SGD with momentum are commonly used.
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -2335,7 +2382,7 @@ Despite these limitations, GRUs often match or even exceed LSTM performance in p
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Hidden size: defines memory capacity.
 
@@ -2353,7 +2400,7 @@ GRUs are more robust to hyperparameter choices than LSTMs, making them easier to
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Primary metrics depend on the domain:
 
@@ -2369,7 +2416,7 @@ GRUs are often benchmarked directly against LSTMs to compare training speed and 
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use GRUs when:
 
@@ -2391,7 +2438,7 @@ Avoid GRUs when:
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -2432,6 +2479,7 @@ Autoencoders are naturally unsupervised. They do not require labels. Instead, th
 Their architecture consists of two main parts:
 
 •	an encoder, which compresses the input into a low-dimensional latent representation, and
+
 •	a decoder, which reconstructs the input from that representation.
 
 This bottleneck encourages the model to capture structure rather than memorize noise.
@@ -2479,7 +2527,7 @@ Together, these architectures illustrate how neural networks can learn compresse
 
 ### 1. Classic Autoencoder (Learning Through Compression).
 
-What is it?
+**What is it?**
 
 The Classic Autoencoder is the foundational encoder–decoder architecture in neural networks. Its central idea is to learn a compressed internal representation of data without any labels.
 The model was popularized in the late 1980s and 1990s through the work of Rumelhart, Hinton, and Williams, who envisioned neural networks that could learn “codes” capturing the essential structure of inputs.
@@ -2493,7 +2541,7 @@ Although simple, the Classic Autoencoder has become the conceptual root for near
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 Classic autoencoders are used when:
 
@@ -2511,7 +2559,7 @@ They are particularly valuable when labeled data is scarce but unlabeled data is
 
 ⸻
 
-Intuition
+**Intuition**
 
 The autoencoder learns to “summarize” the input. The encoder compresses the input into a small vector — the latent code — and the decoder tries to reconstruct the original from that code.
 
@@ -2529,7 +2577,7 @@ Success indicates that the compression contained the right information.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Given an input vector x, the encoder computes a latent code z:
 
@@ -2559,7 +2607,7 @@ The “bottleneck” structure — where the latent dimension is smaller than th
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows a standard forward–backward pipeline:
 
@@ -2574,7 +2622,7 @@ Regularization techniques such as weight decay, sparse activations, or dropout a
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -2600,7 +2648,7 @@ Despite these limitations, autoencoders remain strong baseline models.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Latent dimension size: determines the compression strength.
 
@@ -2618,7 +2666,7 @@ Choosing the right latent dimension is the most critical design choice.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Classic autoencoders are evaluated through:
 
@@ -2634,7 +2682,7 @@ Visualization of reconstructions often gives qualitative insight into the model�
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use autoencoders when:
 
@@ -2662,7 +2710,7 @@ Classic autoencoders are best seen as the starting point in representation learn
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -2673,6 +2721,7 @@ Canonical Papers
 Web Resources
 
 1.	DeepLearningBook.org – Chapter on Autoencoders.
+
 2.	Stanford CS231n – Representation Learning with Autoencoders.
 
 --------------
@@ -2688,7 +2737,7 @@ This forces the model to learn features that capture meaningful patterns rather 
 
 ### 2. Denoising Autoencoder (learning robust representations).
 
-What is it?
+**What is it?**
 
 The Denoising Autoencoder (DAE), introduced by Vincent et al. (2008), extends the classic autoencoder by learning to reconstruct clean inputs from deliberately corrupted versions.
 The objective is not mere compression but robust representation learning, where the latent space captures stable, meaningful features rather than noise or trivial memorization.
@@ -2699,7 +2748,7 @@ The DAE marked a major step in unsupervised learning, revealing that adding nois
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 DAEs are used when:
 
@@ -2717,7 +2766,7 @@ In practice, DAEs outperform classic autoencoders on many unsupervised tasks bec
 
 ⸻
 
-Intuition
+**Intuition**
 
 The key intuition is simple and powerful:
 
@@ -2751,15 +2800,18 @@ $$
 
 The corruption process q(\tilde{x} \mid x) is critical.
 Common noise types include:
-	•	Gaussian noise
-	•	Salt-and-pepper noise
-	•	Random masking (dropout-style)
+
+•	Gaussian noise
+
+•	Salt-and-pepper noise
+
+•	Random masking (dropout-style)
 
 The DAE’s learning objective becomes a denoising problem rather than pure reconstruction.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows these steps:
 
@@ -2774,7 +2826,7 @@ DAEs can be stacked to form deep networks, which played a major role in pretrain
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -2798,7 +2850,7 @@ Even so, DAEs remain an essential technique for robust feature learning.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Type of noise: Gaussian, dropout-mask, salt-and-pepper.
 
@@ -2816,7 +2868,7 @@ The noise level is the most influential factor — too high eliminates structure
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 DAEs are evaluated primarily by:
 
@@ -2832,7 +2884,7 @@ Visualizing reconstructions under different corruption levels reveals how well t
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use Denoising Autoencoders when:
 
@@ -2858,7 +2910,7 @@ DAEs excel at representation learning, not at generating new data.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -2883,7 +2935,7 @@ This model is the Variational Autoencoder (VAE) — the architecture that transf
 
 ### 3. Variational Autoencoder (VAE) – Learning Generative Latent Spaces
 
-What is it?
+**What is it?**
 
 The Variational Autoencoder (VAE), introduced by Kingma and Welling (2013), is a probabilistic generative model that transforms the classic autoencoder into a continuous latent-variable framework.
 Unlike classic or denoising autoencoders, which learn deterministic codes, VAEs learn distributions over the latent space. This allows them to sample, interpolate, and generate new data in a principled way.
@@ -2896,7 +2948,7 @@ Their contribution was transformative: VAEs demonstrated how neural networks cou
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 VAEs are used when:
 
@@ -2969,7 +3021,7 @@ The KL term shapes the latent space into a smooth, continuous manifold.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows:
 
@@ -2985,19 +3037,24 @@ VAEs train stably and are more mathematically grounded than many generative coun
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
 •	Data can be modeled by a low-dimensional latent distribution.
+
 •	A continuous latent space captures important generative factors.
+
 •	The chosen prior (usually Gaussian) reflects the structure of hidden variables.
 
 Limitations
 
 •	Reconstructions tend to be blurrier than GAN outputs due to probabilistic decoding.
+
 •	The KL term may overpower reconstruction unless carefully balanced.
+
 •	Latent representations can collapse without good hyperparameter control.
+
 •	Sampling quality is limited compared to state-of-the-art diffusion models.
 
 Despite this, VAEs remain foundational in probabilistic deep generative modeling.
@@ -3007,52 +3064,68 @@ Despite this, VAEs remain foundational in probabilistic deep generative modeling
 Key Hyperparameters (Conceptual View)
 
 •	Latent dimension: determines generative richness.
+
 •	β coefficient: balances reconstruction and latent regularization.
+
 •	Number of layers: defines encoder/decoder expressiveness.
+
 •	Type of prior: typically Gaussian, but alternatives exist.
+
 •	Noise variance / decoder likelihood: affects sharpness of reconstructions.
+
 •	Optimizer and learning rate: crucial for stable balancing of the KL term.
 
 The β-VAE variant is particularly influential for disentangling latent features.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 VAEs are evaluated through:
 
 •	Reconstruction error (MSE, MAE).
+
 •	KL divergence stability.
+
 •	ELBO during training.
+
 •	Latent space visualization (continuity, clustering, semantics).
+
 •	Quality of generated samples through sampling from z \sim \mathcal{N}(0, I).
 
 Visualization of latent interpolations is one of the strongest qualitative evaluation tools.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use VAEs when:
 
 •	You need a smooth latent space for interpolation or analysis.
+
 •	Generative sampling is required.
+
 •	You want probabilistic representation learning.
+
 •	Semi-supervised or unsupervised contexts dominate.
+
 •	Latent structure matters more than photorealistic generation.
 
 Avoid VAEs when:
 
 •	You need extremely sharp or high-fidelity image generation.
+
 •	You require discrete latent structure (unless using VQ-VAE).
+
 •	Reconstruction quality is more important than generative smoothness.
+
 •	You need the state-of-the-art generative performance (GANs or diffusion win here).
 
 VAEs are ideal when mathematical clarity and latent interpretability are priorities.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -3087,10 +3160,14 @@ The paper “Attention Is All You Need” by Vaswani et al. introduced the Trans
 ![class](/ima/ima24.webp)
 
 This shift made Transformer models:
-	•	fully parallelizable, accelerating training dramatically,
-	•	scalable, capable of growing into billions (and now trillions) of parameters,
-	•	contextually aware, capturing both local and long-distance dependencies with ease,
-	•	flexible, adaptable to language, images, audio, time series, proteins, and even reinforcement learning settings.
+
+•	fully parallelizable, accelerating training dramatically,
+
+•	scalable, capable of growing into billions (and now trillions) of parameters,
+
+•	contextually aware, capturing both local and long-distance dependencies with ease,
+
+•	flexible, adaptable to language, images, audio, time series, proteins, and even reinforcement learning settings.
 
 The key innovation is the self-attention mechanism, a process that learns how strongly each token should attend to every other token in the sequence.
 Mathematically elegant and computationally efficient, attention became the universal connector for representation learning.
@@ -3136,7 +3213,7 @@ In the following sections, we will study three fundamental architectures that re
 
 ### 1. The Original Transformer – Attention Is All You Need
 
-What is it?
+**What is it?**
 
 The Original Transformer, introduced by Vaswani et al. (2017) in the landmark paper “Attention Is All You Need”, is the first neural architecture built entirely on attention mechanisms, without any recurrence or convolution.
 This model redefined sequence learning by allowing networks to process all positions in a sequence simultaneously, using learned attention weights to determine how tokens relate to one another.
@@ -3157,7 +3234,7 @@ This design became the foundation for every major modern AI system, including BE
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 The Transformer is used when:
 
@@ -3249,7 +3326,7 @@ This combination forms the template adopted by all future transformer variants.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows supervised learning with teacher forcing for sequence-to-sequence tasks (like translation). The process is:
 
@@ -3274,14 +3351,19 @@ These practices stabilize training and ensure good convergence.
 Assumptions
 
 •	Attention alone can model all dependencies.
+
 •	Long-range relationships matter.
+
 •	Data is abundant enough to train large models.
 
 Limitations
 
 •	Quadratic complexity in sequence length (self-attention scales as O(n^2)).
+
 •	Requires extensive compute and memory.
+
 •	May struggle on very small datasets or with limited supervision.
+
 •	Does not naturally impose recurrence or locality when needed.
 
 Despite these limitations, no other architecture has matched its versatility and scalability.
@@ -3291,11 +3373,17 @@ Despite these limitations, no other architecture has matched its versatility and
 **Key Hyperparameters (Conceptual View)**
 
 •	Model dimension d_{model} (e.g., 512, 1024).
+
 •	Number of layers (encoder/decoder depth).
+
 •	Number of attention heads.
+
 •	Feedforward layer width (e.g., 2048–4096).
+
 •	Dropout rate.
+
 •	Learning rate schedule (warmup steps, decay).
+
 •	Masking strategy (causal or bidirectional).
 
 These parameters govern model capacity, parallelization, and sequence-handling behavior.
@@ -3366,9 +3454,7 @@ Web Resources
 
 -------------------------
 
-The original Transformer introduced attention as the new foundation for representation learning. But its encoder and decoder were optimized for sequence-to-sequence tasks, not for deep contextual understanding of language. Researchers soon realized that the Transformer encoder alone — without a decoder — could be trained on massive unlabeled corpora to capture rich bidirectional context.
-
-This insight led to BERT, a model that transformed natural language understanding by learning contextual embeddings through masked-language modeling.
+The original Transformer introduced attention as the new foundation for representation learning. But its encoder and decoder were optimized for sequence-to-sequence tasks, not for deep contextual understanding of language. Researchers soon realized that the Transformer encoder alone — without a decoder — could be trained on massive unlabeled corpora to capture rich bidirectional context. This insight led to BERT, a model that transformed natural language understanding by learning contextual embeddings through masked-language modeling.
 BERT demonstrated that pretraining on raw text, followed by fine-tuning, could outperform specialized models across nearly every NLP benchmark.
 
 Now we explore how this encoder-only architecture reshaped the landscape of language understanding.
@@ -3377,7 +3463,7 @@ Now we explore how this encoder-only architecture reshaped the landscape of lang
 
 ### 2. BERT – Bidirectional Encoding for Deep Understanding
 
-What is it?
+**What is it?**
 
 BERT (Bidirectional Encoder Representations from Transformers), introduced by Devlin et al. (2018), is an encoder-only transformer model designed to learn deep bidirectional representations of language.
 Unlike earlier models that processed text left-to-right (GPT) or with limited context (RNNs), BERT reads sequences in both directions simultaneously, allowing it to understand context from the entire sentence at once.
@@ -3396,7 +3482,7 @@ BERT revolutionized natural language understanding, achieving state-of-the-art r
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 BERT is used when:
 
@@ -3414,7 +3500,7 @@ BERT is a universal encoder for text, capable of capturing syntactic, semantic, 
 
 ⸻
 
-Intuition
+**Intuition**
 
 Traditional models read text sequentially. BERT does not. It sees the entire sequence at once and builds representations where each token attends to every other token — forward and backward.
 
@@ -3430,7 +3516,7 @@ This bidirectionality makes BERT extremely good at tasks requiring understanding
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The key objective is Masked Language Modeling:
 
@@ -3467,7 +3553,7 @@ $$
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 BERT undergoes a two-phase pipeline:
 
@@ -3489,7 +3575,7 @@ Fine-tuning requires only modest labeled data because the heavy lifting is done 
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -3515,7 +3601,7 @@ Yet despite these limitations, BERT remains the cornerstone of modern language u
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Hidden size: 768 (base) or 1024 (large).
 
@@ -3535,7 +3621,7 @@ These parameters define computational cost and representational strength.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Evaluation depends on the downstream task:
 
@@ -3553,7 +3639,7 @@ Attention visualizations often reveal how BERT encodes syntactic and semantic st
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use BERT when:
 
@@ -3579,7 +3665,7 @@ BERT remains the gold standard for language understanding, not generation.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -3603,9 +3689,9 @@ This idea led to the development of the GPT family, where autoregressive modelin
 
 -------------------------
 
-3. GPT – Autoregressive Generative Pretraining and Scaling Laws
+### 3. GPT – Autoregressive Generative Pretraining and Scaling Laws
 
-What is it?
+**What is it?**
 
 The GPT (Generative Pretrained Transformer) family, introduced by OpenAI beginning in 2018, is an autoregressive transformer architecture designed for natural language generation.
 GPT models read text from left to right, predicting the next token at each step. This simple mechanism — combined with large-scale pretraining — turned them into powerful generative models capable of producing coherent, contextually rich text across long sequences.
@@ -3613,10 +3699,14 @@ GPT models read text from left to right, predicting the next token at each step.
 ![class](/ima/ima27.jpeg)
 
 GPT introduced several fundamental ideas:
-	•	Autoregressive pretraining on massive text corpora.
-	•	Causal self-attention, ensuring each token sees only previous tokens.
-	•	Transfer learning through fine-tuning (GPT-2 improved via zero-shot).
-	•	Scaling laws, which revealed that performance improves predictably with model size, dataset size, and compute.
+
+•	Autoregressive pretraining on massive text corpora.
+
+•	Causal self-attention, ensuring each token sees only previous tokens.
+
+•	Transfer learning through fine-tuning (GPT-2 improved via zero-shot).
+
+•	Scaling laws, which revealed that performance improves predictably with model size, dataset size, and compute.
 
 From GPT-1 (117M parameters) to GPT-4+ (trillions of parameters), the GPT lineage has shaped modern generative AI and defined the trajectory of large language models.
 
@@ -3625,25 +3715,36 @@ From GPT-1 (117M parameters) to GPT-4+ (trillions of parameters), the GPT lineag
 Why use it?
 
 GPT models are used when:
-	•	The task requires generation, not just understanding.
-	•	You need models that produce long, coherent sequences.
-	•	Zero-shot, one-shot, and few-shot capabilities are important.
-	•	The setting benefits from autoregressive prediction (completion, dialogue).
-	•	The goal is creative, open-ended, or multi-turn interaction.
+
+•	The task requires generation, not just understanding.
+
+•	You need models that produce long, coherent sequences.
+
+•	Zero-shot, one-shot, and few-shot capabilities are important.
+
+•	The setting benefits from autoregressive prediction (completion, dialogue).
+
+•	The goal is creative, open-ended, or multi-turn interaction.
 
 GPT excels in:
-	•	text generation and continuation,
-	•	coding and reasoning,
-	•	summarization, translation, rewriting,
-	•	conversational agents,
-	•	retrieval-augmented systems,
-	•	multimodal integration (GPT-4, GPT-V).
+
+•	text generation and continuation,
+
+•	coding and reasoning,
+
+•	summarization, translation, rewriting,
+
+•	conversational agents,
+
+•	retrieval-augmented systems,
+
+•	multimodal integration (GPT-4, GPT-V).
 
 It is the foundational architecture behind ChatGPT and many modern assistants.
 
 ⸻
 
-Intuition
+**Intuition**
 
 GPT models operate by predicting one word at a time:
 “Given everything I’ve seen so far, what comes next?”
@@ -3652,17 +3753,22 @@ Causal self-attention restricts the model from looking ahead, ensuring predictio
 This creates a generative process similar to how humans articulate sentences — each new word derived from the evolving context.
 
 Pretraining exposes GPT to billions or trillions of text tokens, allowing it to internalize:
-	•	grammar and syntax,
-	•	world knowledge,
-	•	patterns of discourse,
-	•	reasoning structures,
-	•	task-solvable behaviors that emerge from scale.
+
+•	grammar and syntax,
+	
+•	world knowledge,
+	
+•	patterns of discourse,
+	
+•	reasoning structures,
+	
+•	task-solvable behaviors that emerge from scale.
 
 The GPT “intelligence” arises from the accumulation of these statistical regularities.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 At each position t, the model predicts token x_t given previous tokens:
 
@@ -3704,7 +3810,7 @@ where N represents model size, dataset size, or compute, and \alpha is a predict
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 GPT training involves:
 
@@ -3714,17 +3820,17 @@ GPT training involves:
 4.	Potential fine-tuning for specific tasks (GPT-1 and GPT-2).
 5.	For modern GPTs:
 
-	•	Instruction tuning,
+•	Instruction tuning,
 	
-	•	Reinforcement Learning from Human Feedback (RLHF),
+•	Reinforcement Learning from Human Feedback (RLHF),
 	
-	•	Supervised preference optimization.
+•	Supervised preference optimization.
 
 GPT-3 and later models demonstrated that fine-tuning is optional: the model can generalize using only instructions (prompting).
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -3750,7 +3856,7 @@ GPT’s power comes at the cost of complexity and compute.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Number of layers (transformer blocks).
 
@@ -3770,7 +3876,7 @@ In GPT models, context window and parameter scaling are the most influential fac
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 GPT models are evaluated using:
 
@@ -3790,21 +3896,28 @@ GPT’s success is measured both quantitatively and qualitatively.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use GPT when:
 
 •	You need strong text generation.
+
 •	Few-shot or zero-shot learning is beneficial.
+
 •	The task involves open-ended reasoning or creativity.
+
 •	You need a conversational agent or code assistant.
+
 •	You want a model that scales predictably with data.
 
 Avoid GPT when:
 
 •	You need strict deterministic outputs or high factual accuracy.
+
 •	You require bidirectional understanding (BERT excels here).
+
 •	Resources are limited and inference must be fast.
+
 •	Sequence lengths far exceed available context windows.
 
 GPT is the dominant architecture for generative tasks, not structured token classification.
@@ -3838,7 +3951,7 @@ Models such as ALBERT, RoBERTa, and DistilBERT represent this movement toward ef
 ### 4. ALBERT / RoBERTa / DistilBERT – efficient and optimized encoder variants.
 
 
-What is it?
+**What is it?**
 
 ALBERT, RoBERTa, and DistilBERT represent a generation of optimized Transformer encoders created to address a clear limitation: the original BERT model delivered exceptional performance but was computationally heavy, slow to train, and difficult to deploy in real-world systems.
 
@@ -3848,15 +3961,18 @@ BERT showed that deep bidirectional pretraining could unlock powerful language u
 These three variants emerged to make BERT more efficient—faster to train, lighter to deploy, and cheaper to fine-tune—while preserving most of its performance.
 
 RoBERTa, ALBERT, and DistilBERT pursue this goal through three complementary strategies:
-	•	RoBERTa (2019, Facebook AI) improved BERT through better training: more data, larger batches, longer schedules, dynamic masking, and removal of the Next Sentence Prediction (NSP) objective.
-	•	ALBERT (2019, Google) reduced BERT’s parameter count by applying cross-layer parameter sharing and factorized embeddings, achieving the same or better performance with significantly fewer parameters.
-	•	DistilBERT (2019, HuggingFace) applied knowledge distillation to compress BERT into a model that is 40% smaller and 60% faster, while retaining most of its accuracy.
+
+•	RoBERTa (2019, Facebook AI) improved BERT through better training: more data, larger batches, longer schedules, dynamic masking, and removal of the Next Sentence Prediction (NSP) objective.
+	
+•	ALBERT (2019, Google) reduced BERT’s parameter count by applying cross-layer parameter sharing and factorized embeddings, achieving the same or better performance with significantly fewer parameters.
+	
+•	DistilBERT (2019, HuggingFace) applied knowledge distillation to compress BERT into a model that is 40% smaller and 60% faster, while retaining most of its accuracy.
 
 Together, these models reflect a broader movement: efficient deep contextual encoders that deliver strong performance without the computational burden of full-scale BERT.
 
 ⸻
 
-Why Use It?
+**Why Use It?**
 
 These models are used when the goal is deep language understanding—classification, semantic similarity, extraction, embeddings, retrieval, question answering—but under constraints such as:
 	•	limited computational resources,
@@ -3872,7 +3988,7 @@ In general:
 
 ⸻
 
-Intuition
+**Intuition**
 
 BERT proved that contextual bidirectional attention captures deep semantic structure.
 However, its architecture was redundant and oversized for practical use.
@@ -3890,7 +4006,7 @@ The general philosophy is that contextual intelligence can be preserved with few
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Although all three architectures rely on the original Transformer encoder, each introduces a distinct mathematical contribution.
 
@@ -3934,7 +4050,7 @@ Its improvements come from training dynamics, not architecture.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Although they share the core task of Masked Language Modeling (MLM), each model adopts a different training strategy.
 
@@ -3958,7 +4074,7 @@ The shared purpose is to maintain strong performance while reducing computation 
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 	•	Deep bidirectional encoding is necessary for high-quality language understanding.
@@ -3973,47 +4089,67 @@ Limitations
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Number of encoder layers (e.g., 12 → 6 in DistilBERT).
+
 •	Hidden size H.
+
 •	Embedding size E (factorized in ALBERT).
+
 •	Temperature for distillation.
+
 •	Batch size during pretraining.
+
 •	Choice of pretraining tasks (MLM, SOP).
+
 •	Dynamic vs. static masking.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Evaluation centers on two pillars: accuracy and efficiency.
 
 •	Performance on GLUE, SuperGLUE, STS-B, and other understanding benchmarks.
+
 •	Quality of embeddings for semantic tasks.
+
 •	Efficiency metrics:
+
 •	number of parameters,
+
 •	inference latency,
+
 •	memory consumption.
+
 •	Robustness across standard NLP tasks.
 
 The core objective: maximum quality at minimum cost.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use these models when:
-	•	You need a fast, efficient encoder for classification, QA, NER, retrieval, topic modeling, or embeddings.
-	•	You deploy on limited hardware.
-	•	You require low latency production environments.
-	•	You need stable fine-tuning across multiple NLP tasks.
+
+•	You need a fast, efficient encoder for classification, QA, NER, retrieval, topic modeling, or embeddings.
+
+•	You deploy on limited hardware.
+
+•	You require low latency production environments.
+
+•	You need stable fine-tuning across multiple NLP tasks.
 
 Avoid these models when:
-	•	You need natural language generation (GPT-style models are better).
-	•	The task requires long-context reasoning.
-	•	You need step-by-step or multi-hop reasoning.
-	•	The task is open-ended or creative.
+
+•	You need natural language generation (GPT-style models are better).
+
+•	The task requires long-context reasoning.
+
+•	You need step-by-step or multi-hop reasoning.
+
+•	The task is open-ended or creative.
 
 ⸻
 
@@ -4093,7 +4229,7 @@ Each model will be developed using the analytical framework established earlier,
 
 ### 1. Variational Autoencoders (VAE) – Latent Variable Generators
 
-What is it?
+**What is it?**
 
 A Variational Autoencoder (VAE) is a probabilistic generative model introduced by Kingma and Welling (2013). It extends the classic autoencoder architecture by incorporating principles from Bayesian inference and latent-variable modeling.
 
@@ -4106,22 +4242,26 @@ VAEs marked the return of probabilistic modeling in deep learning, bridging repr
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 VAEs are ideal when the goal is both representation learning and generation.
 They excel in tasks such as:
 
 •	learning compact latent spaces for images, text, or signals,
-	•	generating coherent but slightly smooth samples,
-	•	data compression or anomaly detection,
-	•	learning interpretable latent structure (e.g., “style” vs. “content”),
-	•	acting as priors for more advanced generative models.
+
+•	generating coherent but slightly smooth samples,
+
+•	data compression or anomaly detection,
+
+•	learning interpretable latent structure (e.g., “style” vs. “content”),
+
+•	acting as priors for more advanced generative models.
 
 Their strength lies in their stability and statistical grounding; unlike GANs, they rarely collapse or diverge.
 
 ⸻
 
-Intuition
+**Intuition**
 
 The core intuition is simple:
 A VAE tries to learn the underlying structure of the data by compressing it into a probability distribution rather than a single point.
@@ -4146,7 +4286,7 @@ it is both a compression model and a generator, tied together through Bayesian r
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 VAEs maximize a variational lower bound (ELBO) on the log-likelihood:
 
@@ -4170,16 +4310,16 @@ This allows gradients to flow through stochastic sampling, making the entire mod
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 1.	The encoder produces \mu(x) and \sigma(x).
 2.	A latent sample is obtained via the reparameterization trick.
 3.	The decoder reconstructs x from z.
 4.	The ELBO loss balances:
 
-	•	fidelity of reconstruction,
+•	fidelity of reconstruction,
 	
-	•	closeness of the approximate posterior to the prior.
+•	closeness of the approximate posterior to the prior.
 	
 5.	Optimization uses Adam or similar gradient-based methods.
 
@@ -4187,69 +4327,89 @@ Training encourages the VAE to learn a smooth, continuous latent space where int
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
-	•	Data can be expressed via continuous latent factors.
-	•	The prior p(z) captures the underlying generative structure.
-	•	Gaussian latent variables are expressive enough for the task.
+
+•	Data can be expressed via continuous latent factors.
+•	The prior p(z) captures the underlying generative structure.
+•	Gaussian latent variables are expressive enough for the task.
 
 Limitations
-	•	Samples tend to be blurrier than GAN outputs due to the Gaussian likelihood assumptions.
-	•	The KL term can dominate early training, causing posterior collapse.
-	•	Latent variables may fail to disentangle without regularization tricks (e.g., β-VAE).
+
+•	Samples tend to be blurrier than GAN outputs due to the Gaussian likelihood assumptions.
+•	The KL term can dominate early training, causing posterior collapse.
+•	Latent variables may fail to disentangle without regularization tricks (e.g., β-VAE).
 
 VAEs trade sharpness for stability and mathematical clarity.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Latent dimensionality \dim(z).
+
 •	Weighting factor on the KL term (e.g., \beta in β-VAE).
+
 •	Choice of prior distribution.
+
 •	Decoder likelihood (Gaussian, Bernoulli).
+
 •	Network depth for encoder and decoder.
 
 The latent dimensionality and KL weighting strongly shape the model’s expressiveness.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 VAE evaluation emphasizes:
 
 •	Reconstruction loss,
+
 •	Latent space structure (continuity, disentanglement),
+
 •	Generation quality,
+
 •	Diversity of generated samples,
+
 •	KL divergence behavior,
+
 •	Downstream task performance (classification or clustering in latent space).
 
 The VAE is judged less on photorealism and more on representation quality.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use a VAE when:
-	•	you want a stable, mathematically grounded generative model,
-	•	you need meaningful latent embeddings for downstream tasks,
-	•	sampling diversity and structure matter,
-	•	you prefer smooth generative behavior over sharp realism,
-	•	explainability of the latent space is important.
+
+•	you want a stable, mathematically grounded generative model,
+	
+•	you need meaningful latent embeddings for downstream tasks,
+	
+•	sampling diversity and structure matter,
+	
+•	you prefer smooth generative behavior over sharp realism,
+	
+•	explainability of the latent space is important.
 
 Avoid VAEs when:
-	•	you require highly realistic images (GANs excel here),
-	•	the data distribution contains sharp edges or fine details,
-	•	discrete latent factors are essential,
-	•	you need large-scale generative performance or multimodal synthesis.
+
+•	you require highly realistic images (GANs excel here),
+
+•	the data distribution contains sharp edges or fine details,
+
+•	discrete latent factors are essential,
+
+•	you need large-scale generative performance or multimodal synthesis.
 
 VAEs are ideal for scientific, analytical, and representation-driven applications.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -4293,16 +4453,20 @@ GANs are used when realism matters.
 They excel in:
 
 •	image generation and creative synthesis,
+
 •	super-resolution and image-to-image translation,
+
 •	style transfer and domain adaptation,
+
 •	generating fine-grained textures and sharp details,
+
 •	data augmentation for vision tasks.
 
 While VAEs offer smooth latent spaces, GANs deliver sharp, high-quality outputs that approximate human-like detail.
 
 ⸻
 
-Intuition
+**Intuition**
 
 The intuition behind GANs is grounded in competition.
 The generator tries to produce samples that “fool” the discriminator, while the discriminator adapts to detect such attempts.
@@ -4310,6 +4474,7 @@ The generator tries to produce samples that “fool” the discriminator, while 
 Over iterations:
 
 •	The generator becomes a master of mimicry — learning the distribution of real data.
+
 •	The discriminator becomes a critic — identifying even subtle inconsistencies.
 
 When training reaches equilibrium, the generator’s samples become indistinguishable from real ones, at least from the discriminator’s perspective.
@@ -4318,7 +4483,7 @@ This adversarial tension drives the model toward high-quality synthesis without 
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 GANs optimize a minimax objective:
 
@@ -4331,8 +4496,10 @@ $$
 $$
 
 Here:
-	•	D(x) is the discriminator’s estimate that x is real.
-	•	G(z) maps latent noise z into synthetic samples.
+
+•	D(x) is the discriminator’s estimate that x is real.
+	
+•	G(z) maps latent noise z into synthetic samples.
 
 Training often uses the non-saturating loss for practicality:
 
@@ -4351,15 +4518,21 @@ Training Logic
 GAN training alternates between:
 
 1.	Updating the discriminator to better detect fake samples.
+
 2.	Updating the generator to produce better forgeries.
 
 Stability techniques often include:
 
 •	feature matching,
+
 •	label smoothing,
+
 •	Wasserstein distance (WGAN),
+
 •	gradient penalty,
+
 •	spectral normalization,
+
 •	balanced training steps.
 
 GANs are powerful but notoriously difficult to train due to mode collapse, instability, and sensitivity to hyperparameters.
@@ -4371,15 +4544,21 @@ Assumptions and Limitations
 Assumptions
 
 •	The discriminator provides a meaningful gradient to improve the generator.
+
 •	The latent space has sufficient dimensionality to represent data variations.
+
 •	The optimization can approximate a Nash equilibrium.
 
 Limitations
 
 •	Training instability and divergence.
+
 •	Mode collapse (generator produces only a few patterns).
+
 •	Lack of explicit likelihood makes evaluation challenging.
+
 •	Sensitive to architecture design and hyperparameter choices.
+
 •	Hard to scale to extremely large or multimodal datasets.
 
 Despite these difficulties, GANs remain one of the most important milestones in generative modeling.
@@ -4389,9 +4568,13 @@ Despite these difficulties, GANs remain one of the most important milestones in 
 Key Hyperparameters (Conceptual View)
 
 •	Latent dimension size.
+
 •	Generator/discriminator depth and capacity.
+
 •	Learning rates (often different for G and D).
+
 •	Batch size.
+
 •	Gradient penalties, normalization schemes, and loss variants.
 
 Small changes in these parameters can drastically alter training dynamics.
@@ -4401,11 +4584,16 @@ Small changes in these parameters can drastically alter training dynamics.
 Evaluation Focus
 
 GAN evaluation is nontrivial because they do not provide explicit likelihoods. Common metrics include:
-	•	Inception Score (IS),
-	•	Fréchet Inception Distance (FID),
-	•	Precision/Recall for GANs,
-	•	Human evaluation,
-	•	Diversity and coverage of generated samples.
+
+•	Inception Score (IS),
+
+•	Fréchet Inception Distance (FID),
+
+•	Precision/Recall for GANs,
+
+•	Human evaluation,
+
+•	Diversity and coverage of generated samples.
 
 FID has become the standard benchmark due to its correlation with human perception.
 
@@ -4414,16 +4602,24 @@ FID has become the standard benchmark due to its correlation with human percepti
 When to Use / When Not to Use
 
 Use GANs when:
-	•	you require photorealistic image generation,
-	•	visual fidelity is more important than probabilistic modeling,
-	•	the task involves image translation or style transfer,
-	•	you need powerful creative or artistic synthesis.
+
+•	you require photorealistic image generation,
+
+•	visual fidelity is more important than probabilistic modeling,
+
+•	the task involves image translation or style transfer,
+
+•	you need powerful creative or artistic synthesis.
 
 Avoid GANs when:
-	•	you need a stable and interpretable latent space (VAEs are better),
-	•	you require likelihood estimation or density modeling,
-	•	training resources are limited,
-	•	the data are discrete or highly structured.
+
+•	you need a stable and interpretable latent space (VAEs are better),
+
+•	you require likelihood estimation or density modeling,
+
+•	training resources are limited,
+
+•	the data are discrete or highly structured.
 
 GANs shine in visual tasks but struggle in settings that demand stability and predictability.
 
@@ -4432,9 +4628,10 @@ GANs shine in visual tasks but struggle in settings that demand stability and pr
 References
 
 Canonical Papers
-	1.	Goodfellow, I. et al. (2014). Generative Adversarial Nets.
-	2.	Arjovsky, M., Chintala, S., & Bottou, L. (2017). Wasserstein GAN.
-	3.	Gulrajani, I. et al. (2017). Improved Training of Wasserstein GANs.
+
+1.	Goodfellow, I. et al. (2014). Generative Adversarial Nets.
+2.	Arjovsky, M., Chintala, S., & Bottou, L. (2017). Wasserstein GAN.
+3.	Gulrajani, I. et al. (2017). Improved Training of Wasserstein GANs.
 
 Web Resources
 
@@ -4457,7 +4654,7 @@ Their stability, scalability, and stunning visual fidelity have made them the fo
 
 ### 3. Diffusion Models – Stochastic Denoising and State-of-the-Art Generation
 
-What is it?
+**What is it?**
 
 Diffusion Models are a class of generative architectures based on iterative denoising.
 They were originally proposed by Sohl-Dickstein et al. (2015) and dramatically advanced by Ho, Jain, and Abbeel (2020) through the Denoising Diffusion Probabilistic Model (DDPM).
@@ -4478,12 +4675,18 @@ Diffusion models currently represent the state of the art in high-resolution ima
 Why use it?
 
 Diffusion models are used when the following goals matter:
-	•	exceptional sample quality,
-	•	high-resolution generation,
-	•	diversity of outputs,
-	•	fine control through conditioning (text, segmentation maps, CLIP embeddings),
-	•	stability during training,
-	•	flexibility across modalities (images, audio, molecules, 3D objects).
+
+•	exceptional sample quality,
+
+•	high-resolution generation,
+
+•	diversity of outputs,
+
+•	fine control through conditioning (text, segmentation maps, CLIP embeddings),
+
+•	stability during training,
+
+•	flexibility across modalities (images, audio, molecules, 3D objects).
 
 Unlike GANs, which struggle with instability and mode collapse, diffusion models offer predictable optimization and broad coverage of the data distribution.
 
@@ -4491,15 +4694,17 @@ Their structure also enables conditioning via classifier guidance, prompt engine
 
 ⸻
 
-Intuition
+**Intuition**
 
 The intuition is grounded in thermodynamics and stochastic processes.
 
 Think of diffusion as slowly corrupting an image with noise. If this corruption continues long enough, the data become indistinguishable from pure noise.
 
 Diffusion models learn:
-	1.	Forward process (destroying structure)
-	2.	Reverse process (recreating structure)
+
+1.	Forward process (destroying structure)
+
+2.	Reverse process (recreating structure)
 
 During training, a neural network learns to predict the noise added at each step. During inference, the model starts with noise and removes it step by step, reconstructing a coherent sample.
 
@@ -4507,7 +4712,7 @@ This gradual refinement yields images with remarkable detail, coherence, and com
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The forward noising process is defined as a Markov chain:
 
@@ -4554,82 +4759,119 @@ This loss is stable, intuitive, and computationally efficient — one reason dif
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training involves:
-	1.	Sampling a real data point x_0.
-	2.	Selecting a random timestep t.
-	3.	Adding noise to get x_t.
-	4.	Predicting the noise using the neural network.
-	5.	Optimizing the noise prediction loss.
+
+1.	Sampling a real data point x_0.
+
+2.	Selecting a random timestep t.
+
+3.	Adding noise to get x_t.
+
+4.	Predicting the noise using the neural network.
+
+5.	Optimizing the noise prediction loss.
 
 Generation reverses the process:
-	1.	Sample pure noise x_T.
-	2.	Iteratively denoise through learned transitions.
-	3.	Output the final sample x_0.
+
+1.	Sample pure noise x_T.
+
+2.	Iteratively denoise through learned transitions.
+
+3.	Output the final sample x_0.
 
 Advanced versions add classifier guidance, text conditioning, or cross-attention modules for rich semantic control (e.g., Stable Diffusion).
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
-	•	The data can be modeled through a continuous Markov diffusion process.
-	•	Gaussian noise is a reasonable corruption model.
-	•	The neural network can approximate denoising steps across many timesteps.
+
+•	The data can be modeled through a continuous Markov diffusion process.
+
+•	Gaussian noise is a reasonable corruption model.
+
+•	The neural network can approximate denoising steps across many timesteps.
 
 Limitations
-	•	Slow sampling (many denoising iterations).
-	•	High compute cost for training.
-	•	Latent diffusion mitigates these issues but adds complexity.
-	•	Not ideal for discrete data without additional mechanisms.
-	•	Difficult to train extremely large models without careful engineering.
+
+•	Slow sampling (many denoising iterations).
+
+•	High compute cost for training.
+
+•	Latent diffusion mitigates these issues but adds complexity.
+
+•	Not ideal for discrete data without additional mechanisms.
+
+•	Difficult to train extremely large models without careful engineering.
 
 Despite these challenges, diffusion models set the current benchmark for generative fidelity.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
-	•	Number of diffusion steps T.
-	•	Noise schedule \beta_t.
-	•	Network architecture (U-Net in most image models).
-	•	Conditioning mechanisms (text, class labels, etc.).
-	•	Sampling strategy (DDPM, DDIM, PLMS, Euler).
-	•	Guidance scale (for classifier or classifier-free guidance).
+**Key Hyperparameters (Conceptual View)**
+
+•	Number of diffusion steps T.
+
+•	Noise schedule \beta_t.
+
+•	Network architecture (U-Net in most image models).
+
+•	Conditioning mechanisms (text, class labels, etc.).
+
+•	Sampling strategy (DDPM, DDIM, PLMS, Euler).
+
+•	Guidance scale (for classifier or classifier-free guidance).
 
 The noise schedule and number of steps strongly influence speed and fidelity.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Common evaluation metrics include:
-	•	Fréchet Inception Distance (FID) – gold standard for image quality.
-	•	Inception Score (IS).
-	•	Precision/Recall for generative coverage.
-	•	Human preference evaluations.
-	•	Semantic alignment between prompt and output (for text-conditioned models).
-	•	Diversity metrics to ensure broad support over the data manifold.
+
+•	Fréchet Inception Distance (FID) – gold standard for image quality.
+
+•	Inception Score (IS).
+
+•	Precision/Recall for generative coverage.
+
+•	Human preference evaluations.
+
+•	Semantic alignment between prompt and output (for text-conditioned models).
+
+•	Diversity metrics to ensure broad support over the data manifold.
 
 Diffusion models consistently achieve state-of-the-art FID scores across domains.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use diffusion models when:
-	•	you need photorealistic or artistic image generation,
-	•	high diversity of outputs is important,
-	•	stable and predictable training is required,
-	•	multimodal conditioning is central to the task,
-	•	scientific or structural data require probabilistic modeling.
+
+•	you need photorealistic or artistic image generation,
+
+•	high diversity of outputs is important,
+
+•	stable and predictable training is required,
+
+•	multimodal conditioning is central to the task,
+
+•	scientific or structural data require probabilistic modeling.
 
 Avoid them when:
-	•	you need real-time generation (sampling is slow),
-	•	compute resources are extremely limited,
-	•	the data are discrete or symbolic,
-	•	extremely long sequences or video require high frame-rate generation (unless using optimized variants).
+
+•	you need real-time generation (sampling is slow),
+
+•	compute resources are extremely limited,
+
+•	the data are discrete or symbolic,
+
+•	extremely long sequences or video require high frame-rate generation (unless using optimized variants).
 
 Diffusion models dominate when quality and flexibility matter more than speed.
 
@@ -4638,15 +4880,18 @@ Diffusion models dominate when quality and flexibility matter more than speed.
 References
 
 Canonical Papers
-	1.	Sohl-Dickstein, J. et al. (2015). Deep Unsupervised Learning using Nonequilibrium Thermodynamics.
-	2.	Ho, J., Jain, A., & Abbeel, P. (2020). Denoising Diffusion Probabilistic Models.
-	3.	Rombach, R. et al. (2022). High-Resolution Image Synthesis with Latent Diffusion Models.
+
+1.	Sohl-Dickstein, J. et al. (2015). Deep Unsupervised Learning using Nonequilibrium Thermodynamics.
+
+2.	Ho, J., Jain, A., & Abbeel, P. (2020). Denoising Diffusion Probabilistic Models.
+
+3.	Rombach, R. et al. (2022). High-Resolution Image Synthesis with Latent Diffusion Models.
 
 Web Resources
-	1.	DDPM Paper Summary – Lil’Log
-https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
-	2.	Stable Diffusion Overview – Stability AI
-https://stability.ai/stable-diffusion
+
+1.	DDPM Paper Summary – Lil’Log https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
+
+2.	Stable Diffusion Overview – Stability AI https://stability.ai/stable-diffusion
 
 
 -------------------------
@@ -4678,8 +4923,11 @@ Hybrid architectures appear in different forms:
 •	Graph Neural Networks (GNNs) extend neural computation to relational and structured data like molecules, social networks, and knowledge graphs.
 
 •	Capsule Networks introduce viewpoint-equivariant representations inspired by human perception.
+
 •	Neural ODEs and continuous-time networks reinterpret deep models as differential equations.
+
 •	Spiking Neural Networks (SNNs) incorporate biologically inspired temporal dynamics.
+
 •	Perceiver architectures offer a unified cross-modal mechanism capable of ingesting image patches, audio spectrograms, text tokens, and more.
 
 Together, these models reflect the field’s movement toward general-purpose, multimodal, and structure-aware intelligence.
@@ -4689,12 +4937,16 @@ The rise of hybrid systems is also driven by practicality. Many modern tasks —
 By merging these paradigms, hybrid architectures aim to create networks that:
 
 •	capture local and global patterns simultaneously,
+
 •	process sequential, spatial, and graph-structured data,
+
 •	operate efficiently even at large scale,
+
 •	extend neural computation to continuous time, probabilistic inference, and biologically inspired learning,
+
 •	integrate multiple input types within a single computational graph.
 
-Main subtypes:
+**Main subtypes:**
 
 1.	CNN–RNN Hybrids – spatial + temporal learning (video, medical imaging).
 2.	CNN–Transformer Hybrids – combine local feature extraction with global attention.
@@ -4710,7 +4962,9 @@ Main subtypes:
 In this section, we focus on three representative hybrid or advanced architectures:
 
 •	Graph Neural Networks (GNNs) — networks that learn over relational graphs rather than sequences or grids.
+
 •	Convolution–Attention Hybrids (e.g., CoAtNet) — models that blend CNN inductive biases with transformer global reasoning.
+
 •	Neural ODEs — architectures that reinterpret deep networks as continuous-time dynamical systems.
 
 These three exemplars illustrate the breadth and conceptual novelty of hybrid neural systems. They show how deep learning has progressed from simple feedforward computation to fully integrated models that unify space, time, structure, probability, and continuous dynamics.
@@ -4722,7 +4976,7 @@ Once these architectures are presented, we will close the chapter by reflecting 
 
 ### 1. Graph Neural Networks (GNNs) – Learning Over Structured, Relational Data
 
-What is it?
+**What is it?**
 
 A Graph Neural Network (GNN) is a neural architecture designed to learn from graph-structured data—data defined not by fixed grids or sequences, but by arbitrary relationships between entities.
 Introduced in early forms in the 2000s (Gori et al., 2005; Scarselli et al., 2009) and popularized by Message Passing Neural Networks (MPNNs) in the mid-2010s, GNNs allow neural computation to operate directly on nodes, edges, and global graph structure.
@@ -4733,7 +4987,7 @@ Unlike CNNs (built for spatial grids) or RNNs (built for sequences), GNNs are bu
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 GNNs excel whenever the relationships between entities are essential for understanding the data. They are widely used for:
 
@@ -4755,7 +5009,7 @@ They are powerful because they can model interconnected systems, where each elem
 
 ⸻
 
-Intuition
+**Intuition**
 
 The intuition behind GNNs is message passing.
 
@@ -4773,7 +5027,7 @@ The GNN becomes a system that performs distributed computation, where learning e
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 The classic Message Passing Neural Network (MPNN) framework defines updates as:
 
@@ -4811,13 +5065,16 @@ This spectral formulation performs a normalized smoothing operation across neigh
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training proceeds similarly to other neural architectures:
 
 1.	Initialize node features (from raw attributes or embeddings).
+
 2.	Apply several message-passing layers.
+
 3.	Aggregate node, edge, or graph-level representations.
+
 4.	Optimize a supervised or self-supervised loss.
 
 Key training strategies include:
@@ -4825,66 +5082,88 @@ Key training strategies include:
 •	neighborhood sampling for large graphs,
 
 •	graph batching,
+
 •	attention mechanisms (GAT),
+
 •	contrastive learning for unlabeled graphs.
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
-	•	The graph structure encodes meaningful relationships.
-	•	Local neighborhoods contain useful signals.
-	•	Node features can be propagated effectively.
+
+•	The graph structure encodes meaningful relationships.
+
+•	Local neighborhoods contain useful signals.
+
+•	Node features can be propagated effectively.
 
 Limitations
-	•	Over-smoothing: deep GNNs make all node representations similar.
-	•	Difficulty scaling to extremely large graphs.
-	•	Sensitivity to graph noise or missing edges.
-	•	Fixed graph structure (dynamic graphs require specialized models).
-	•	Computational bottlenecks when neighborhoods grow exponentially.
+
+•	Over-smoothing: deep GNNs make all node representations similar.
+
+•	Difficulty scaling to extremely large graphs.
+
+•	Sensitivity to graph noise or missing edges.
+
+•	Fixed graph structure (dynamic graphs require specialized models).
+
+•	Computational bottlenecks when neighborhoods grow exponentially.
 
 Despite these challenges, GNNs are the most powerful architecture for relational data.
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
-	•	Number of message-passing layers (graph depth).
-	•	Aggregation method (sum, mean, max).
-	•	Hidden dimension size.
-	•	Neighborhood sampling size.
-	•	Type of graph convolution (GCN, GAT, GraphSAGE).
-	•	Learning rate, dropout, normalization layers.
+**Key Hyperparameters (Conceptual View)**
+
+•	Number of message-passing layers (graph depth).
+
+•	Aggregation method (sum, mean, max).
+
+•	Hidden dimension size.
+
+•	Neighborhood sampling size.
+
+•	Type of graph convolution (GCN, GAT, GraphSAGE).
+
+•	Learning rate, dropout, normalization layers.
 
 The depth and aggregation strategy strongly shape the model’s expressive power.
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 GNN evaluation depends on the task:
-	•	Node-level tasks: accuracy, F1-score.
-	•	Edge-level tasks: link prediction metrics (AUC, Hits@K).
-	•	Graph-level tasks: classification accuracy, ROC-AUC, regression MSE.
-	•	Structural metrics: over-smoothing diagnostics, graph homophily measures.
+
+•	Node-level tasks: accuracy, F1-score.
+
+•	Edge-level tasks: link prediction metrics (AUC, Hits@K).
+
+•	Graph-level tasks: classification accuracy, ROC-AUC, regression MSE.
+
+•	Structural metrics: over-smoothing diagnostics, graph homophily measures.
 
 Interpretability tools such as GNNExplainer are often used to understand graph reasoning.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use GNNs when:
-	•	your data is naturally relational,
-	•	interactions matter as much as individual features,
-	•	edges encode meaningful dependencies,
-	•	you need global reasoning over structured entities.
+
+•	your data is naturally relational,
+•	interactions matter as much as individual features,
+•	edges encode meaningful dependencies,
+•	you need global reasoning over structured entities.
 
 Avoid GNNs when:
-	•	the data has no meaningful graph structure,
-	•	the graph is extremely large and dense,
-	•	long-range dependencies dominate (transformers or hybrids may be better),
-	•	fast real-time inference is required on dynamic graphs.
+
+•	the data has no meaningful graph structure,
+•	the graph is extremely large and dense,
+•	long-range dependencies dominate (transformers or hybrids may be better),
+•	fast real-time inference is required on dynamic graphs.
 
 GNNs shine when relationships are first-class citizens in the data.
 
@@ -4893,15 +5172,18 @@ GNNs shine when relationships are first-class citizens in the data.
 References
 
 Canonical Papers
-	1.	Scarselli, F. et al. (2009). The Graph Neural Network Model.
-	2.	Kipf, T. N., & Welling, M. (2017). Semi-Supervised Classification with Graph Convolutional Networks.
-	3.	Velickovic, P. et al. (2018). Graph Attention Networks.
+
+1.	Scarselli, F. et al. (2009). The Graph Neural Network Model.
+
+2.	Kipf, T. N., & Welling, M. (2017). Semi-Supervised Classification with Graph Convolutional Networks.
+
+3.	Velickovic, P. et al. (2018). Graph Attention Networks.
 
 Web Resources
-	1.	DeepLearning.ai – Graph Neural Networks Specialization
-https://www.deeplearning.ai/courses/graph-neural-networks/
-	2.	DeepMind – GNNs Explained
-https://deepmind.com/blog/article/graph-networks-for-learning
+
+1.	DeepLearning.ai – Graph Neural Networks Specialization https://www.deeplearning.ai/courses/graph-neural-networks/
+
+2.	DeepMind – GNNs Explained https://deepmind.com/blog/article/graph-networks-for-learning
 
 
 
@@ -4915,13 +5197,14 @@ This need gave rise to a new class of hybrids that combine the inductive biases 
 
 -------------------------
 
-2. Convolution–Attention Hybrids (e.g., CoAtNet) – Merging Local Inductive Biases with Global Attention
+### 2. Convolution–Attention Hybrids (e.g., CoAtNet) – Merging Local Inductive Biases with Global Attention
 
-What is it?
+**What is it?**
 
 Convolution–Attention Hybrid Networks are architectures that combine two complementary paradigms in deep learning:
 
 •	the local inductive biases of Convolutional Neural Networks (CNNs),
+
 •	the global receptive field and flexible contextual modeling of Transformers.
 
 ![class](/ima/ima35.png)
@@ -4932,7 +5215,7 @@ CNNs excel at capturing spatial locality and translation invariance. Transformer
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 These hybrids are ideal when:
 
@@ -4946,7 +5229,7 @@ These hybrids are ideal when:
 
 •	efficiency and scalability are crucial (vision models with billions of parameters).
 
-They are widely used in:
+**They are widely used in:**
 
 •	image classification,
 
@@ -4964,7 +5247,7 @@ CoAtNet in particular has shown strong performance in ImageNet, surpassing many 
 
 ⸻
 
-Intuition
+**Intuition**
 
 The intuition is grounded in the notion that vision requires both local and global processing.
 
@@ -4988,7 +5271,7 @@ mirroring the growing receptive field as depth increases.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Convolutional feature extraction can be expressed as:
 
@@ -5017,7 +5300,7 @@ with downsampling stages to build hierarchical feature maps.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training follows the same pipeline as other deep vision models:
 
@@ -5037,7 +5320,7 @@ The hybrid architecture tends to train more stably than pure ViTs, especially on
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -5061,7 +5344,7 @@ Despite these challenges, hybrids often provide the best balance between CNNs an
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+**Key Hyperparameters (Conceptual View)**
 
 •	Number of convolution vs. attention stages.
 
@@ -5079,7 +5362,7 @@ The balance between convolution and attention is the defining hyperparameter of 
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
 
 Hybrid architectures are evaluated with:
 
@@ -5099,7 +5382,7 @@ They tend to outperform pure CNNs and match or exceed ViTs in many settings.
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use hybrid models when:
 
@@ -5113,16 +5396,19 @@ Use hybrid models when:
 
 Avoid hybrids when:
 
-	•	the dataset is very small (simpler architectures may suffice),
-	•	real-time inference is required on edge devices,
-	•	you need ultra-lightweight deployment (MobileNet may be better),
-	•	attention computation becomes prohibitively expensive.
+•	the dataset is very small (simpler architectures may suffice),
+
+•	real-time inference is required on edge devices,
+
+•	you need ultra-lightweight deployment (MobileNet may be better),
+
+•	attention computation becomes prohibitively expensive.
 
 Hybrids are ideal for high-performance vision tasks in both research and production.
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -5149,9 +5435,9 @@ This question led to the development of Neural Ordinary Differential Equations (
 
 -------------------------
 
-3. Neural Ordinary Differential Equations (Neural ODEs) – Continuous-Time Deep Models
+### 3. Neural Ordinary Differential Equations (Neural ODEs) – Continuous-Time Deep Models
 
-What is it?
+**What is it?**
 
 A Neural Ordinary Differential Equation (Neural ODE) is a deep learning architecture introduced by Chen et al. (2018) that reinterprets the layers of a neural network as the continuous evolution of a dynamical system.
 Instead of stacking discrete layers h_{t+1} = f(h_t), a Neural ODE defines the hidden state as evolving according to a differential equation:
@@ -5170,7 +5456,7 @@ Neural ODEs bridge the gap between differential equations and deep representatio
 
 ⸻
 
-Why use it?
+**Why use it?**
 
 Neural ODEs excel in scenarios where:
 
@@ -5202,7 +5488,7 @@ Neural ODEs shine where standard architectures struggle with irregularity, non-u
 
 ⸻
 
-Intuition
+**Intuition**
 
 The key intuition is that deep networks do not need to be discrete structures.
 Instead of treating a model as a stack of layers, we can treat it as the evolution of a state over time — just like a physical system governed by differential equations.
@@ -5226,7 +5512,7 @@ It is deep learning through the lens of continuous mathematics.
 
 ⸻
 
-Mathematical Foundation
+**Mathematical Foundation**
 
 Neural ODEs define the hidden state dynamics as:
 
@@ -5266,7 +5552,7 @@ This connects density modeling to the geometry of differential equations.
 
 ⸻
 
-Training Logic
+**Training Logic**
 
 Training proceeds as follows:
 
@@ -5291,7 +5577,7 @@ Training can be slower due to ODE solver overhead, but memory usage is significa
 
 ⸻
 
-Assumptions and Limitations
+**Assumptions and Limitations**
 
 Assumptions
 
@@ -5317,7 +5603,8 @@ Despite these hurdles, Neural ODEs offer unmatched flexibility for irregular tem
 
 ⸻
 
-Key Hyperparameters (Conceptual View)
+
+**Key Hyperparameters (Conceptual View)**
 
 •	Choice of ODE solver (Euler, RK4, Dormand–Prince).
 
@@ -5335,7 +5622,8 @@ The solver tolerances often dominate performance, balancing accuracy and computa
 
 ⸻
 
-Evaluation Focus
+**Evaluation Focus**
+
 
 Evaluation depends on the task:
 
@@ -5353,7 +5641,7 @@ Qualitative assessment of trajectories is often just as important as quantitativ
 
 ⸻
 
-When to Use / When Not to Use
+**When to Use / When Not to Use**
 
 Use Neural ODEs when:
 
@@ -5381,7 +5669,7 @@ Neural ODEs are ideal for scientific and temporal domains where continuity is in
 
 ⸻
 
-References
+**References**
 
 Canonical Papers
 
@@ -5470,8 +5758,11 @@ Capacity increases as we move from fixed representations (feedforward networks) 
 But this capacity comes with trade-offs:
 
 •	Interpretability decreases,
+
 •	Data requirements increase,
+
 •	Computational demands rise sharply, and
+
 •	Generalization requires careful tuning.
 
 The progression from perceptrons to Transformers illustrates how neural networks evolve by addressing the limitations of their predecessors — deeper abstraction, richer context, more flexible computation.
@@ -5528,9 +5819,12 @@ Neural networks appear in nearly every domain of modern AI. This section highlig
 
 Convolutional Neural Networks (CNNs) dominate visual tasks because they capture spatial hierarchies and local patterns.
 In the application notebooks, readers will find examples of:
-	•	classifying images into categories using CNNs and transfer learning,
-	•	detecting objects or segmenting regions of interest,
-	•	comparing architectures such as LeNet, ResNet, and EfficientNet in practical settings.
+
+•	classifying images into categories using CNNs and transfer learning,
+
+•	detecting objects or segmenting regions of interest,
+
+•	comparing architectures such as LeNet, ResNet, and EfficientNet in practical settings.
 
 These examples demonstrate how convolutional layers extract meaningful structure from pixels and how deeper networks progressively refine representation.
 
@@ -5541,7 +5835,9 @@ Recurrent networks and Transformers are central to modern NLP.
 Here we explore:
 
 •	Sentiment classification using RNNs or LSTMs,
+
 •	Text understanding and contextual embeddings using BERT,
+
 •	Text generation using autoregressive models such as GPT.
 
 The notebooks show how tokenization, embeddings, and attention mechanisms convert raw text into patterns the model can learn.
@@ -5552,7 +5848,9 @@ RNNs, GRUs, LSTMs, and more recently Transformers specialized for sequences, exc
 Applications include:
 
 •	Predicting energy consumption,
+
 •	Modeling financial time series,
+
 •	Forecasting demand or anomaly scores.
 
 The examples highlight the importance of temporal dependencies and demonstrate how models incorporate trends, seasonality, and long-range structure.
@@ -5563,7 +5861,9 @@ Autoencoders and variational models are well suited for detecting irregularities
 The applications showcase:
 
 •	Using autoencoders to detect unusual patterns in sensor data,
+
 •	Employing reconstruction error as an indicator of failure or drift,
+
 •	Identifying outliers in industrial or environmental datasets.
 
 These notebooks show how compressed representations capture the normal behavior of a system and flag deviations.
@@ -5574,15 +5874,18 @@ Generative models create new content, revealing the creative side of neural comp
 Readers will find examples of:
 
 •	Generating images using GANs,
+
 •	Performing image-to-image translation (e.g., Day→Night, Sketch→Photo),
+
 •	Generating coherent text using Transformer-based language models,
+
 •	Experimenting with diffusion models for high-fidelity synthesis.
 
 These practical pieces show how networks learn distributions and how creative outputs emerge from statistical structure.
 
 ⸻
 
-A Practical Path Through the Repository
+A **Practical Path Through the Repository**
 
 Readers who want to explore applications can follow a simple, recommended progression:
 
@@ -5591,7 +5894,7 @@ Readers who want to explore applications can follow a simple, recommended progre
 3.	Open the applied notebooks in 04_Aplicaciones to observe how those architectures behave on real datasets and real tasks.
 4.	Modify or extend the examples to deepen understanding or test new ideas.
 
-This cycle — concept, code, application — is at the heart of the learning experience proposed by this repository.
+This cycle: concept, code, application,  is at the heart of the learning experience proposed by this repository.
 
 
 # VIII. Annex and References
@@ -5602,23 +5905,19 @@ This section also emphasizes the academic orientation of the repository. Neural 
 
 ⸻
 
-1. Formulas in LaTeX
+**1. Formulas in LaTeX**
 
-This subsection collects all key mathematical expressions presented throughout the repository, rewritten in clean LaTeX for quick access. Examples include the perceptron rule, activation functions, cross-entropy loss, backpropagation gradients, convolutional operations, recurrent update equations, attention mechanisms, variational objectives, and diffusion formulations.
-
-By organizing these formulas into a single place, readers can revise the mathematical backbone of neural networks without navigating multiple sections. This reference is especially useful for learners building intuition or writing academic material based on these architectures.
+This subsection collects all key mathematical expressions presented throughout the repository, rewritten in clean LaTeX for quick access. Examples include the perceptron rule, activation functions, cross-entropy loss, backpropagation gradients, convolutional operations, recurrent update equations, attention mechanisms, variational objectives, and diffusion formulations. By organizing these formulas into a single place, readers can revise the mathematical backbone of neural networks without navigating multiple sections. This reference is especially useful for learners building intuition or writing academic material based on these architectures.
 
 ⸻
 
-2. Glossary of Terms
+**2. Glossary of Terms**
 
-Deep learning involves a specialized vocabulary that can become overwhelming without a structured guide. This glossary provides concise definitions of essential concepts such as activation function, latent space, gradient descent, self-attention, residual connection, encoder–decoder, diffusion process, and many more.
-
-Each definition is written in plain language and linked conceptually to the broader context of the repository, helping readers form a strong and coherent conceptual map of the field.
+Deep learning involves a specialized vocabulary that can become overwhelming without a structured guide. This glossary provides concise definitions of essential concepts such as activation function, latent space, gradient descent, self-attention, residual connection, encoder–decoder, diffusion process, and many more. Each definition is written in plain language and linked conceptually to the broader context of the repository, helping readers form a strong and coherent conceptual map of the field.
 
 ⸻
 
-3. Personal Notes
+**3. Personal Notes**
 
 Scientific understanding grows not only from formal material but also from personal reflection. This subsection preserves observations, insights, and comments that emerge while studying, coding, or experimenting with neural networks. It is intentionally flexible: the space can capture clarifications, pitfalls discovered during implementation, conceptual reminders, alternative interpretations, or ideas for future work.
 
@@ -5626,7 +5925,7 @@ Over time, these notes form an intellectual diary—a living record of the learn
 
 ⸻
 
-4. Reference Materials
+**4. Reference Materials**
 
 This subsection compiles the foundational works, textbooks, and reliable online resources that support the entire repository. It includes:
 
@@ -5643,7 +5942,7 @@ Each source has been selected for clarity, depth, and reliability, ensuring that
 
 ⸻
 
-5. License and Academic Purpose
+**5. License and Academic Purpose**
 
 This final subsection states the intentions of the repository. The material is offered for academic, educational, and personal research purposes. The content may draw from canonical knowledge in the field, but the explanations, structure, and implementations have been tailored to create a cohesive learning environment.
 
